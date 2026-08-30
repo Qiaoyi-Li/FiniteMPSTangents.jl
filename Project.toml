@@ -1,0 +1,13 @@
+name = "FiniteMPSTangents"
+uuid = "a8aeb656-834f-4cb3-ac9f-857a8aeda547"
+authors = ["Qiaoyi Li <liqiaoyi@itp.ac.cn>"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.11"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
