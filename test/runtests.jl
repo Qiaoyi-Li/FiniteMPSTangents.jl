@@ -12,4 +12,5 @@ include("helpers.jl")
     include("tangent_algebra.jl")
     include("multiplication.jl")
     include("fermionic.jl")
+    include("observables.jl")
 end
