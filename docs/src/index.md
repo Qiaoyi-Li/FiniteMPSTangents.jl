@@ -17,7 +17,7 @@ in-place `add!` function to demonstrate a linear combination.
 
 ```@example quickstart
 using FiniteMPSTangents
-using FiniteMPS
+using FiniteMPSTangents.FiniteMPS
 using Random
 
 Random.seed!(1234)
