@@ -7,14 +7,24 @@ All local physical and purification indices, observable auxiliary indices, and
 the optional global tangent charge are contracted; every stored result is a
 `Number`.
 
-`El` and `Er` may be used to supply nontrivial boundary intertwiners, following
-the same orientation as `FiniteMPS.calObs!`.  In particular, `El` may carry an
-observable auxiliary index that is consumed by the registered operator string.
+If a registered tensor string has one unmatched auxiliary leg, `addObs!`
+normalizes it to the string's left edge. With the default rank-two left
+boundary, that leg is propagated as a global bra-oriented charge and may close
+against a charged ket center: rank 4 over rank-3 MPS isometries, or rank 5
+over rank-4 purified-MPO isometries. Thus the ket charge remains on each
+candidate canonical-center tensor `B[i]`; it need not be moved to the state's
+left boundary.
 
-The registered operator string and optional boundaries must close every
-observable auxiliary and tangent-charge leg. There is no charge-mode switch:
-successful contraction always stores a scalar. `normalize=true` divides by
-`norm(bra) * norm(ket)`.
+`El` and `Er` may instead supply nontrivial boundary intertwiners, following
+the same orientation as `FiniteMPS.calObs!`. In particular, an explicit
+rank-three `El` may carry and consume the operator string's auxiliary leg;
+this preserves the fused-left-boundary workflow without adding the default
+open-leg seed.
+
+The user is responsible for making the registered operator string, optional
+boundaries, bra/ket boundaries, and tangent charges form a closed tensor
+network. There is no charge-mode switch: successful contraction always stores
+a scalar. `normalize=true` divides by `norm(bra) * norm(ket)`.
 
 Traversal follows the dependency-ready `FiniteMPS.calObs!` state machine. A
 worker publishes each child only after its environment has been stored, so the
@@ -496,8 +506,18 @@ function _observable_left_node(
 	for child in node.children
 		op = deepcopy(tree.Ops[si][child.Op[2]])
 		op.strength[] = 1.0
+		parent_environment = if node === tree.RootL &&
+			environment.e00 isa ObservableLeftEnv{1,1} &&
+			isnothing(environment.e10) &&
+			isnothing(environment.e01) &&
+			isnothing(environment.e11) &&
+			!istrivial(getLeftSpace(op))
+			observable_seed_left_open(environment, getLeftSpace(op))
+		else
+			environment
+		end
 		child_environment = observable_pushright(
-			environment,
+			parent_environment,
 			bra.base.Al[si], bra.base.Ar[si], bra.B[si],
 			op,
 			ket.base.Al[si], ket.base.Ar[si], ket.B[si],

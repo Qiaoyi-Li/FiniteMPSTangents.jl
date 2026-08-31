@@ -23,6 +23,10 @@ abstract type AbstractObservableRightEnv end
 
 # Nout/Nin merely mirror the TensorMap's native partition. Semantic order is
 # fixed by the concrete sector type; there is no charge-mode or leg-role field.
+# `BraOpen` and `KetOpen` describe the orientation of the one global charge
+# leg at the cut, not which input tensor introduced it. In particular, a
+# registered left-open operator string is seeded as `BraOpen` and may later be
+# closed by a charged ket center.
 struct ObservableLeftEnv{Nout,Nin,T<:AbstractTensorMap} <: AbstractObservableLeftEnv
 	A::T
 end
@@ -75,6 +79,26 @@ observable_right_boundary(A::FiniteMPS.LocalRightTensor) = observable_right_boun
 
 observable_left_root(args...) = ObservableEnv4(observable_left_boundary(args...))
 observable_right_root(args...) = ObservableEnv4(observable_right_boundary(args...))
+
+"""
+    observable_seed_left_open(E, space)
+
+Lift a neutral rank-two left root through the identity on a registered
+operator string's nontrivial left auxiliary space. The codomain copy is the
+string's single global open leg; the domain copy starts the ordinary
+horizontal bond propagated and ultimately consumed by the left-to-right
+operator transitions. Keeping both in `ObservableLeftBraOpen` lets a charged
+ket center close the global leg while the horizontal bond continues
+independently.
+"""
+function observable_seed_left_open(
+	E::ObservableEnv4{<:ObservableLeftEnv{1,1},Nothing,Nothing,Nothing},
+	space,
+)
+	bridge = id(space)
+	@tensor tmp[b q; k x] := E.e00.A[b, k] * bridge[q, x]
+	return ObservableEnv4(ObservableLeftBraOpen(tmp))
+end
 
 # ---------------------------------------------------------------------------
 # Lazy local rung and generated explicit attach kernels
@@ -192,14 +216,14 @@ macro _define_observable_attach_kernels()
 		end
 	end
 
-	function bra_indices(rank, phys)
+	function bra_indices(rank, phys, localrole)
 		rank == 3 && return ["rb", "lb", phys]
-		rank == 4 && return ["s", "rb", "lb", phys]
+		rank == 4 && return [localrole == :bra ? "q" : "s", "rb", "lb", phys]
 		return ["s", "q", "rb", "lb", phys]
 	end
-	function ket_indices(rank, phys)
+	function ket_indices(rank, phys, localrole)
 		rank == 3 && return ["lk", phys, "rk"]
-		rank == 4 && return ["lk", phys, "s", "rk"]
+		rank == 4 && return ["lk", phys, localrole == :ket ? "q" : "s", "rk"]
 		return ["lk", phys, "s", "q", "rk"]
 	end
 	joininds(xs) = join(xs, ",")
@@ -213,6 +237,8 @@ macro _define_observable_attach_kernels()
 	)
 	localmodes = (
 		(3, 3, :neutral),
+		(4, 3, :bra),
+		(3, 4, :ket),
 		(4, 4, :neutral),
 		(5, 4, :bra),
 		(4, 5, :ket),
@@ -240,13 +266,13 @@ macro _define_observable_attach_kernels()
 			envterm = "E.A[" * joininds(envinds) * "]"
 
 			if opkind == :I
-				bterm = "bra.A'[" * joininds(bra_indices(brank, "p")) * "]"
-				kterm = "ket.A[" * joininds(ket_indices(krank, "p")) * "]"
+				bterm = "bra.A'[" * joininds(bra_indices(brank, "p", localrole)) * "]"
+				kterm = "ket.A[" * joininds(ket_indices(krank, "p", localrole)) * "]"
 				rhs = side == :left ? "(($envterm * $bterm) * $kterm)" : "(($kterm * $envterm) * $bterm)"
 				setup = ""
 			else
-				bterm = "bra.A'[" * joininds(bra_indices(brank, "pb")) * "]"
-				kterm = "ket.A[" * joininds(ket_indices(krank, "pk")) * "]"
+				bterm = "bra.A'[" * joininds(bra_indices(brank, "pb", localrole)) * "]"
+				kterm = "ket.A[" * joininds(ket_indices(krank, "pk", localrole)) * "]"
 				oinds = opkind == :O11 ? ["pb", "pk"] :
 					opkind == :O12 ? ["pb", "pk", "y"] :
 					opkind == :O21 ? ["x", "pb", "pk"] : ["x", "pb", "pk", "y"]
@@ -319,10 +345,10 @@ const _ObservableSiteOperator = Union{
     observable_pushright(E, braAl, braAr, braB, O,
                          ketAl, ketAr, ketB)
 
-Advance a shared ObservableTree prefix by one site. Rank-3 inputs implement a
-neutral MPS tangent; rank-4 inputs implement a neutral purified-MPO tangent;
-rank-5 `braB`/`ketB` select the charged purified-MPO path. No charge flag is
-needed.
+Advance a shared ObservableTree prefix by one site. Rank-3 base isometries use
+rank-3 neutral or rank-4 charged MPS centers. Rank-4 base isometries use rank-4
+neutral or rank-5 charged purified-MPO centers. Bra and ket centers may select
+those paths independently; no charge flag is needed.
 """
 function observable_pushright(
 	E::ObservableEnv4,
@@ -377,6 +403,58 @@ function observable_pushright(
 	braAl::MPSTensor{4}, braAr::MPSTensor{4}, braB::MPSTensor{5},
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4}, ketB::MPSTensor{5},
+)
+	e00 = _left_contract(E.e00, braAl, O, ketAl)
+	e10 = _observable_sum(
+		_left_contract(E.e10, braAr, O, ketAl),
+		_left_contract(E.e00, braB, O, ketAl),
+	)
+	e01 = _observable_sum(
+		_left_contract(E.e01, braAl, O, ketAr),
+		_left_contract(E.e00, braAl, O, ketB),
+	)
+	e11 = _observable_sum(
+		_left_contract(E.e11, braAr, O, ketAr),
+		_left_contract(E.e10, braAr, O, ketB),
+		_left_contract(E.e01, braB, O, ketAr),
+		_left_contract(E.e00, braB, O, ketB),
+	)
+	return ObservableEnv4(e00, e10, e01, e11)
+end
+
+function observable_pushright(
+	E::ObservableEnv4,
+	braAl::MPSTensor{3}, braAr::MPSTensor{3},
+	braB::Union{MPSTensor{3},MPSTensor{4}},
+	O::_ObservableSiteOperator,
+	ketAl::MPSTensor{3}, ketAr::MPSTensor{3},
+	ketB::Union{MPSTensor{3},MPSTensor{4}},
+)
+	e00 = _left_contract(E.e00, braAl, O, ketAl)
+	e10 = _observable_sum(
+		_left_contract(E.e10, braAr, O, ketAl),
+		_left_contract(E.e00, braB, O, ketAl),
+	)
+	e01 = _observable_sum(
+		_left_contract(E.e01, braAl, O, ketAr),
+		_left_contract(E.e00, braAl, O, ketB),
+	)
+	e11 = _observable_sum(
+		_left_contract(E.e11, braAr, O, ketAr),
+		_left_contract(E.e10, braAr, O, ketB),
+		_left_contract(E.e01, braB, O, ketAr),
+		_left_contract(E.e00, braB, O, ketB),
+	)
+	return ObservableEnv4(e00, e10, e01, e11)
+end
+
+function observable_pushright(
+	E::ObservableEnv4,
+	braAl::MPSTensor{4}, braAr::MPSTensor{4},
+	braB::Union{MPSTensor{4},MPSTensor{5}},
+	O::_ObservableSiteOperator,
+	ketAl::MPSTensor{4}, ketAr::MPSTensor{4},
+	ketB::Union{MPSTensor{4},MPSTensor{5}},
 )
 	e00 = _left_contract(E.e00, braAl, O, ketAl)
 	e10 = _observable_sum(
@@ -474,6 +552,58 @@ function observable_pushleft(
 	return ObservableEnv4(e00, e10, e01, e11)
 end
 
+function observable_pushleft(
+	E::ObservableEnv4,
+	braAl::MPSTensor{3}, braAr::MPSTensor{3},
+	braB::Union{MPSTensor{3},MPSTensor{4}},
+	O::_ObservableSiteOperator,
+	ketAl::MPSTensor{3}, ketAr::MPSTensor{3},
+	ketB::Union{MPSTensor{3},MPSTensor{4}},
+)
+	e00 = _right_contract(E.e00, braAr, O, ketAr)
+	e10 = _observable_sum(
+		_right_contract(E.e10, braAl, O, ketAr),
+		_right_contract(E.e00, braB, O, ketAr),
+	)
+	e01 = _observable_sum(
+		_right_contract(E.e01, braAr, O, ketAl),
+		_right_contract(E.e00, braAr, O, ketB),
+	)
+	e11 = _observable_sum(
+		_right_contract(E.e11, braAl, O, ketAl),
+		_right_contract(E.e10, braAl, O, ketB),
+		_right_contract(E.e01, braB, O, ketAl),
+		_right_contract(E.e00, braB, O, ketB),
+	)
+	return ObservableEnv4(e00, e10, e01, e11)
+end
+
+function observable_pushleft(
+	E::ObservableEnv4,
+	braAl::MPSTensor{4}, braAr::MPSTensor{4},
+	braB::Union{MPSTensor{4},MPSTensor{5}},
+	O::_ObservableSiteOperator,
+	ketAl::MPSTensor{4}, ketAr::MPSTensor{4},
+	ketB::Union{MPSTensor{4},MPSTensor{5}},
+)
+	e00 = _right_contract(E.e00, braAr, O, ketAr)
+	e10 = _observable_sum(
+		_right_contract(E.e10, braAl, O, ketAr),
+		_right_contract(E.e00, braB, O, ketAr),
+	)
+	e01 = _observable_sum(
+		_right_contract(E.e01, braAr, O, ketAl),
+		_right_contract(E.e00, braAr, O, ketB),
+	)
+	e11 = _observable_sum(
+		_right_contract(E.e11, braAl, O, ketAl),
+		_right_contract(E.e10, braAl, O, ketB),
+		_right_contract(E.e01, braB, O, ketAl),
+		_right_contract(E.e00, braB, O, ketB),
+	)
+	return ObservableEnv4(e00, e10, e01, e11)
+end
+
 # ---------------------------------------------------------------------------
 # Four complementary leaf joins
 # ---------------------------------------------------------------------------
@@ -492,9 +622,6 @@ function _join_neutral(L::ObservableLeftEnv{1,2}, R::ObservableRightEnv{2,1})
 	@tensor z[] := L.A[b, k, x] * R.A[k, x, b]
 	return scalar(z)
 end
-
-_join_00_11(L, R) = _join_neutral(L, R)
-_join_11_00(L, R) = _join_neutral(L, R)
 
 _join_10_01(::Nothing, _) = nothing
 _join_10_01(_, ::Nothing) = nothing
@@ -528,6 +655,14 @@ function _join_01_10(L::ObservableLeftKetOpen{1,3}, R::ObservableRightBraOpen{3,
 	return scalar(z)
 end
 
+_join_compatible(::Nothing, _) = nothing
+_join_compatible(_, ::Nothing) = nothing
+_join_compatible(L::ObservableLeftEnv, R::ObservableRightEnv) = _join_neutral(L, R)
+_join_compatible(L::ObservableLeftBraOpen, R::ObservableRightKetOpen) =
+	_join_10_01(L, R)
+_join_compatible(L::ObservableLeftKetOpen, R::ObservableRightBraOpen) =
+	_join_01_10(L, R)
+
 """
     observable_leaf(L, R)
 
@@ -537,10 +672,10 @@ representations cannot make a bra-bra or ket-ket connection look valid.
 """
 function observable_leaf(L::ObservableEnv4, R::ObservableEnv4)
 	terms = (
-		_join_00_11(L.e00, R.e11),
-		_join_11_00(L.e11, R.e00),
-		_join_10_01(L.e10, R.e01),
-		_join_01_10(L.e01, R.e10),
+		_join_compatible(L.e00, R.e11),
+		_join_compatible(L.e11, R.e00),
+		_join_compatible(L.e10, R.e01),
+		_join_compatible(L.e01, R.e10),
 	)
 	value = nothing
 	for term in terms

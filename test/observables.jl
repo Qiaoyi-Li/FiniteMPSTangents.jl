@@ -477,7 +477,195 @@ end
         end
     end
 
-    @testset "Different SU(2) bra and ket with a fused left boundary" begin
+    @testset "SU(2) tangent-center charge closes a left-open observable" begin
+        L = 4
+        physical = SU2Spin.pspace
+        boundary_space = Rep[SU₂](0 => 1)
+        bulk_space = Rep[SU₂](spin => 1 for spin in 0:1//2:1)
+        state = randMPS(
+            ComplexF64,
+            fill(physical, L),
+            vcat(boundary_space, fill(bulk_space, L - 1)),
+        )
+        base = BaseMPS(state)
+        bra = TangentMPS(base)
+
+        function spin_tangent(site)
+            action_tree = InteractionTree(L)
+            addIntr!(
+                action_tree,
+                SU2Spin.SS[2],
+                site,
+                1.0;
+                name=:S,
+            )
+            return TangentMPS(AutomataMPO(action_tree), base)
+        end
+
+        ket_site = 2
+        ket = spin_tangent(ket_site)
+        probes = [spin_tangent(site) for site in 1:L]
+
+        @test numind.(bra.base.Al) == fill(3, L)
+        @test numind.(bra.base.Ar) == fill(3, L)
+        @test numind.(bra.B) == fill(3, L)
+        @test numind.(ket.base.Al) == fill(3, L)
+        @test numind.(ket.base.Ar) == fill(3, L)
+        @test numind.(ket.B) == fill(4, L)
+
+        # A scalar branch has no nontrivial left auxiliary and therefore stays
+        # on the original charged-bra/charged-ket state-machine path.
+        scalar_tree = ObservableTree(L)
+        addObs!(scalar_tree, id(physical), 1; name=:I)
+        calObs!(scalar_tree, probes[1], probes[2]; serial=true)
+        @test scalar_tree.Refs["I"][(1,)][] ≈ inner(probes[1], probes[2])
+
+        tree = ObservableTree(L)
+        for site in 1:L
+            addObs!(tree, SU2Spin.SS[1], site; name=:S)
+        end
+        expected = [inner(probe, ket) for probe in probes]
+        snapshot() = [tree.Refs["S"][(site,)][] for site in 1:L]
+
+        # No El is supplied: addObs! has normalized the single unmatched
+        # auxiliary to the left edge, and it must close against ket.B's charge.
+        calObs!(tree, bra, ket; serial=true)
+        serial_values = snapshot()
+        calObs!(tree, bra, ket)
+        threaded_values = snapshot()
+        calObs!(tree, bra, ket; disk=true, serial=true, maxsize=1)
+        disk_serial_values = snapshot()
+        calObs!(tree, bra, ket; disk=true, maxsize=1)
+        disk_threaded_values = snapshot()
+
+        @test all(value -> value isa Number, serial_values)
+        @test serial_values ≈ expected
+        @test threaded_values ≈ expected
+        @test disk_serial_values ≈ expected
+        @test disk_threaded_values ≈ expected
+        @test serial_values[ket_site] ≈ (3 / 4) * inner(bra, bra)
+
+        # For distinct sites the same scalar is the ordinary closed SS
+        # expectation value, giving an oracle independent of tangent calObs!.
+        closed_tree = ObservableTree(L)
+        for site in (1, 3, 4)
+            sites = minmax(site, ket_site)
+            addObs!(
+                closed_tree,
+                SU2Spin.SS,
+                sites,
+                (false, false);
+                name=(:S, :S),
+            )
+        end
+        FiniteMPS.calObs!(closed_tree, state; serial=true)
+        for site in (1, 3, 4)
+            sites = minmax(site, ket_site)
+            @test serial_values[site] ≈ closed_tree.Refs["SS"][sites][]
+        end
+
+        # A momentum-space spin operator is a genuinely multi-term charged
+        # MPO. Its complex Fourier phases must remain linear in the ket while
+        # every registered real-space Sᵢ closes the same charge leg.
+        momentum = 2π / 5
+        coefficients = [
+            cis(momentum * site) / sqrt(L)
+            for site in 1:L
+        ]
+        momentum_tree = InteractionTree(L)
+        for site in 1:L
+            addIntr!(
+                momentum_tree,
+                SU2Spin.SS[2],
+                site,
+                coefficients[site];
+                name=:S,
+                IntrName=:Sk,
+            )
+        end
+        momentum_ket = TangentMPS(AutomataMPO(momentum_tree), base)
+        @test numind.(momentum_ket.base.Al) == fill(3, L)
+        @test numind.(momentum_ket.base.Ar) == fill(3, L)
+        @test numind.(momentum_ket.B) == fill(4, L)
+
+        explicit_momentum_ket = scaled_copy(probes[1], coefficients[1])
+        for site in 2:L
+            add!(explicit_momentum_ket, probes[site], coefficients[site])
+        end
+        @test tangent_difference_norm(momentum_ket, explicit_momentum_ket) < 1e-10
+
+        momentum_expected = [
+            sum(
+                coefficients[source] * inner(probes[probe], probes[source])
+                for source in 1:L
+            )
+            for probe in 1:L
+        ]
+        @test [inner(probe, momentum_ket) for probe in probes] ≈ momentum_expected
+        calObs!(tree, bra, momentum_ket; serial=true)
+        momentum_serial_values = snapshot()
+        calObs!(tree, bra, momentum_ket; disk=true, maxsize=1)
+        momentum_disk_threaded_values = snapshot()
+
+        @test all(value -> value isa Number, momentum_serial_values)
+        @test momentum_serial_values ≈ momentum_expected
+        @test momentum_disk_threaded_values ≈ momentum_expected
+        conjugated_oracle = [
+            sum(
+                conj(coefficients[source]) * inner(probes[probe], probes[source])
+                for source in 1:L
+            )
+            for probe in 1:L
+        ]
+        @test maximum(abs.(momentum_serial_values .- conjugated_oracle)) > 1e-3
+    end
+
+    @testset "Rank-5 tangent-center charge closes a left-open observable" begin
+        L = 2
+        physical = SU2Spin.pspace
+        base = BaseMPS(identityMPO(ComplexF64, L, physical))
+        bra = TangentMPS(base)
+
+        function spin_tangent(site)
+            action_tree = InteractionTree(L)
+            addIntr!(
+                action_tree,
+                SU2Spin.SS[2],
+                site,
+                1.0;
+                name=:S,
+            )
+            return TangentMPS(AutomataMPO(action_tree), base)
+        end
+
+        ket = spin_tangent(1)
+        probes = [spin_tangent(site) for site in 1:L]
+        expected = [inner(probe, ket) for probe in probes]
+
+        @test numind.(bra.base.Al) == fill(4, L)
+        @test numind.(bra.base.Ar) == fill(4, L)
+        @test numind.(bra.B) == fill(4, L)
+        @test numind.(ket.base.Al) == fill(4, L)
+        @test numind.(ket.base.Ar) == fill(4, L)
+        @test numind.(ket.B) == fill(5, L)
+
+        tree = ObservableTree(L)
+        for site in 1:L
+            addObs!(tree, SU2Spin.SS[1], site; name=:S)
+        end
+        snapshot() = [tree.Refs["S"][(site,)][] for site in 1:L]
+
+        calObs!(tree, bra, ket; serial=true)
+        serial_values = snapshot()
+        calObs!(tree, bra, ket; disk=true, maxsize=1)
+        disk_threaded_values = snapshot()
+
+        @test all(value -> value isa Number, serial_values)
+        @test serial_values ≈ expected
+        @test disk_threaded_values ≈ expected
+    end
+
+    @testset "Explicit fused SU(2) left-boundary compatibility" begin
         L = 2
         physical = SU2Spin.pspace
         bulk_space = Rep[SU₂](spin => 1 for spin in 0:1//2:1)
@@ -497,6 +685,7 @@ end
             operator_space ⊗ bra_boundary_space,
         )
         El = permute(fusion_isometry', ((2, 1), (3,)))
+        @test (numout(El), numin(El)) == (2, 1)
 
         bra = TangentMPS(BaseMPS(bra_state))
         ket = TangentMPS(BaseMPS(ket_state))
@@ -508,6 +697,7 @@ end
             1;
             name=:S,
             El=El,
+            serial=true,
         )
         serial_tangent_value = _tangent_observable_value(
             bra,
@@ -551,6 +741,7 @@ end
             1;
             name=:S,
             El=El,
+            serial=true,
         )
 
         @test serial_tangent_value ≈ dense_value
