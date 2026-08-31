@@ -215,7 +215,122 @@ end
                 IntrName=interaction_name,
             )
         end
-        calObs!(tree, tangent)
+        FiniteMPS.merge!(tree)
+        left_levels = FiniteMPSTangents._observable_levels(tree.RootL)
+        right_levels = FiniteMPSTangents._observable_levels(tree.RootR)
+        @test maximum(length, left_levels) > 1
+        @test maximum(length, right_levels) > 1
+
+        serial_timer = calObs!(tree, tangent; serial=true)
+        serial_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        threaded_timer = calObs!(
+            tree,
+            tangent;
+            serial=false,
+            ntasks=max(2, Threads.nthreads()),
+        )
+        threaded_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        single_task_timer = calObs!(tree, tangent; serial=false, ntasks=1)
+        single_task_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        default_timer = calObs!(tree, tangent)
+        default_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        disk_serial_timer = calObs!(
+            tree,
+            tangent;
+            disk=true,
+            serial=true,
+            maxsize=1,
+        )
+        disk_serial_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        disk_threaded_timer = calObs!(
+            tree,
+            tangent;
+            disk=true,
+            serial=false,
+            ntasks=Threads.nthreads() + 2,
+            maxsize=1,
+        )
+        disk_threaded_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        disk_default_timer = calObs!(tree, tangent; disk=true)
+        disk_default_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        disk_uncached_timer = calObs!(
+            tree,
+            tangent;
+            disk=true,
+            serial=true,
+            maxsize=0,
+        )
+        disk_uncached_values = Dict(
+            interaction_name => tree.Refs[string(interaction_name)][sites][]
+            for (sites, interaction_name) in registrations
+        )
+
+        @test serial_timer isa TimerOutput
+        @test threaded_timer isa TimerOutput
+        @test single_task_timer isa TimerOutput
+        @test default_timer isa TimerOutput
+        @test disk_serial_timer isa TimerOutput
+        @test disk_threaded_timer isa TimerOutput
+        @test disk_default_timer isa TimerOutput
+        @test disk_uncached_timer isa TimerOutput
+        @test all(
+            threaded_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test all(
+            single_task_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test all(
+            default_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test all(
+            disk_serial_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test all(
+            disk_threaded_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test all(
+            disk_default_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test all(
+            disk_uncached_values[name] ≈ serial_values[name]
+            for (_, name) in registrations
+        )
+        @test_throws ArgumentError calObs!(tree, tangent; ntasks=0)
+        @test_throws ArgumentError calObs!(tree, tangent; disk=true, maxsize=-1)
 
         for (sites, interaction_name) in registrations
             oracle = _explicit_natural_observable(
@@ -226,7 +341,7 @@ end
                 names=names,
                 interaction_name=interaction_name,
             )
-            @test tree.Refs[string(interaction_name)][sites][] ≈ oracle
+            @test default_values[interaction_name] ≈ oracle
         end
     end
 
@@ -237,15 +352,17 @@ end
         base = BaseMPS(state; Z=U1SpinlessFermion.Z)
 
         interaction_tree = InteractionTree(L)
-        addIntr!(
-            interaction_tree,
-            (U1SpinlessFermion.FdagF[2],),
-            (1,),
-            (true,),
-            1.0;
-            Z=U1SpinlessFermion.Z,
-            name=(:F,),
-        )
+        for (site, name) in ((1, :F1), (4, :F4))
+            addIntr!(
+                interaction_tree,
+                (U1SpinlessFermion.FdagF[2],),
+                (site,),
+                (true,),
+                1.0;
+                Z=U1SpinlessFermion.Z,
+                name=(name,),
+            )
+        end
         tangent = TangentMPS(AutomataMPO(interaction_tree), base)
         @test all(tensor -> numind(tensor) == 5, tangent.B)
 
@@ -279,11 +396,85 @@ end
             (numout(operator.A), numin(operator.A))
         end
         @test registered_partitions == [(1, 2), (2, 2), (2, 2), (2, 1)]
-        calObs!(tree, tangent)
-        auxiliary_value = tree.Refs["ΔdagΔ"][sites][]
 
-        @test auxiliary_value isa Number
-        @test isfinite(abs(auxiliary_value))
+        # The short hopping string propagates its auxiliary leg through
+        # IdentityOperator sites. The equivalent long form makes that
+        # propagation explicit with two nontrivial O22 operators, giving a
+        # nonzero numerical oracle for the O22 kernels on rank-5 tangents.
+        Fdag, F = U1SpinlessFermion.FdagF
+        hopping_auxiliary = domain(Fdag)[end]
+        auxiliary_identity = permute(
+            id(physical ⊗ hopping_auxiliary),
+            ((2, 1), (3, 4)),
+        )
+        propagated_hopping = (Fdag, auxiliary_identity, auxiliary_identity, F)
+        @test map(
+            operator -> (numout(operator), numin(operator)),
+            propagated_hopping,
+        ) == ((1, 2), (2, 2), (2, 2), (2, 1))
+        addObs!(
+            tree,
+            U1SpinlessFermion.FdagF,
+            (1, 4),
+            (true, true);
+            Z=U1SpinlessFermion.Z,
+            name=(:Fdag, :F),
+            IntrName=:hopping_short,
+        )
+        addObs!(
+            tree,
+            propagated_hopping,
+            sites,
+            (true, false, false, true);
+            Z=U1SpinlessFermion.Z,
+            name=(:Fdag, :aux2, :aux3, :F),
+            IntrName=:hopping_O22,
+        )
+
+        for site in 1:L
+            addObs!(tree, id(physical), site; name=Symbol("I$(site)"))
+        end
+        FiniteMPS.merge!(tree)
+        @test all(>(1), treewidth(tree))
+
+        snapshot() = (
+            auxiliary=tree.Refs["ΔdagΔ"][sites][],
+            hopping_short=tree.Refs["hopping_short"][(1, 4)][],
+            hopping_O22=tree.Refs["hopping_O22"][sites][],
+            identities=[tree.Refs["I$(site)"][(site,)][] for site in 1:L],
+        )
+
+        calObs!(tree, tangent; serial=true)
+        serial_snapshot = snapshot()
+        calObs!(tree, tangent)
+        threaded_snapshot = snapshot()
+        calObs!(tree, tangent; disk=true, serial=true, maxsize=1)
+        disk_serial_snapshot = snapshot()
+        calObs!(
+            tree,
+            tangent;
+            disk=true,
+            serial=false,
+            ntasks=max(2, Threads.nthreads()),
+            maxsize=1,
+        )
+        disk_threaded_snapshot = snapshot()
+
+        @test serial_snapshot.auxiliary isa Number
+        @test isfinite(abs(serial_snapshot.auxiliary))
+        @test serial_snapshot.hopping_short ≈ -0.25
+        @test serial_snapshot.hopping_O22 ≈ serial_snapshot.hopping_short
+        @test all(value -> value ≈ inner(tangent, tangent), serial_snapshot.identities)
+        for candidate in (
+            threaded_snapshot,
+            disk_serial_snapshot,
+            disk_threaded_snapshot,
+        )
+            @test candidate.auxiliary ≈ serial_snapshot.auxiliary
+            @test candidate.hopping_short ≈ serial_snapshot.hopping_short
+            @test candidate.hopping_O22 ≈ serial_snapshot.hopping_O22
+            @test all(isapprox.(candidate.identities, serial_snapshot.identities))
+        end
     end
 
     @testset "Different SU(2) bra and ket with a fused left boundary" begin
@@ -318,7 +509,16 @@ end
             name=:S,
             El=El,
         )
-        tangent_value = _tangent_observable_value(
+        serial_tangent_value = _tangent_observable_value(
+            bra,
+            ket,
+            SU2Spin.SS[1],
+            1;
+            name=:S,
+            El=El,
+            serial=true,
+        )
+        threaded_tangent_value = _tangent_observable_value(
             bra,
             ket,
             SU2Spin.SS[1],
@@ -334,6 +534,16 @@ end
             name=:S,
             El=LocalLeftTensor(El),
         )
+        disk_boundary_value = _tangent_observable_value(
+            bra,
+            ket,
+            SU2Spin.SS[1],
+            1;
+            name=:S,
+            El=El,
+            disk=true,
+            maxsize=1,
+        )
         explicit_value = _explicit_natural_observable(
             bra,
             ket,
@@ -343,8 +553,502 @@ end
             El=El,
         )
 
-        @test tangent_value ≈ dense_value
-        @test tangent_value ≈ explicit_value
-        @test wrapped_boundary_value ≈ tangent_value
+        @test serial_tangent_value ≈ dense_value
+        @test serial_tangent_value ≈ explicit_value
+        @test threaded_tangent_value ≈ serial_tangent_value
+        @test wrapped_boundary_value ≈ serial_tangent_value
+        @test disk_boundary_value ≈ serial_tangent_value
+    end
+
+    @testset "Ready-node scheduling and disk-store cleanup" begin
+        oversubscribed_ntasks = Threads.nthreads() + 2
+        expected_workers = oversubscribed_ntasks - 1
+        oversubscribed_started = Threads.Atomic{Int}(0)
+        oversubscribed_finished = Threads.Atomic{Int}(0)
+        oversubscribed_process = function(label, emit_child)
+            if label === :root
+                for child in 1:expected_workers
+                    emit_child(child)
+                end
+                return nothing
+            end
+
+            Threads.atomic_add!(oversubscribed_started, 1)
+            deadline = time() + 5
+            while oversubscribed_started[] < expected_workers
+                time() > deadline && error(
+                    "ntasks - 1 workers were not allowed to oversubscribe Julia threads",
+                )
+                yield()
+            end
+            Threads.atomic_add!(oversubscribed_finished, 1)
+            return nothing
+        end
+        FiniteMPSTangents._observable_walk_ready!(
+            oversubscribed_process,
+            (_, _) -> nothing,
+            :root,
+            expected_workers + 1;
+            threaded=true,
+            ntasks=oversubscribed_ntasks,
+        )
+        @test oversubscribed_started[] == expected_workers
+        @test oversubscribed_finished[] == expected_workers
+
+        if Threads.nthreads() > 1
+            slow_started = Threads.Atomic{Bool}(false)
+            slow_finished = Threads.Atomic{Bool}(false)
+            crossed_early = Threads.Atomic{Bool}(false)
+            process_node = function(label, emit_child)
+                if label === :root
+                    emit_child(:fast)
+                    emit_child(:slow)
+                elseif label === :fast
+                    emit_child(:grandchild)
+                elseif label === :slow
+                    slow_started[] = true
+                    deadline = time() + 5
+                    while !crossed_early[]
+                        time() > deadline && error("grandchild waited for its slow uncle")
+                        yield()
+                    end
+                    slow_finished[] = true
+                elseif label === :grandchild
+                    deadline = time() + 5
+                    while !slow_started[]
+                        time() > deadline && error("slow sibling did not start")
+                        yield()
+                    end
+                    !slow_finished[] && (crossed_early[] = true)
+                end
+                return nothing
+            end
+            FiniteMPSTangents._observable_walk_ready!(
+                process_node,
+                (_, _) -> nothing,
+                :root,
+                4;
+                threaded=true,
+                ntasks=3,
+            )
+
+            @test slow_finished[]
+            @test crossed_early[]
+        end
+
+        tree = ObservableTree(3)
+        physical = NoSymSpinOneHalf.pspace
+        for site in 1:3
+            addObs!(tree, id(physical), site; name=Symbol("cache_I$(site)"))
+        end
+        FiniteMPS.merge!(tree)
+        left_levels = FiniteMPSTangents._observable_levels(tree.RootL)
+        right_levels = FiniteMPSTangents._observable_levels(tree.RootR)
+        left_nodes = vcat(left_levels...)
+        right_nodes = vcat(right_levels...)
+        @test length(left_nodes) >= 5
+        @test length(right_nodes) >= 2
+
+        normal_directory = Ref("")
+        FiniteMPSTangents._observable_with_store(
+            left_levels,
+            right_levels;
+            disk=true,
+            maxsize=2,
+        ) do store
+            normal_directory[] = store.directory
+            @test isdir(store.directory)
+
+            a, b, c, d, e = left_nodes[1:5]
+            FiniteMPSTangents._observable_store!(
+                store,
+                a,
+                FiniteMPSTangents.ObservableEnv4(:a),
+            )
+            FiniteMPSTangents._observable_store!(
+                store,
+                b,
+                FiniteMPSTangents.ObservableEnv4(:b),
+            )
+            @test !ispath(store.paths[a])
+            @test !ispath(store.paths[b])
+
+            # A hit refreshes a, so inserting c evicts b rather than a.
+            @test FiniteMPSTangents._observable_load(store, a).e00 === :a
+            FiniteMPSTangents._observable_store!(
+                store,
+                c,
+                FiniteMPSTangents.ObservableEnv4(:c),
+            )
+            @test isfile(store.paths[b])
+            @test !ispath(store.paths[a])
+            @test !ispath(store.paths[c])
+            @test haskey(store.cacheL.values, a)
+            @test haskey(store.cacheL.values, c)
+
+            # Reloading b evicts cache-only a. The backing file for b remains
+            # authoritative while b is resident again.
+            b_path = store.paths[b]
+            @test FiniteMPSTangents._observable_load(store, b).e00 === :b
+            @test isfile(store.paths[a])
+            @test haskey(store.cacheL.values, b)
+            @test haskey(store.cacheL.values, c)
+
+            FiniteMPSTangents._observable_store!(
+                store,
+                d,
+                FiniteMPSTangents.ObservableEnv4(:d),
+            )
+            @test isfile(store.paths[c])
+            @test haskey(store.cacheL.values, b)
+            @test haskey(store.cacheL.values, d)
+
+            # Evicting clean, reloaded b must not touch its existing file. An
+            # invalid temporary mapping makes any accidental rewrite fail.
+            try
+                store.paths[b] = joinpath(store.directory, "missing", "b.bin")
+                FiniteMPSTangents._observable_store!(
+                    store,
+                    e,
+                    FiniteMPSTangents.ObservableEnv4(:e),
+                )
+            finally
+                store.paths[b] = b_path
+            end
+            @test isfile(b_path)
+            @test haskey(store.cacheL.values, d)
+            @test haskey(store.cacheL.values, e)
+
+            # Taking disk-only a is a terminal read and must not admit a just
+            # to evict one of the live cache-only entries.
+            @test FiniteMPSTangents._observable_take!(store, a).e00 === :a
+            @test !ispath(store.paths[a])
+            @test haskey(store.cacheL.values, d)
+            @test haskey(store.cacheL.values, e)
+            @test !ispath(store.paths[d])
+            @test !ispath(store.paths[e])
+            @test isempty(store.cacheR.values)
+        end
+        @test !ispath(normal_directory[])
+
+        split_directory = Ref("")
+        FiniteMPSTangents._observable_with_store(
+            left_levels,
+            right_levels;
+            disk=true,
+            maxsize=1,
+        ) do store
+            split_directory[] = store.directory
+            left_1, left_2 = left_nodes[1:2]
+            right_1, right_2 = right_nodes[1:2]
+            FiniteMPSTangents._observable_store!(
+                store,
+                left_1,
+                FiniteMPSTangents.ObservableEnv4(:left_1),
+            )
+            FiniteMPSTangents._observable_store!(
+                store,
+                right_1,
+                FiniteMPSTangents.ObservableEnv4(:right_1),
+            )
+            @test !ispath(store.paths[left_1])
+            @test !ispath(store.paths[right_1])
+
+            FiniteMPSTangents._observable_store!(
+                store,
+                right_2,
+                FiniteMPSTangents.ObservableEnv4(:right_2),
+            )
+            @test isfile(store.paths[right_1])
+            @test !ispath(store.paths[right_2])
+            @test !ispath(store.paths[left_1])
+            @test haskey(store.cacheL.values, left_1)
+
+            FiniteMPSTangents._observable_store!(
+                store,
+                left_2,
+                FiniteMPSTangents.ObservableEnv4(:left_2),
+            )
+            @test isfile(store.paths[left_1])
+            @test !ispath(store.paths[left_2])
+            @test !ispath(store.paths[right_2])
+            @test haskey(store.cacheR.values, right_2)
+
+            # A logical drop suppresses writeback for a cache-only entry.
+            FiniteMPSTangents._observable_drop!(store, right_2)
+            @test !ispath(store.paths[right_2])
+            @test isempty(store.cacheR.values)
+        end
+        @test !ispath(split_directory[])
+
+        race_directory = Ref("")
+        FiniteMPSTangents._observable_with_store(
+            left_levels,
+            right_levels;
+            disk=true,
+            maxsize=1,
+        ) do store
+            race_directory[] = store.directory
+            a, b = left_nodes[1:2]
+            FiniteMPSTangents._observable_store!(
+                store,
+                a,
+                FiniteMPSTangents.ObservableEnv4(:race_a),
+            )
+
+            cache = store.cacheL
+            original_finalizer = cache.values.finalizer
+            entered_writeback = Channel{Nothing}(1)
+            release_writeback = Channel{Nothing}(1)
+            cache.values.finalizer = (node, environment) -> begin
+                if node === a
+                    put!(entered_writeback, nothing)
+                    take!(release_writeback)
+                end
+                return original_finalizer(node, environment)
+            end
+
+            writer = @async FiniteMPSTangents._observable_store!(
+                store,
+                b,
+                FiniteMPSTangents.ObservableEnv4(:race_b),
+            )
+            take!(entered_writeback)
+
+            reader_started = Channel{Nothing}(1)
+            reader = @async begin
+                put!(reader_started, nothing)
+                return FiniteMPSTangents._observable_load(store, a)
+            end
+            take!(reader_started)
+            yield()
+            @test !istaskdone(reader)
+
+            put!(release_writeback, nothing)
+            wait(writer)
+            @test fetch(reader).e00 === :race_a
+            @test isfile(store.paths[a])
+            cache.values.finalizer = original_finalizer
+        end
+        @test !ispath(race_directory[])
+
+        uncached_directory = Ref("")
+        FiniteMPSTangents._observable_with_store(
+            left_levels,
+            right_levels;
+            disk=true,
+            maxsize=0,
+        ) do store
+            uncached_directory[] = store.directory
+            FiniteMPSTangents._observable_store!(
+                store,
+                tree.RootL,
+                FiniteMPSTangents.ObservableEnv4(:uncached),
+            )
+            FiniteMPSTangents._observable_store!(
+                store,
+                tree.RootR,
+                FiniteMPSTangents.ObservableEnv4(:uncached_right),
+            )
+            @test isfile(store.paths[tree.RootL])
+            @test isfile(store.paths[tree.RootR])
+            @test isempty(store.cacheL.values)
+            @test isempty(store.cacheR.values)
+            @test FiniteMPSTangents._observable_load(store, tree.RootL).e00 ===
+                  :uncached
+            @test FiniteMPSTangents._observable_load(store, tree.RootR).e00 ===
+                  :uncached_right
+            @test isempty(store.cacheL.values)
+            @test isempty(store.cacheR.values)
+        end
+        @test !ispath(uncached_directory[])
+
+        ready_directory = Ref("")
+        tangent = TangentMPS(BaseMPS(identityMPO(ComplexF64, 3, physical)))
+        right_uses = FiniteMPSTangents._observable_right_use_counts(left_levels)
+        FiniteMPSTangents._observable_with_store(
+            left_levels,
+            right_levels;
+            disk=true,
+            maxsize=0,
+        ) do store
+            ready_directory[] = store.directory
+            right_boundary = FiniteMPSTangents._default_observable_right_boundary(
+                tangent,
+                tangent,
+            )
+            FiniteMPSTangents._observable_store!(
+                store,
+                tree.RootR,
+                FiniteMPSTangents.ObservableEnv4(
+                    FiniteMPSTangents.observable_right_boundary(right_boundary),
+                ),
+            )
+
+            published = Ref(0)
+            emit_child = child -> begin
+                @test haskey(store.cacheR.persisted, child)
+                @test isfile(store.paths[child])
+                @test FiniteMPSTangents._observable_load(store, child) isa
+                      FiniteMPSTangents.ObservableEnv4
+                published[] += 1
+                return nothing
+            end
+            FiniteMPSTangents._observable_right_node(
+                store,
+                right_uses,
+                tree,
+                tangent,
+                tangent,
+                tree.RootR,
+                emit_child,
+            )
+            @test !isempty(tree.RootR.children)
+            @test published[] == length(tree.RootR.children)
+        end
+        @test !ispath(ready_directory[])
+
+        failing_directory = Ref("")
+        cleanup_error = try
+            FiniteMPSTangents._observable_with_store(
+                left_levels,
+                right_levels;
+                disk=true,
+                maxsize=1,
+            ) do store
+                failing_directory[] = store.directory
+                FiniteMPSTangents._observable_store!(
+                    store,
+                    tree.RootL,
+                    FiniteMPSTangents.ObservableEnv4(current_task()),
+                )
+                @test !ispath(store.paths[tree.RootL])
+                error("disk cleanup probe")
+            end
+            nothing
+        catch exception
+            exception
+        end
+        @test cleanup_error isa ErrorException
+        @test occursin("disk cleanup probe", sprint(showerror, cleanup_error))
+        @test !ispath(failing_directory[])
+
+        atomic_directory = Ref("")
+        FiniteMPSTangents._observable_with_store(
+            left_levels,
+            right_levels;
+            disk=true,
+            maxsize=0,
+        ) do store
+            atomic_directory[] = store.directory
+            path = store.paths[tree.RootL]
+            side_directory = dirname(path)
+            files_before = Set(readdir(side_directory))
+            @test_throws Exception FiniteMPSTangents._observable_store!(
+                store,
+                tree.RootL,
+                FiniteMPSTangents.ObservableEnv4(current_task()),
+            )
+            @test Set(readdir(side_directory)) == files_before
+            @test !ispath(path)
+            @test isempty(store.cacheL.values)
+        end
+        @test !ispath(atomic_directory[])
+
+        if Threads.nthreads() > 1
+            worker_directory = Ref("")
+            worker_finished = Threads.Atomic{Bool}(false)
+            entered = Threads.Atomic{Int}(0)
+            @test_throws Exception FiniteMPSTangents._observable_with_store(
+                left_levels,
+                right_levels;
+                disk=true,
+                maxsize=1,
+            ) do store
+                worker_directory[] = store.directory
+                process_node = function(label, emit_child)
+                    if label === :root
+                        emit_child(:fail)
+                        emit_child(:slow)
+                        return nothing
+                    end
+                    Threads.atomic_add!(entered, 1)
+                    while entered[] < 2
+                        yield()
+                    end
+                    if label === :fail
+                        error("worker failure probe")
+                    end
+                    sleep(0.02)
+                    FiniteMPSTangents._observable_atomic_serialize(
+                        joinpath(store.directory, "late-worker.bin"),
+                        FiniteMPSTangents.ObservableEnv4(:late),
+                    )
+                    worker_finished[] = true
+                    return nothing
+                end
+                FiniteMPSTangents._observable_walk_ready!(
+                    process_node,
+                    (_, _) -> nothing,
+                    :root,
+                    3;
+                    threaded=true,
+                    ntasks=3,
+                )
+            end
+            @test worker_finished[]
+            @test !ispath(worker_directory[])
+        end
+
+        L = 3
+        physical = NoSymSpinOneHalf.pspace
+        tangent = TangentMPS(BaseMPS(identityMPO(ComplexF64, L, physical)))
+        invalid_operator = TensorMap(randn, ComplexF64, ℂ^3, ℂ^3)
+        failing_tree = ObservableTree(L)
+        addObs!(failing_tree, id(physical), 1; name=:good)
+        addObs!(
+            failing_tree,
+            invalid_operator,
+            2;
+            pspace=physical,
+            name=:bad,
+        )
+
+        observable_tempdirs() = Set(
+            path
+            for path in readdir(tempdir(); join=true)
+            if startswith(
+                basename(path),
+                FiniteMPSTangents._OBSERVABLE_TEMP_PREFIX,
+            )
+        )
+        directories_before = observable_tempdirs()
+        @test_throws Exception calObs!(
+            failing_tree,
+            tangent;
+            disk=true,
+            serial=false,
+            ntasks=max(2, Threads.nthreads()),
+            maxsize=1,
+        )
+        @test all(
+            isnan(ref[])
+            for refs in values(failing_tree.Refs)
+            for ref in values(refs)
+        )
+        @test observable_tempdirs() == directories_before
+
+        recovery_tree = ObservableTree(L)
+        addObs!(recovery_tree, id(physical), 2; name=:I)
+        calObs!(
+            recovery_tree,
+            tangent;
+            disk=true,
+            serial=false,
+            ntasks=max(2, Threads.nthreads()),
+            maxsize=1,
+        )
+        @test recovery_tree.Refs["I"][(2,)][] ≈ inner(tangent, tangent)
+        @test observable_tempdirs() == directories_before
     end
 end
