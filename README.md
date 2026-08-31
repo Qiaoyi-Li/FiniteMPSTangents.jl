@@ -8,7 +8,7 @@ orthogonalization and linear algebra, and projected multiplication by sparse
 matrix-product operators. It builds on
 [FiniteMPS.jl](https://github.com/Qiaoyi-Li/FiniteMPS.jl).
 
-## Installation
+## Quick start
 
 This package is not yet registered. During development, install it from its
 repository:
@@ -17,3 +17,5 @@ repository:
 using Pkg
 Pkg.add(url="https://github.com/Qiaoyi-Li/FiniteMPSTangents.jl")
 ```
+
+For a minimal example, see the [online documentation](https://Qiaoyi-Li.github.io/FiniteMPSTangents.jl/dev/).

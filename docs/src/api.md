@@ -37,3 +37,9 @@ add!
 rmul!
 free!
 ```
+
+## Observables
+
+```@docs
+calObs!
+```
