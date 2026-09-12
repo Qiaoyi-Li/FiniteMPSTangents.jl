@@ -118,8 +118,20 @@ _observable_rung(bra, op, ket) = _ObservableRung(bra, op, ket)
 _observable_operator_tensor(O::LocalOperator) = isnothing(O.A) ?
 	throw(ArgumentError("observable contraction requires a materialized local operator tensor")) : O.A
 
-# Expansion-time description of every supported fixed index order. The
-# generated methods themselves each contain a single direct @tensor network.
+struct _ObservableHalf{Side,Role,Place,Rank,T<:AbstractTensorMap}
+	A::T
+end
+
+_ObservableHalf{S,R,P,N}(A::T) where {S,R,P,N,T<:AbstractTensorMap} =
+	_ObservableHalf{S,R,P,N,T}(A)
+
+function _observable_accumulator(A::AbstractTensorMap, ::Type{T}) where T
+	U = TensorOperations.promote_add(scalartype(A), T)
+	return U <: scalartype(A) ? A : copy!(similar(A, U), A)
+end
+
+# Expansion-time description of every supported fixed index order. Generated
+# kernels use explicit @tensor networks for full or half contractions.
 # Observable auxiliary legs are native too: O12.y stays a domain leg in a
 # left environment; O21.x stays a codomain leg in a right environment.
 #
@@ -294,6 +306,104 @@ macro _define_observable_attach_kernels()
 			push!(defs.args, Meta.parse(source))
 		end
 	end
+
+	function half_partition(side, role, place, base, aux)
+		cod, dom = result_partition(side, role, place, aux)
+		if side == :left
+			dom = replace(dom, "rk" => "lk")
+			push!(dom, "p")
+			base == 4 && pushfirst!(cod, "s")
+		else
+			dom = replace(dom, "lb" => "rb")
+			push!(cod, "p")
+			base == 4 && pushfirst!(dom, "s")
+		end
+		return cod, dom
+	end
+	partition(cod, dom) = "tmp[" * join(cod, " ") * ";" * join(dom, " ") * "]"
+	half_type(side, role, place, base) = "_ObservableHalf{:$side,:$role,:$place,$base}"
+	function accumulation(lhs, rhs, result, types)
+		return """
+		if isnothing(dst)
+		    @tensor $lhs := $rhs
+		else
+		    tmp = _observable_accumulator(dst.A, TensorOperations.promote_contract($types))
+		    @tensor $lhs += $rhs
+		end
+		return $result(tmp)
+		"""
+	end
+
+	for side in (:left, :right), role in (:neutral, :bra, :ket),
+		place in (:N, :C, :D), base in (3, 4)
+		H = half_type(side, role, place, base)
+		hcod, hdom = half_partition(side, role, place, base, "x")
+		hinds = vcat(hcod, hdom)
+		for rank in (base, base + 1)
+			firstrole = rank == base ? :neutral : side == :left ? :bra : :ket
+			outrole = charge_result(role, firstrole)
+			if !isnothing(outrole)
+				Ein = wrappers[(side, role)]
+				nout, nin = shapes[(role, place)]
+				Hout = half_type(side, outrole, place, base)
+				cod, dom = half_partition(side, outrole, place, base, "x")
+				einds = flat_environment(side, role, place, "x")
+				xinds = side == :left ? bra_indices(rank, "p", firstrole) : ket_indices(rank, "p", firstrole)
+				xterm = (side == :left ? "X'[" : "X[") * joininds(xinds) * "]"
+				eterm = "E.A[" * joininds(einds) * "]"
+				rhs = side == :left ? "$eterm * $xterm" : "$xterm * $eterm"
+				body = accumulation(partition(cod, dom), rhs, Hout, "scalartype(E.A), scalartype(X)")
+				push!(defs.args, Meta.parse("""
+				function _observable_first!(dst::Union{Nothing,$Hout}, E::$Ein{$nout,$nin},
+				                            X::AbstractTensorMap, ::Val{($base,$rank)})
+				    $body
+				end
+				"""))
+			end
+
+			lastrole = rank == base ? :neutral : side == :left ? :ket : :bra
+			outrole = charge_result(role, lastrole)
+			if !isnothing(outrole)
+				Eout = wrappers[(side, outrole)]
+				cod, dom = result_partition(side, outrole, place, "x")
+				xinds = side == :left ? ket_indices(rank, "p", lastrole) : bra_indices(rank, "p", lastrole)
+				xterm = (side == :left ? "X[" : "X'[") * joininds(xinds) * "]"
+				rhs = "F.A[" * joininds(hinds) * "] * $xterm"
+				body = accumulation(partition(cod, dom), rhs, Eout, "scalartype(F.A), scalartype(X)")
+				push!(defs.args, Meta.parse("""
+				function _observable_second!(dst::Union{Nothing,$Eout}, F::$H,
+				                             X::AbstractTensorMap, ::Val{$rank})
+				    $body
+				end
+				"""))
+			end
+		end
+
+		for (opkind, _) in ops
+			opkind == :I && continue
+			for (pin, pout, incomingaux, outgoingaux) in transitions(side, opkind)
+				pin == place || continue
+				icod, idom = half_partition(side, role, pin, base, incomingaux)
+				cod, dom = half_partition(side, role, pout, base, outgoingaux)
+				finds = replace(vcat(icod, idom), "p" => side == :left ? "pb" : "pk")
+				cod = replace(cod, "p" => side == :left ? "pk" : "pb")
+				dom = replace(dom, "p" => side == :left ? "pk" : "pb")
+				oinds = opkind == :O11 ? ["pb", "pk"] :
+					opkind == :O12 ? ["pb", "pk", "y"] :
+					opkind == :O21 ? ["x", "pb", "pk"] : ["x", "pb", "pk", "y"]
+				shape = opkind == :O11 ? (1, 1) : opkind == :O12 ? (1, 2) : opkind == :O21 ? (2, 1) : (2, 2)
+				Hout = half_type(side, role, pout, base)
+				lhs = partition(cod, dom)
+				rhs = "F.A[" * joininds(finds) * "] * A[" * joininds(oinds) * "]"
+				push!(defs.args, Meta.parse("""
+				function _observable_half_operator(F::$H, A::AbstractTensorMap, ::Val{$shape})
+				    @tensor $lhs := $rhs
+				    return $Hout(tmp)
+				end
+				"""))
+			end
+		end
+	end
 	return esc(defs)
 end
 
@@ -303,6 +413,57 @@ _left_contract(::Nothing, args...) = nothing
 _left_contract(E, bra, O, ket) = _left_apply(E, _observable_rung(bra, O, ket))
 _right_contract(::Nothing, args...) = nothing
 _right_contract(E, bra, O, ket) = _right_apply(E, _observable_rung(bra, O, ket))
+
+_observable_first!(dst, ::Nothing, X::MPSTensor, base::Val) = dst
+_observable_first!(dst, E, X::MPSTensor{N}, ::Val{B}) where {N,B} =
+	_observable_first!(dst, E, X.A, Val((B, N)))
+_observable_second!(dst, ::Nothing, X::MPSTensor) = dst
+_observable_second!(dst, F, X::MPSTensor{N}) where N =
+	_observable_second!(dst, F, X.A, Val(N))
+_observable_half_operator(::Nothing, O) = nothing
+_observable_half_operator(F::_ObservableHalf, ::IdentityOperator) = F
+_observable_half_operator(F::_ObservableHalf, O::LocalOperator{N,M}) where {N,M} =
+	_observable_half_operator(F, _observable_operator_tensor(O), Val((N, M)))
+
+function _observable_pushright(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, base)
+	f00 = _observable_first!(nothing, E.e00, braAl, base)
+	f10 = _observable_first!(nothing, E.e10, braAr, base)
+	f10 = _observable_first!(f10, E.e00, braB, base)
+	f01 = _observable_first!(nothing, E.e01, braAl, base)
+	f11 = _observable_first!(nothing, E.e11, braAr, base)
+	f11 = _observable_first!(f11, E.e01, braB, base)
+	g00 = _observable_half_operator(f00, O)
+	g10 = _observable_half_operator(f10, O)
+	g01 = _observable_half_operator(f01, O)
+	g11 = _observable_half_operator(f11, O)
+	e00 = _observable_second!(nothing, g00, ketAl)
+	e10 = _observable_second!(nothing, g10, ketAl)
+	e01 = _observable_second!(nothing, g01, ketAr)
+	e01 = _observable_second!(e01, g00, ketB)
+	e11 = _observable_second!(nothing, g11, ketAr)
+	e11 = _observable_second!(e11, g10, ketB)
+	return ObservableEnv4(e00, e10, e01, e11)
+end
+
+function _observable_pushleft(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, base)
+	f00 = _observable_first!(nothing, E.e00, ketAr, base)
+	f10 = _observable_first!(nothing, E.e10, ketAr, base)
+	f01 = _observable_first!(nothing, E.e01, ketAl, base)
+	f01 = _observable_first!(f01, E.e00, ketB, base)
+	f11 = _observable_first!(nothing, E.e11, ketAl, base)
+	f11 = _observable_first!(f11, E.e10, ketB, base)
+	g00 = _observable_half_operator(f00, O)
+	g10 = _observable_half_operator(f10, O)
+	g01 = _observable_half_operator(f01, O)
+	g11 = _observable_half_operator(f11, O)
+	e00 = _observable_second!(nothing, g00, braAr)
+	e10 = _observable_second!(nothing, g10, braAl)
+	e10 = _observable_second!(e10, g00, braB)
+	e01 = _observable_second!(nothing, g01, braAr)
+	e11 = _observable_second!(nothing, g11, braAl)
+	e11 = _observable_second!(e11, g01, braB)
+	return ObservableEnv4(e00, e10, e01, e11)
+end
 
 # ---------------------------------------------------------------------------
 # Four-sector recurrences
@@ -356,22 +517,7 @@ function observable_pushright(
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{3}, ketAr::MPSTensor{3}, ketB::MPSTensor{3},
 )
-	e00 = _left_contract(E.e00, braAl, O, ketAl)
-	e10 = _observable_sum(
-		_left_contract(E.e10, braAr, O, ketAl),
-		_left_contract(E.e00, braB, O, ketAl),
-	)
-	e01 = _observable_sum(
-		_left_contract(E.e01, braAl, O, ketAr),
-		_left_contract(E.e00, braAl, O, ketB),
-	)
-	e11 = _observable_sum(
-		_left_contract(E.e11, braAr, O, ketAr),
-		_left_contract(E.e10, braAr, O, ketB),
-		_left_contract(E.e01, braB, O, ketAr),
-		_left_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushright(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(3))
 end
 
 function observable_pushright(
@@ -380,22 +526,7 @@ function observable_pushright(
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4}, ketB::MPSTensor{4},
 )
-	e00 = _left_contract(E.e00, braAl, O, ketAl)
-	e10 = _observable_sum(
-		_left_contract(E.e10, braAr, O, ketAl),
-		_left_contract(E.e00, braB, O, ketAl),
-	)
-	e01 = _observable_sum(
-		_left_contract(E.e01, braAl, O, ketAr),
-		_left_contract(E.e00, braAl, O, ketB),
-	)
-	e11 = _observable_sum(
-		_left_contract(E.e11, braAr, O, ketAr),
-		_left_contract(E.e10, braAr, O, ketB),
-		_left_contract(E.e01, braB, O, ketAr),
-		_left_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushright(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(4))
 end
 
 function observable_pushright(
@@ -404,22 +535,7 @@ function observable_pushright(
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4}, ketB::MPSTensor{5},
 )
-	e00 = _left_contract(E.e00, braAl, O, ketAl)
-	e10 = _observable_sum(
-		_left_contract(E.e10, braAr, O, ketAl),
-		_left_contract(E.e00, braB, O, ketAl),
-	)
-	e01 = _observable_sum(
-		_left_contract(E.e01, braAl, O, ketAr),
-		_left_contract(E.e00, braAl, O, ketB),
-	)
-	e11 = _observable_sum(
-		_left_contract(E.e11, braAr, O, ketAr),
-		_left_contract(E.e10, braAr, O, ketB),
-		_left_contract(E.e01, braB, O, ketAr),
-		_left_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushright(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(4))
 end
 
 function observable_pushright(
@@ -430,22 +546,7 @@ function observable_pushright(
 	ketAl::MPSTensor{3}, ketAr::MPSTensor{3},
 	ketB::Union{MPSTensor{3},MPSTensor{4}},
 )
-	e00 = _left_contract(E.e00, braAl, O, ketAl)
-	e10 = _observable_sum(
-		_left_contract(E.e10, braAr, O, ketAl),
-		_left_contract(E.e00, braB, O, ketAl),
-	)
-	e01 = _observable_sum(
-		_left_contract(E.e01, braAl, O, ketAr),
-		_left_contract(E.e00, braAl, O, ketB),
-	)
-	e11 = _observable_sum(
-		_left_contract(E.e11, braAr, O, ketAr),
-		_left_contract(E.e10, braAr, O, ketB),
-		_left_contract(E.e01, braB, O, ketAr),
-		_left_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushright(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(3))
 end
 
 function observable_pushright(
@@ -456,22 +557,7 @@ function observable_pushright(
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4},
 	ketB::Union{MPSTensor{4},MPSTensor{5}},
 )
-	e00 = _left_contract(E.e00, braAl, O, ketAl)
-	e10 = _observable_sum(
-		_left_contract(E.e10, braAr, O, ketAl),
-		_left_contract(E.e00, braB, O, ketAl),
-	)
-	e01 = _observable_sum(
-		_left_contract(E.e01, braAl, O, ketAr),
-		_left_contract(E.e00, braAl, O, ketB),
-	)
-	e11 = _observable_sum(
-		_left_contract(E.e11, braAr, O, ketAr),
-		_left_contract(E.e10, braAr, O, ketB),
-		_left_contract(E.e01, braB, O, ketAr),
-		_left_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushright(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(4))
 end
 
 """
@@ -486,22 +572,7 @@ function observable_pushleft(
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{3}, ketAr::MPSTensor{3}, ketB::MPSTensor{3},
 )
-	e00 = _right_contract(E.e00, braAr, O, ketAr)
-	e10 = _observable_sum(
-		_right_contract(E.e10, braAl, O, ketAr),
-		_right_contract(E.e00, braB, O, ketAr),
-	)
-	e01 = _observable_sum(
-		_right_contract(E.e01, braAr, O, ketAl),
-		_right_contract(E.e00, braAr, O, ketB),
-	)
-	e11 = _observable_sum(
-		_right_contract(E.e11, braAl, O, ketAl),
-		_right_contract(E.e10, braAl, O, ketB),
-		_right_contract(E.e01, braB, O, ketAl),
-		_right_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushleft(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(3))
 end
 
 function observable_pushleft(
@@ -510,22 +581,7 @@ function observable_pushleft(
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4}, ketB::MPSTensor{4},
 )
-	e00 = _right_contract(E.e00, braAr, O, ketAr)
-	e10 = _observable_sum(
-		_right_contract(E.e10, braAl, O, ketAr),
-		_right_contract(E.e00, braB, O, ketAr),
-	)
-	e01 = _observable_sum(
-		_right_contract(E.e01, braAr, O, ketAl),
-		_right_contract(E.e00, braAr, O, ketB),
-	)
-	e11 = _observable_sum(
-		_right_contract(E.e11, braAl, O, ketAl),
-		_right_contract(E.e10, braAl, O, ketB),
-		_right_contract(E.e01, braB, O, ketAl),
-		_right_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushleft(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(4))
 end
 
 function observable_pushleft(
@@ -534,22 +590,7 @@ function observable_pushleft(
 	O::_ObservableSiteOperator,
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4}, ketB::MPSTensor{5},
 )
-	e00 = _right_contract(E.e00, braAr, O, ketAr)
-	e10 = _observable_sum(
-		_right_contract(E.e10, braAl, O, ketAr),
-		_right_contract(E.e00, braB, O, ketAr),
-	)
-	e01 = _observable_sum(
-		_right_contract(E.e01, braAr, O, ketAl),
-		_right_contract(E.e00, braAr, O, ketB),
-	)
-	e11 = _observable_sum(
-		_right_contract(E.e11, braAl, O, ketAl),
-		_right_contract(E.e10, braAl, O, ketB),
-		_right_contract(E.e01, braB, O, ketAl),
-		_right_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushleft(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(4))
 end
 
 function observable_pushleft(
@@ -560,22 +601,7 @@ function observable_pushleft(
 	ketAl::MPSTensor{3}, ketAr::MPSTensor{3},
 	ketB::Union{MPSTensor{3},MPSTensor{4}},
 )
-	e00 = _right_contract(E.e00, braAr, O, ketAr)
-	e10 = _observable_sum(
-		_right_contract(E.e10, braAl, O, ketAr),
-		_right_contract(E.e00, braB, O, ketAr),
-	)
-	e01 = _observable_sum(
-		_right_contract(E.e01, braAr, O, ketAl),
-		_right_contract(E.e00, braAr, O, ketB),
-	)
-	e11 = _observable_sum(
-		_right_contract(E.e11, braAl, O, ketAl),
-		_right_contract(E.e10, braAl, O, ketB),
-		_right_contract(E.e01, braB, O, ketAl),
-		_right_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushleft(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(3))
 end
 
 function observable_pushleft(
@@ -586,22 +612,7 @@ function observable_pushleft(
 	ketAl::MPSTensor{4}, ketAr::MPSTensor{4},
 	ketB::Union{MPSTensor{4},MPSTensor{5}},
 )
-	e00 = _right_contract(E.e00, braAr, O, ketAr)
-	e10 = _observable_sum(
-		_right_contract(E.e10, braAl, O, ketAr),
-		_right_contract(E.e00, braB, O, ketAr),
-	)
-	e01 = _observable_sum(
-		_right_contract(E.e01, braAr, O, ketAl),
-		_right_contract(E.e00, braAr, O, ketB),
-	)
-	e11 = _observable_sum(
-		_right_contract(E.e11, braAl, O, ketAl),
-		_right_contract(E.e10, braAl, O, ketB),
-		_right_contract(E.e01, braB, O, ketAl),
-		_right_contract(E.e00, braB, O, ketB),
-	)
-	return ObservableEnv4(e00, e10, e01, e11)
+	return _observable_pushleft(E, braAl, braAr, braB, O, ketAl, ketAr, ketB, Val(4))
 end
 
 # ---------------------------------------------------------------------------

@@ -1,3 +1,86 @@
+function _observable_reference9(side, E, braAl, braAr, braB, O, ketAl, ketAr, ketB)
+    M = FiniteMPSTangents
+    contract = side == :left ? M._left_contract : M._right_contract
+    b0, b1 = side == :left ? (braAl, braAr) : (braAr, braAl)
+    k0, k1 = side == :left ? (ketAl, ketAr) : (ketAr, ketAl)
+    return M.ObservableEnv4(
+        contract(E.e00, b0, O, k0),
+        M._observable_sum(contract(E.e10, b1, O, k0), contract(E.e00, braB, O, k0)),
+        M._observable_sum(contract(E.e01, b0, O, k1), contract(E.e00, b0, O, ketB)),
+        M._observable_sum(
+            contract(E.e11, b1, O, k1), contract(E.e10, b1, O, ketB),
+            contract(E.e01, braB, O, k1), contract(E.e00, braB, O, ketB),
+        ),
+    )
+end
+
+function _test_observable_sectors(actual, expected)
+    for name in (:e00, :e10, :e01, :e11)
+        x, y = getproperty(actual, name), getproperty(expected, name)
+        @test isnothing(x) == isnothing(y)
+        isnothing(x) && continue
+        @test typeof(x).name.wrapper === typeof(y).name.wrapper
+        @test codomain(x.A) == codomain(y.A)
+        @test domain(x.A) == domain(y.A)
+        @test scalartype(x.A) == scalartype(y.A)
+        @test isapprox(x.A, y.A; atol=1e-12, rtol=1e-10)
+    end
+end
+
+function _observable_test_environment(side, role, place, b, k, q, auxiliary, T)
+    M = FiniteMPSTangents
+    cod, dom = side == :left ? ([b], [k]) : ([k], [b])
+    role == :bra && push!(cod, q)
+    role == :ket && pushfirst!(dom, q)
+    if place == :C
+        insert!(cod, role == :bra ? length(cod) : length(cod) + 1, auxiliary)
+    elseif place == :D
+        insert!(dom, side == :left ? length(dom) + 1 : role == :ket ? 2 : 1, auxiliary)
+    end
+    wrappers = side == :left ?
+        (M.ObservableLeftEnv, M.ObservableLeftBraOpen, M.ObservableLeftKetOpen) :
+        (M.ObservableRightEnv, M.ObservableRightBraOpen, M.ObservableRightKetOpen)
+    wrapper = wrappers[role == :neutral ? 1 : role == :bra ? 2 : 3]
+    return wrapper(TensorMap(randn, T, prod(cod), prod(dom)))
+end
+
+function _observable_local_fixture(side, base, charged, kind, place;
+                                   T=ComplexF64, braT=T, ketT=T)
+    bleft, bright, kleft, kright = ℂ^2, ℂ^3, ℂ^3, ℂ^2
+    pb, pk = kind == :I ? (ℂ^2, ℂ^2) : (ℂ^3, ℂ^2)
+    s, q, auxiliary = ℂ^2, ℂ^2, ℂ^2
+    function site(left, physical, right, charge, U)
+        domains = base == 4 ? [s] : typeof(s)[]
+        charge && push!(domains, q)
+        push!(domains, right)
+        return MPSTensor(TensorMap(randn, U, left ⊗ physical, prod(domains)))
+    end
+    braAl = site(bleft, pb, bright, false, T)
+    braAr = site(bleft, pb, bright, false, T)
+    braB = site(bleft, pb, bright, charged[1], braT)
+    ketAl = site(kleft, pk, kright, false, T)
+    ketAr = site(kleft, pk, kright, false, T)
+    ketB = site(kleft, pk, kright, charged[2], ketT)
+    O = if kind == :I
+        IdentityOperator(pb, place == :N ? ℂ^1 : auxiliary, 1, 1.0)
+    else
+        cod = kind in (:O21, :O22) ? auxiliary ⊗ pb : pb
+        dom = kind in (:O12, :O22) ? pk ⊗ auxiliary : pk
+        LocalOperator(TensorMap(randn, T, cod, dom), :probe, 1, false)
+    end
+    roles = (:neutral, charged[1] ? :bra : :neutral, charged[2] ? :ket : :neutral,
+             charged[1] == charged[2] ? :neutral : charged[1] ? :bra : :ket)
+    b, k = side == :left ? (bleft, kleft) : (bright, kright)
+    incoming_auxiliary = (side == :left && place == :C && kind in (:O21, :O22)) ||
+                         (side == :right && place == :D && kind in (:O12, :O22)) ?
+                         auxiliary' : auxiliary
+    sectors = map(roles) do role
+        _observable_test_environment(side, role, place, b, k, q, incoming_auxiliary, T)
+    end
+    E = FiniteMPSTangents.ObservableEnv4(sectors...)
+    return E, braAl, braAr, braB, O, ketAl, ketAr, ketB
+end
+
 function _natural_state_term(Φ::TangentMPS{L}, insertion::Int) where L
     tensors = MPSTensor[
         deepcopy(
@@ -1241,5 +1324,138 @@ end
         )
         @test recovery_tree.Refs["I"][(2,)][] ≈ inner(tangent, tangent)
         @test observable_tempdirs() == directories_before
+    end
+end
+
+@testset "Observable shared half contractions" begin
+    M = FiniteMPSTangents
+    Random.seed!(0x6a6a_2026)
+    for side in (:left, :right), base in (3, 4),
+        charged in ((false, false), (true, false), (false, true), (true, true)),
+        kind in (:I, :O11, :O12, :O21, :O22)
+        places = kind in (:I, :O11) ? (:N, :C, :D) :
+            (side == :left && kind == :O12) || (side == :right && kind == :O21) ?
+            (:N,) : (:C, :D)
+        for place in places
+            @testset "$side base=$base charged=$charged $kind/$place" begin
+                args = _observable_local_fixture(side, base, charged, kind, place)
+                before = deepcopy(args)
+                E = first(args)
+                push = side == :left ? M.observable_pushright : M.observable_pushleft
+                masks = charged == (false, false) && kind == :I && place == :N ?
+                    (0:15) : (0, 1, 2, 4, 8, 15)
+                for mask in masks
+                    sectors = ntuple(i -> iszero(mask & (1 << (i - 1))) ? nothing : getfield(E, i), 4)
+                    sparse = M.ObservableEnv4(sectors...)
+                    expected = _observable_reference9(side, sparse, Base.tail(args)...)
+                    actual = push(sparse, Base.tail(args)...)
+                    _test_observable_sectors(actual, expected)
+                end
+                _test_observable_sectors(E, first(before))
+                for i in (2, 3, 4, 6, 7, 8)
+                    @test args[i].A == before[i].A
+                end
+                @test isequal(args[5].strength[], before[5].strength[])
+                kind != :I && @test args[5].A == before[5].A
+            end
+        end
+    end
+
+    @testset "Scalar promotion and accumulator ownership" begin
+        for side in (:left, :right), base in (3, 4), promote_bra in (false, true)
+            args = _observable_local_fixture(side, base, (false, false), :O11, :N;
+                T=Float64, braT=promote_bra ? ComplexF64 : Float64,
+                ketT=promote_bra ? Float64 : ComplexF64)
+            push = side == :left ? M.observable_pushright : M.observable_pushleft
+            _test_observable_sectors(push(args...), _observable_reference9(side, args...))
+        end
+        for side in (:left, :right), base in (3, 4)
+            args = _observable_local_fixture(side, base, (true, true), :I, :N)
+            E, braAl, braAr, braB, O, ketAl, ketAr, ketB = args
+            first_tensor, last_tensor = side == :left ? (braAl, ketAl) : (ketAr, braAr)
+            F = M._observable_first!(nothing, E.e00, first_tensor, Val(base))
+            snapshot = deepcopy(F.A)
+            updated = M._observable_first!(F, E.e00, first_tensor, Val(base))
+            @test updated.A === F.A
+            @test updated.A ≈ 2 * snapshot
+            G = M._observable_half_operator(updated, O)
+            @test G === updated
+            snapshot = deepcopy(G.A)
+            output = M._observable_second!(nothing, G, last_tensor)
+            expected = deepcopy(output.A)
+            updated_output = M._observable_second!(output, G, last_tensor)
+            @test updated_output.A === output.A
+            @test updated_output.A ≈ 2 * expected
+            @test G.A == snapshot
+            @test all(!Base.mightalias(x, y) for (_, x) in blocks(output.A), (_, y) in blocks(G.A))
+        end
+    end
+
+    @testset "Shared parent, repeated and concurrent calls" begin
+        for side in (:left, :right), base in (3, 4)
+            args = _observable_local_fixture(side, base, (true, true), :O22, :D)
+            original = deepcopy(args)
+            push = side == :left ? M.observable_pushright : M.observable_pushleft
+            first_result = push(args...)
+            snapshot = deepcopy(first_result)
+            other_operator = deepcopy(args[5])
+            other_operator.A = (0.3 + 0.8im) * other_operator.A
+            other_args = (args[1:4]..., other_operator, args[6:8]...)
+            second_result = push(other_args...)
+            _test_observable_sectors(first_result, snapshot)
+            _test_observable_sectors(second_result, _observable_reference9(side, other_args...))
+            for i in 1:4, j in 1:4
+                x, y = getfield(first_result, i).A, getfield(second_result, j).A
+                @test all(!Base.mightalias(bx, by) for (_, bx) in blocks(x), (_, by) in blocks(y))
+                if i != j
+                    y = getfield(first_result, j).A
+                    @test all(!Base.mightalias(bx, by) for (_, bx) in blocks(x), (_, by) in blocks(y))
+                end
+            end
+            tasks = [Threads.@spawn push((isodd(i) ? args : other_args)...) for i in 1:4]
+            for (i, task) in enumerate(tasks)
+                _test_observable_sectors(fetch(task), isodd(i) ? first_result : second_result)
+            end
+            _test_observable_sectors(first(args), first(original))
+            for i in (2, 3, 4, 5, 6, 7, 8)
+                @test args[i].A == original[i].A
+            end
+            unmaterialized = deepcopy(args[5])
+            unmaterialized.A = nothing
+            empty = M.ObservableEnv4(nothing, nothing, nothing, nothing)
+            _test_observable_sectors(push(empty, args[2:4]..., unmaterialized, args[6:8]...), empty)
+            @test_throws ArgumentError push(args[1:4]..., unmaterialized, args[6:8]...)
+        end
+    end
+
+    @testset "Complementary leaves at every cut" begin
+        for L in (1, 3), purified in (false, true)
+            physical = NoSymSpinOneHalf.pspace
+            make_state() = purified ? identityMPO(ComplexF64, L, physical) :
+                randMPS(ComplexF64, L, physical, ℂ^2)
+            bra, ket = TangentMPS(BaseMPS(make_state())), TangentMPS(BaseMPS(make_state()))
+            for tangent in (bra, ket), i in 1:L
+                tensor = tangent.B[i].A
+                tangent.B[i] = MPSTensor(TensorMap(randn, ComplexF64, codomain(tensor), domain(tensor)))
+            end
+            lefts = Any[M.observable_left_root(M._default_observable_left_boundary(bra, ket))]
+            rights = Vector{Any}(undef, L + 1)
+            rights[end] = M.observable_right_root(M._default_observable_right_boundary(bra, ket))
+            op = IdentityOperator(physical, ℂ^1, 1, 1.0)
+            for i in 1:L
+                push!(lefts, M.observable_pushright(last(lefts), bra.base.Al[i], bra.base.Ar[i], bra.B[i],
+                    op, ket.base.Al[i], ket.base.Ar[i], ket.B[i]))
+            end
+            for i in L:-1:1
+                rights[i] = M.observable_pushleft(rights[i + 1], bra.base.Al[i], bra.base.Ar[i], bra.B[i],
+                    op, ket.base.Al[i], ket.base.Ar[i], ket.B[i])
+            end
+            expected = L == 1 ? inner(bra.B[1].A, ket.B[1].A) :
+                _explicit_natural_observable(bra, ket, id(physical), 1; name=:cut_oracle, serial=true)
+            for cut in 0:L
+                @test isapprox(M.observable_leaf(lefts[cut + 1], rights[cut + 1]), expected;
+                               atol=1e-12, rtol=1e-10)
+            end
+        end
     end
 end
