@@ -193,6 +193,11 @@ function _action1(El::BilayerLeftTensor{2, 1}, T::MPSTensor{4}, H::IdentityOpera
 	return @tensor tmp[a f; k j] := c * (El.A[a b c] * T.A[c f k h]) * Er.A[h b j]
 end
 
+function _action1(El::BilayerLeftTensor{2, 1}, T::MPSTensor{5}, H::IdentityOperator, Er::BilayerRightTensor{1, 2})::MPSTensor{5}
+	c = H.strength[]
+	return @tensor tmp[a f; k l j] := c * (El.A[a b c] * T.A[c f k l h]) * Er.A[h b j]
+end
+
 function _action1(El::BilayerLeftTensor{2, 1}, T::MPSTensor{3}, H::LocalOperator{1, 1}, Er::BilayerRightTensor{1, 2})::MPSTensor{3}
 	c = H.strength[]
 	return @tensor tmp[a e; j] := c * (El.A[a b c] * (H.A[e f] * T.A[c f h])) * Er.A[h b j]

@@ -11,6 +11,8 @@ include("helpers.jl")
 @testset "FiniteMPSTangents.jl" begin
     include("tangent_algebra.jl")
     include("multiplication.jl")
+    include("environment_identity.jl")
+    include("action_identity.jl")
     include("fermionic.jl")
     include("observables.jl")
 end

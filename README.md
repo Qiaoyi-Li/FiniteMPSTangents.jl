@@ -20,3 +20,5 @@ Pkg.add("FiniteMPSTangents")
 ```
 
 For a minimal example, see the [online documentation](https://Qiaoyi-Li.github.io/FiniteMPSTangents.jl/stable/).
+
+See the [performance reports](https://Qiaoyi-Li.github.io/FiniteMPSTangents.jl/performance/) for timing and memory allocation across bond dimensions, symmetries, and thread counts.

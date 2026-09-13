@@ -5,3 +5,6 @@
 /docs/Manifest*.toml
 /docs/build/
 .DS_Store
+/benchmark/output/
+/benchmark/preview/
+/benchmark/local/

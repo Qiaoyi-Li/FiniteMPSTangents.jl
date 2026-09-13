@@ -1,0 +1,352 @@
+base_tensor_rank = 3
+boundary = "open"
+calibrated_on_utc = "2026-09-12"
+cut_after_site = 8
+dimension_convention = "full_irrep_weighted"
+length = 16
+scalar_type = "ComplexF64"
+schema_version = 1
+seed = 20260912
+
+[models.su2_heisenberg]
+interaction_distances = [1, 2]
+name = "Heisenberg"
+nominal_dimensions = [64, 128, 256]
+physical_space = "FiniteMPS.SU2Spin.pspace"
+symmetry = "SU2"
+total_spin_twice = 0
+
+    [models.su2_heisenberg.generation]
+    GCstep = false
+    GCsweep = false
+    K = 32
+    algorithm = "FiniteMPS.DMRGSweep2!"
+    consecutive_stable_energy_changes = 2
+    dimension_schedule = [64, 128, 256]
+    energy_rule = "abs(delta_E) <= energy_tolerance"
+    energy_tolerance = 1.0e-9
+    initial_bulk_sectors = "spin_twice = 0,1,2; multiplicity = 1"
+    initial_state = "randMPS with trivial boundaries"
+    lanczos_tolerance = 1.0e-11
+    maximum_sweeps = 16
+    minimum_sweeps = 4
+    noise = 0.0
+    sector_stability_required_for_stopping = true
+    singular_value_cutoff = "none"
+    sweep_unit = "left-to-right followed by right-to-left"
+    truncation = "truncdim(D)"
+    warm_start = true
+
+        [models.su2_heisenberg.generation.threads]
+        action = 2
+        blas = 1
+        eig = 1
+        julia_default = 2
+        mul = 1
+        svd = 1
+
+    [models.su2_heisenberg.parameters]
+    J1 = 1.0
+    J2 = 0.2
+
+[models.u1_xxz]
+charge_convention = "q = Sz"
+interaction_distances = [1, 2]
+name = "XXZ"
+nominal_dimensions = [64, 128, 256]
+physical_space = "FiniteMPS.U1Spin.pspace"
+symmetry = "U1"
+total_charge_twice = 0
+
+    [models.u1_xxz.generation]
+    GCstep = false
+    GCsweep = true
+    K = 32
+    algorithm = "FiniteMPS.DMRGSweep2!"
+    consecutive_stable_energy_changes = 2
+    dimension_schedule = [16, 32, 64, 128, 256]
+    energy_rule = "abs(delta_E) / L <= energy_tolerance"
+    energy_tolerance = 1.0e-9
+    initial_bulk_sectors = "charge_twice = -2,-1,0,1,2; multiplicity = 1"
+    initial_state = "randMPS with trivial boundaries"
+    lanczos_tolerance = 1.0e-10
+    maximum_sweeps = 12
+    minimum_sweeps = 3
+    noise = 0.0
+    sector_stability_required_for_stopping = true
+    singular_value_cutoff = "none"
+    sweep_unit = "left-to-right followed by right-to-left"
+    truncation = "truncdim(D)"
+    warm_start = true
+
+        [models.u1_xxz.generation.threads]
+        action = 2
+        blas = 1
+        eig = 2
+        julia_default = 2
+        mul = 2
+        svd = 2
+
+    [models.u1_xxz.parameters]
+    Delta = 0.7
+    J1 = 1.0
+    J2 = 0.2
+
+[models.u1su2_hubbard]
+charge_convention = "q = n - 1 per site"
+interaction_distances = [1, 2]
+name = "Hubbard"
+nominal_dimensions = [128, 256, 512]
+physical_space = "FiniteMPS.U1SU2Fermion.pspace"
+symmetry = "U1xSU2"
+total_charge_twice = 0
+total_spin_twice = 0
+
+    [models.u1su2_hubbard.generation]
+    GCstep = false
+    GCsweep = false
+    K = 32
+    algorithm = "FiniteMPS.DMRGSweep2!"
+    consecutive_stable_energy_changes = 2
+    dimension_schedule = [128, 256, 512]
+    energy_rule = "abs(delta_E) <= energy_tolerance"
+    energy_tolerance = 1.0e-9
+    initial_bulk_sectors = "charge_twice = -2,0,2 crossed with spin_twice = 0,1,2; multiplicity = 1"
+    initial_state = "randMPS with trivial boundaries"
+    lanczos_tolerance = 1.0e-10
+    maximum_sweeps = 12
+    minimum_sweeps = 4
+    noise = 0.0
+    sector_stability_required_for_stopping = false
+    singular_value_cutoff = "none"
+    sweep_unit = "left-to-right followed by right-to-left"
+    truncation = "truncdim(D)"
+    warm_start = true
+
+        [models.u1su2_hubbard.generation.threads]
+        action = 2
+        blas = 1
+        eig = 2
+        julia_default = 2
+        mul = 1
+        svd = 2
+
+    [models.u1su2_hubbard.parameters]
+    U = 4.0
+    mu = 2.0
+    t1 = 1.0
+    t2 = 0.5
+
+[software]
+FiniteMPS = "1.8.3"
+FiniteMPSTangents_base_commit = "32aa6141276178e20053a92931d505561e3bf359"
+Julia = "1.11.6"
+TensorKit = "0.14.11"
+benchmark_manifest_sha256 = "69b8c28da29dbbafdde9ccba3c578e62a2a75b5eddce1b41b9e4888a0943be98"
+
+[[presets]]
+actual_full_dimension = 64
+consecutive_sweeps_with_final_sector_map = 3
+converged = true
+final_energy = -5.798713801739133
+id = "u1_xxz_L16_D64_v1"
+last_absolute_energy_change = 5.329070518200751e-15
+model = "u1_xxz"
+multiplet_count = 64
+requested_dimension_cap = 64
+sector_count = 5
+sweeps = 3
+sectors = [
+    { charge_twice = -4, irrep_dimension = 1, multiplicity = 5 },
+    { charge_twice = -2, irrep_dimension = 1, multiplicity = 16 },
+    { charge_twice = 0, irrep_dimension = 1, multiplicity = 22 },
+    { charge_twice = 2, irrep_dimension = 1, multiplicity = 16 },
+    { charge_twice = 4, irrep_dimension = 1, multiplicity = 5 },
+]
+
+[[presets]]
+actual_full_dimension = 128
+consecutive_sweeps_with_final_sector_map = 3
+converged = true
+final_energy = -5.798713801739155
+id = "u1_xxz_L16_D128_v1"
+last_absolute_energy_change = 5.329070518200751e-15
+model = "u1_xxz"
+multiplet_count = 128
+requested_dimension_cap = 128
+sector_count = 7
+sweeps = 3
+sectors = [
+    { charge_twice = -6, irrep_dimension = 1, multiplicity = 1 },
+    { charge_twice = -4, irrep_dimension = 1, multiplicity = 11 },
+    { charge_twice = -2, irrep_dimension = 1, multiplicity = 31 },
+    { charge_twice = 0, irrep_dimension = 1, multiplicity = 42 },
+    { charge_twice = 2, irrep_dimension = 1, multiplicity = 31 },
+    { charge_twice = 4, irrep_dimension = 1, multiplicity = 11 },
+    { charge_twice = 6, irrep_dimension = 1, multiplicity = 1 },
+]
+
+[[presets]]
+actual_full_dimension = 256
+consecutive_sweeps_with_final_sector_map = 3
+converged = true
+final_energy = -5.798713801739155
+id = "u1_xxz_L16_D256_v1"
+last_absolute_energy_change = 1.7763568394002505e-15
+model = "u1_xxz"
+multiplet_count = 256
+requested_dimension_cap = 256
+sector_count = 9
+sweeps = 3
+sectors = [
+    { charge_twice = -8, irrep_dimension = 1, multiplicity = 1 },
+    { charge_twice = -6, irrep_dimension = 1, multiplicity = 8 },
+    { charge_twice = -4, irrep_dimension = 1, multiplicity = 28 },
+    { charge_twice = -2, irrep_dimension = 1, multiplicity = 56 },
+    { charge_twice = 0, irrep_dimension = 1, multiplicity = 70 },
+    { charge_twice = 2, irrep_dimension = 1, multiplicity = 56 },
+    { charge_twice = 4, irrep_dimension = 1, multiplicity = 28 },
+    { charge_twice = 6, irrep_dimension = 1, multiplicity = 8 },
+    { charge_twice = 8, irrep_dimension = 1, multiplicity = 1 },
+]
+
+[[presets]]
+actual_full_dimension = 60
+consecutive_sweeps_with_final_sector_map = 3
+converged = true
+final_energy = -6.431806129554151
+id = "su2_heisenberg_L16_D64_v1"
+last_absolute_energy_change = 1.7763568394002505e-14
+model = "su2_heisenberg"
+multiplet_count = 22
+requested_dimension_cap = 64
+sector_count = 3
+sweeps = 5
+sectors = [
+    { irrep_dimension = 1, multiplicity = 7, spin_twice = 0 },
+    { irrep_dimension = 3, multiplicity = 11, spin_twice = 2 },
+    { irrep_dimension = 5, multiplicity = 4, spin_twice = 4 },
+]
+
+[[presets]]
+actual_full_dimension = 128
+consecutive_sweeps_with_final_sector_map = 4
+converged = true
+final_energy = -6.431806129554143
+id = "su2_heisenberg_L16_D128_v1"
+last_absolute_energy_change = 1.5987211554602254e-14
+model = "su2_heisenberg"
+multiplet_count = 42
+requested_dimension_cap = 128
+sector_count = 4
+sweeps = 4
+sectors = [
+    { irrep_dimension = 1, multiplicity = 11, spin_twice = 0 },
+    { irrep_dimension = 3, multiplicity = 20, spin_twice = 2 },
+    { irrep_dimension = 5, multiplicity = 10, spin_twice = 4 },
+    { irrep_dimension = 7, multiplicity = 1, spin_twice = 6 },
+]
+
+[[presets]]
+actual_full_dimension = 256
+consecutive_sweeps_with_final_sector_map = 4
+converged = true
+final_energy = -6.431806129554155
+id = "su2_heisenberg_L16_D256_v1"
+last_absolute_energy_change = 5.329070518200751e-15
+model = "su2_heisenberg"
+multiplet_count = 70
+requested_dimension_cap = 256
+sector_count = 5
+sweeps = 4
+sectors = [
+    { irrep_dimension = 1, multiplicity = 14, spin_twice = 0 },
+    { irrep_dimension = 3, multiplicity = 28, spin_twice = 2 },
+    { irrep_dimension = 5, multiplicity = 20, spin_twice = 4 },
+    { irrep_dimension = 7, multiplicity = 7, spin_twice = 6 },
+    { irrep_dimension = 9, multiplicity = 1, spin_twice = 8 },
+]
+
+[[presets]]
+actual_full_dimension = 126
+consecutive_sweeps_with_final_sector_map = 3
+converged = true
+final_energy = -40.913295583070585
+id = "u1su2_hubbard_L16_D128_v1"
+last_absolute_energy_change = 3.538502824085299e-12
+model = "u1su2_hubbard"
+multiplet_count = 58
+requested_dimension_cap = 128
+sector_count = 11
+sweeps = 4
+sectors = [
+    { charge_twice = -4, irrep_dimension = 1, multiplicity = 4, spin_twice = 0 },
+    { charge_twice = -4, irrep_dimension = 3, multiplicity = 2, spin_twice = 2 },
+    { charge_twice = -2, irrep_dimension = 2, multiplicity = 10, spin_twice = 1 },
+    { charge_twice = -2, irrep_dimension = 4, multiplicity = 3, spin_twice = 3 },
+    { charge_twice = 0, irrep_dimension = 1, multiplicity = 10, spin_twice = 0 },
+    { charge_twice = 0, irrep_dimension = 3, multiplicity = 9, spin_twice = 2 },
+    { charge_twice = 0, irrep_dimension = 5, multiplicity = 1, spin_twice = 4 },
+    { charge_twice = 2, irrep_dimension = 2, multiplicity = 10, spin_twice = 1 },
+    { charge_twice = 2, irrep_dimension = 4, multiplicity = 3, spin_twice = 3 },
+    { charge_twice = 4, irrep_dimension = 1, multiplicity = 4, spin_twice = 0 },
+    { charge_twice = 4, irrep_dimension = 3, multiplicity = 2, spin_twice = 2 },
+]
+
+[[presets]]
+actual_full_dimension = 255
+consecutive_sweeps_with_final_sector_map = 4
+converged = true
+final_energy = -40.9132972665305
+id = "u1su2_hubbard_L16_D256_v1"
+last_absolute_energy_change = 6.394884621840902e-14
+model = "u1su2_hubbard"
+multiplet_count = 115
+requested_dimension_cap = 256
+sector_count = 13
+sweeps = 4
+sectors = [
+    { charge_twice = -6, irrep_dimension = 2, multiplicity = 2, spin_twice = 1 },
+    { charge_twice = -4, irrep_dimension = 1, multiplicity = 7, spin_twice = 0 },
+    { charge_twice = -4, irrep_dimension = 3, multiplicity = 6, spin_twice = 2 },
+    { charge_twice = -2, irrep_dimension = 2, multiplicity = 18, spin_twice = 1 },
+    { charge_twice = -2, irrep_dimension = 4, multiplicity = 6, spin_twice = 3 },
+    { charge_twice = 0, irrep_dimension = 1, multiplicity = 19, spin_twice = 0 },
+    { charge_twice = 0, irrep_dimension = 3, multiplicity = 16, spin_twice = 2 },
+    { charge_twice = 0, irrep_dimension = 5, multiplicity = 2, spin_twice = 4 },
+    { charge_twice = 2, irrep_dimension = 2, multiplicity = 18, spin_twice = 1 },
+    { charge_twice = 2, irrep_dimension = 4, multiplicity = 6, spin_twice = 3 },
+    { charge_twice = 4, irrep_dimension = 1, multiplicity = 7, spin_twice = 0 },
+    { charge_twice = 4, irrep_dimension = 3, multiplicity = 6, spin_twice = 2 },
+    { charge_twice = 6, irrep_dimension = 2, multiplicity = 2, spin_twice = 1 },
+]
+
+[[presets]]
+actual_full_dimension = 511
+consecutive_sweeps_with_final_sector_map = 4
+converged = true
+final_energy = -40.91329730591078
+id = "u1su2_hubbard_L16_D512_v1"
+last_absolute_energy_change = 7.815970093361102e-14
+model = "u1su2_hubbard"
+multiplet_count = 223
+requested_dimension_cap = 512
+sector_count = 15
+sweeps = 4
+sectors = [
+    { charge_twice = -6, irrep_dimension = 2, multiplicity = 5, spin_twice = 1 },
+    { charge_twice = -4, irrep_dimension = 1, multiplicity = 13, spin_twice = 0 },
+    { charge_twice = -4, irrep_dimension = 3, multiplicity = 13, spin_twice = 2 },
+    { charge_twice = -4, irrep_dimension = 5, multiplicity = 1, spin_twice = 4 },
+    { charge_twice = -2, irrep_dimension = 2, multiplicity = 34, spin_twice = 1 },
+    { charge_twice = -2, irrep_dimension = 4, multiplicity = 12, spin_twice = 3 },
+    { charge_twice = 0, irrep_dimension = 1, multiplicity = 31, spin_twice = 0 },
+    { charge_twice = 0, irrep_dimension = 3, multiplicity = 33, spin_twice = 2 },
+    { charge_twice = 0, irrep_dimension = 5, multiplicity = 3, spin_twice = 4 },
+    { charge_twice = 2, irrep_dimension = 2, multiplicity = 34, spin_twice = 1 },
+    { charge_twice = 2, irrep_dimension = 4, multiplicity = 12, spin_twice = 3 },
+    { charge_twice = 4, irrep_dimension = 1, multiplicity = 13, spin_twice = 0 },
+    { charge_twice = 4, irrep_dimension = 3, multiplicity = 13, spin_twice = 2 },
+    { charge_twice = 4, irrep_dimension = 5, multiplicity = 1, spin_twice = 4 },
+    { charge_twice = 6, irrep_dimension = 2, multiplicity = 5, spin_twice = 1 },
+]

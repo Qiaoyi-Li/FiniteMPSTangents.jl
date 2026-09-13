@@ -13,6 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    concurrency:
+      group: gh-pages-publish
+      queue: max
+      cancel-in-progress: false
     permissions:
       contents: write
       pull-requests: read

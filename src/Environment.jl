@@ -236,6 +236,14 @@ function _pushleft(Er::BilayerRightTensor{1, 2},
 	return @tensor tmp[i; c k] := c * (B.A[i g e b] * Er.A[b c d]) * A.A[e d k g]
 end
 
+function _pushleft(Er::BilayerRightTensor{2, 1},
+	A::AdjointMPSTensor{4},
+	H::IdentityOperator,
+	B::MPSTensor{4})::BilayerRightTensor{2, 1}
+	c = H.strength[]
+	return @tensor tmp[a i; k] := c * (B.A[i g e b] * Er.A[a b d]) * A.A[e d k g]
+end
+
 function _pushleft(Er::BilayerRightTensor{1, 2},
 	A::AdjointMPSTensor{3},
 	H::LocalOperator{1, 1},
@@ -541,6 +549,14 @@ function _pushright(El::BilayerLeftTensor{2, 1},
 	c = H.strength[]
 	return @tensor tmp[i b; k] := c * (El.A[a b c] * B.A[c g k]) * A.A[i a g]
 
+end
+
+function _pushright(El::BilayerLeftTensor{2, 1},
+	A::AdjointMPSTensor{4},
+	H::IdentityOperator,
+	B::MPSTensor{4})::BilayerLeftTensor{2, 1}
+	c = H.strength[]
+	return @tensor tmp[i b; k] := c * (El.A[a b c] * B.A[c g e k]) * A.A[e i a g]
 end
 
 function _pushright(El::BilayerLeftTensor{2, 1},
