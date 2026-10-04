@@ -1,14 +1,14 @@
 # Performance report
 
-Source commit: `1fdd5adfc06a044a8f2f0df561c0d68868fd639d`
+Source commit: `9f17e245d554734b3ff65513ffc9593821540e89`
 
 Julia uses 1, 2, or 4 compute threads; the linear algebra backend and garbage collector each use 1 thread.
 
 | Thread configuration | Measurements | Measurement timestamp (UTC) | Detailed report |
 | --- | ---: | --- | --- |
-| 1 thread | 447 | 2026-10-04T14:11:11.014Z | [Input and sampling details](configurations/julia-1-blas-1/report.md) |
-| 2 threads | 447 | 2026-10-04T15:02:42.404Z | [Input and sampling details](configurations/julia-2-blas-1/report.md) |
-| 4 threads | 447 | 2026-10-04T15:45:23.734Z | [Input and sampling details](configurations/julia-4-blas-1/report.md) |
+| 1 thread | 447 | 2026-10-04T16:01:03.687Z | [Input and sampling details](configurations/julia-1-blas-1/report.md) |
+| 2 threads | 447 | 2026-10-04T16:52:42.019Z | [Input and sampling details](configurations/julia-2-blas-1/report.md) |
+| 4 threads | 447 | 2026-10-04T17:35:34.464Z | [Input and sampling details](configurations/julia-4-blas-1/report.md) |
 
 The tables show median execution times for each center bond dimension, including the full dimensions of symmetry multiplets.
 
@@ -26,9 +26,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 57.192 milliseconds | 38.536 milliseconds | 40.831 milliseconds |
-| 128 | 183.53 milliseconds | 111.33 milliseconds | 115.46 milliseconds |
-| 256 | 385.71 milliseconds | 226.29 milliseconds | 221.11 milliseconds |
+| 64 | 54.953 milliseconds | 35.37 milliseconds | 41.124 milliseconds |
+| 128 | 182.91 milliseconds | 108.11 milliseconds | 109.26 milliseconds |
+| 256 | 387.93 milliseconds | 223.54 milliseconds | 224.53 milliseconds |
 
 #### Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg
 
@@ -37,9 +37,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 109.77 milliseconds | 67.23 milliseconds | 69.996 milliseconds |
-| 128 | 386.59 milliseconds | 215.36 milliseconds | 225.48 milliseconds |
-| 256 | 787.88 milliseconds | 465.13 milliseconds | 468.23 milliseconds |
+| 64 | 105.07 milliseconds | 67.727 milliseconds | 66.938 milliseconds |
+| 128 | 368.38 milliseconds | 211.46 milliseconds | 211.68 milliseconds |
+| 256 | 768.26 milliseconds | 457.17 milliseconds | 432.9 milliseconds |
 
 #### Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg
 
@@ -48,9 +48,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 186.53 milliseconds | 117.73 milliseconds | 116.79 milliseconds |
-| 128 | 1.3322 seconds | 903.85 milliseconds | 599.36 milliseconds |
-| 256 | 7.349 seconds | 4.4859 seconds | 4.4647 seconds |
+| 64 | 187.11 milliseconds | 111.01 milliseconds | 113.78 milliseconds |
+| 128 | 1.3646 seconds | 840.83 milliseconds | 850.95 milliseconds |
+| 256 | 7.3824 seconds | 4.4521 seconds | 4.2882 seconds |
 
 #### Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg
 
@@ -59,9 +59,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 373.01 milliseconds | 224.07 milliseconds | 227.55 milliseconds |
-| 128 | 2.4495 seconds | 1.4651 seconds | 1.4868 seconds |
-| 256 | 15.216 seconds | 9.1474 seconds | 8.8345 seconds |
+| 64 | 379.17 milliseconds | 228.85 milliseconds | 216.58 milliseconds |
+| 128 | 2.3532 seconds | 1.4604 seconds | 1.4072 seconds |
+| 256 | 15.186 seconds | 9.1349 seconds | 8.6873 seconds |
 
 ### U(1) symmetry
 
@@ -73,9 +73,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 73.53 milliseconds | 53.322 milliseconds | 53.402 milliseconds |
-| 128 | 109.4 milliseconds | 65.002 milliseconds | 65.519 milliseconds |
-| 256 | 127.02 milliseconds | 85.721 milliseconds | 79.191 milliseconds |
+| 64 | 72.544 milliseconds | 52.235 milliseconds | 51.417 milliseconds |
+| 128 | 108.51 milliseconds | 68.623 milliseconds | 69.412 milliseconds |
+| 256 | 133.38 milliseconds | 81.646 milliseconds | 86.721 milliseconds |
 
 #### Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg
 
@@ -84,9 +84,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 90.173 milliseconds | 62.136 milliseconds | 60.031 milliseconds |
-| 128 | 128.09 milliseconds | 81.988 milliseconds | 87.541 milliseconds |
-| 256 | 142.81 milliseconds | 92.963 milliseconds | 88.604 milliseconds |
+| 64 | 92.953 milliseconds | 62.118 milliseconds | 59.834 milliseconds |
+| 128 | 125.67 milliseconds | 78.495 milliseconds | 91.152 milliseconds |
+| 256 | 156.99 milliseconds | 92.867 milliseconds | 95.454 milliseconds |
 
 #### Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg
 
@@ -95,9 +95,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 153.82 milliseconds | 102.16 milliseconds | 93.463 milliseconds |
-| 128 | 311.9 milliseconds | 198.91 milliseconds | 186.14 milliseconds |
-| 256 | 1.2903 seconds | 867.24 milliseconds | 841.55 milliseconds |
+| 64 | 151.7 milliseconds | 97.596 milliseconds | 96.786 milliseconds |
+| 128 | 319.74 milliseconds | 195.78 milliseconds | 192.34 milliseconds |
+| 256 | 1.2344 seconds | 855.47 milliseconds | 857.65 milliseconds |
 
 #### Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg
 
@@ -106,9 +106,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 182.08 milliseconds | 113.63 milliseconds | 112.49 milliseconds |
-| 128 | 457.15 milliseconds | 216.95 milliseconds | 215.72 milliseconds |
-| 256 | 1.2463 seconds | 860.01 milliseconds | 924.08 milliseconds |
+| 64 | 170.36 milliseconds | 106.72 milliseconds | 112.94 milliseconds |
+| 128 | 453.97 milliseconds | 206.21 milliseconds | 201.69 milliseconds |
+| 256 | 1.2546 seconds | 824.54 milliseconds | 853.67 milliseconds |
 
 ### SU(2) symmetry
 
@@ -120,9 +120,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 24.566 milliseconds | 23.009 milliseconds | 22.771 milliseconds |
-| 128 | 26.931 milliseconds | 23.528 milliseconds | 27.897 milliseconds |
-| 256 | 29.322 milliseconds | 22.997 milliseconds | 26.787 milliseconds |
+| 60 | 24.603 milliseconds | 20.536 milliseconds | 22.703 milliseconds |
+| 128 | 26.56 milliseconds | 21.33 milliseconds | 22.251 milliseconds |
+| 256 | 27.598 milliseconds | 23.923 milliseconds | 25.049 milliseconds |
 
 #### Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg
 
@@ -131,9 +131,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 65.971 milliseconds | 50.366 milliseconds | 39.377 milliseconds |
-| 128 | 67.073 milliseconds | 45.574 milliseconds | 48.425 milliseconds |
-| 256 | 74.527 milliseconds | 48.288 milliseconds | 53.089 milliseconds |
+| 60 | 64.592 milliseconds | 34.376 milliseconds | 40.059 milliseconds |
+| 128 | 80.487 milliseconds | 45.02 milliseconds | 46.859 milliseconds |
+| 256 | 95.572 milliseconds | 49.713 milliseconds | 52.959 milliseconds |
 
 #### Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg
 
@@ -142,9 +142,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 50.25 milliseconds | 49.932 milliseconds | 38.95 milliseconds |
-| 128 | 73.553 milliseconds | 43.55 milliseconds | 45.991 milliseconds |
-| 256 | 111.95 milliseconds | 77.657 milliseconds | 76.367 milliseconds |
+| 60 | 55.675 milliseconds | 33.9 milliseconds | 38.244 milliseconds |
+| 128 | 94.33 milliseconds | 43.769 milliseconds | 48.732 milliseconds |
+| 256 | 117.94 milliseconds | 80.113 milliseconds | 80.161 milliseconds |
 
 #### Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg
 
@@ -153,9 +153,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 133.57 milliseconds | 88.12 milliseconds | 88.251 milliseconds |
-| 128 | 179.06 milliseconds | 131.53 milliseconds | 109 milliseconds |
-| 256 | 304.79 milliseconds | 195.24 milliseconds | 193.35 milliseconds |
+| 60 | 133.96 milliseconds | 84.312 milliseconds | 110.33 milliseconds |
+| 128 | 182.08 milliseconds | 131.05 milliseconds | 133.84 milliseconds |
+| 256 | 318.66 milliseconds | 204.4 milliseconds | 208.74 milliseconds |
 
 ### U(1) × SU(2) symmetry
 
@@ -167,9 +167,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 121.32 milliseconds | 83.851 milliseconds | 83.526 milliseconds |
-| 255 | 169.5 milliseconds | 109.59 milliseconds | 115.46 milliseconds |
-| 511 | 354.35 milliseconds | 191.7 milliseconds | 180.05 milliseconds |
+| 126 | 119.53 milliseconds | 72.662 milliseconds | 81.653 milliseconds |
+| 255 | 168.42 milliseconds | 106.58 milliseconds | 120 milliseconds |
+| 511 | 612.9 milliseconds | 195.77 milliseconds | 184.16 milliseconds |
 
 #### Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg
 
@@ -178,9 +178,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 1.2847 seconds | 1.0343 seconds | 1.009 seconds |
-| 255 | 854.39 milliseconds | 247.85 milliseconds | 227.91 milliseconds |
-| 511 | 633.16 milliseconds | 414.47 milliseconds | 831.12 milliseconds |
+| 126 | 1.3491 seconds | 942.51 milliseconds | 1.108 seconds |
+| 255 | 843.85 milliseconds | 748.93 milliseconds | 254.41 milliseconds |
+| 511 | 638.57 milliseconds | 845.68 milliseconds | 873.32 milliseconds |
 
 #### Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg
 
@@ -189,9 +189,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 468.46 milliseconds | 289.45 milliseconds | 268.44 milliseconds |
-| 255 | 813.7 milliseconds | 485.84 milliseconds | 483.93 milliseconds |
-| 511 | 1.814 seconds | 1.3896 seconds | 1.2522 seconds |
+| 126 | 452.36 milliseconds | 289.01 milliseconds | 272.02 milliseconds |
+| 255 | 797.53 milliseconds | 499.41 milliseconds | 441.15 milliseconds |
+| 511 | 1.8747 seconds | 1.4291 seconds | 1.2601 seconds |
 
 #### Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg
 
@@ -200,9 +200,9 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 1.1747 seconds | 694.53 milliseconds | 626.81 milliseconds |
-| 255 | 15.976 seconds | 12.292 seconds | 12.778 seconds |
-| 511 | 21.304 seconds | 15.481 seconds | 15.442 seconds |
+| 126 | 1.1829 seconds | 688.62 milliseconds | 633.76 milliseconds |
+| 255 | 15.893 seconds | 12.436 seconds | 13.348 seconds |
+| 511 | 20.811 seconds | 15.331 seconds | 15.904 seconds |
 
 ## Complete observable calculations
 
@@ -217,9 +217,9 @@ Calculate the registered combined observables across different numbers of sites 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 132.33 milliseconds | 60.096 milliseconds | 56.402 milliseconds |
-| 128 | 438.82 milliseconds | 229.88 milliseconds | 212.36 milliseconds |
-| 256 | 1.0661 seconds | 521.78 milliseconds | 487.77 milliseconds |
+| 64 | 123.81 milliseconds | 77.418 milliseconds | 58.834 milliseconds |
+| 128 | 449.49 milliseconds | 240.19 milliseconds | 216.74 milliseconds |
+| 256 | 1.0121 seconds | 541.36 milliseconds | 492.61 milliseconds |
 
 #### Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs
 
@@ -228,9 +228,9 @@ Calculate the registered multisite correlations over the full chain, including o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 35.287 milliseconds | 19.077 milliseconds | 18.07 milliseconds |
-| 128 | 151.1 milliseconds | 68.177 milliseconds | 64.337 milliseconds |
-| 256 | 303.38 milliseconds | 170.69 milliseconds | 143.81 milliseconds |
+| 64 | 35.093 milliseconds | 19.815 milliseconds | 18.996 milliseconds |
+| 128 | 145.32 milliseconds | 70.164 milliseconds | 66.251 milliseconds |
+| 256 | 295.91 milliseconds | 172.19 milliseconds | 146.09 milliseconds |
 
 #### Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs
 
@@ -239,9 +239,9 @@ Calculate the registered single-site observables over the full chain, including 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 32.907 milliseconds | 17.853 milliseconds | 19.565 milliseconds |
-| 128 | 141.38 milliseconds | 64.352 milliseconds | 64.251 milliseconds |
-| 256 | 309.88 milliseconds | 164.98 milliseconds | 146.22 milliseconds |
+| 64 | 33.24 milliseconds | 18.29 milliseconds | 21.033 milliseconds |
+| 128 | 124.56 milliseconds | 65.85 milliseconds | 70.482 milliseconds |
+| 256 | 301.03 milliseconds | 173.26 milliseconds | 150.46 milliseconds |
 
 #### Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs
 
@@ -250,9 +250,9 @@ Calculate the registered two-site correlations over the full chain, including ob
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 117.39 milliseconds | 48.257 milliseconds | 43.331 milliseconds |
-| 128 | 381.2 milliseconds | 199.3 milliseconds | 181.92 milliseconds |
-| 256 | 855.19 milliseconds | 430.42 milliseconds | 408.97 milliseconds |
+| 64 | 115.37 milliseconds | 60.236 milliseconds | 44.152 milliseconds |
+| 128 | 370.33 milliseconds | 207.62 milliseconds | 182.99 milliseconds |
+| 256 | 862.28 milliseconds | 438.65 milliseconds | 411.12 milliseconds |
 
 ### U(1) symmetry
 
@@ -264,9 +264,9 @@ Calculate the registered combined observables across different numbers of sites 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 304.39 milliseconds | 159.03 milliseconds | 137.33 milliseconds |
-| 128 | 548.6 milliseconds | 307.41 milliseconds | 289.2 milliseconds |
-| 256 | 1.7693 seconds | 936.31 milliseconds | 842.83 milliseconds |
+| 64 | 304.34 milliseconds | 141.53 milliseconds | 159.88 milliseconds |
+| 128 | 531.49 milliseconds | 314.23 milliseconds | 266.7 milliseconds |
+| 256 | 1.5714 seconds | 941.29 milliseconds | 850.03 milliseconds |
 
 #### Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -275,9 +275,9 @@ Calculate the registered multisite correlations over the full chain, including o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 106.76 milliseconds | 55.884 milliseconds | 52.048 milliseconds |
-| 128 | 197.14 milliseconds | 98.443 milliseconds | 84.842 milliseconds |
-| 256 | 583.56 milliseconds | 355.71 milliseconds | 313.94 milliseconds |
+| 64 | 98.838 milliseconds | 56.443 milliseconds | 51.529 milliseconds |
+| 128 | 192.71 milliseconds | 97.122 milliseconds | 88.428 milliseconds |
+| 256 | 576.48 milliseconds | 353.73 milliseconds | 299.76 milliseconds |
 
 #### Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -286,9 +286,9 @@ Calculate the registered single-site observables over the full chain, including 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 80.146 milliseconds | 64.295 milliseconds | 77.031 milliseconds |
-| 128 | 101.96 milliseconds | 64.02 milliseconds | 65.253 milliseconds |
-| 256 | 326.15 milliseconds | 197.49 milliseconds | 188.19 milliseconds |
+| 64 | 78.02 milliseconds | 65.246 milliseconds | 23.164 milliseconds |
+| 128 | 96.326 milliseconds | 66.471 milliseconds | 42.272 milliseconds |
+| 256 | 305.38 milliseconds | 190.63 milliseconds | 166.26 milliseconds |
 
 #### Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -297,9 +297,9 @@ Calculate the registered two-site correlations over the full chain, including ob
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 298.44 milliseconds | 189.4 milliseconds | 180.51 milliseconds |
-| 128 | 510.88 milliseconds | 321.09 milliseconds | 301.09 milliseconds |
-| 256 | 1.5247 seconds | 868 milliseconds | 860.26 milliseconds |
+| 64 | 291.77 milliseconds | 189.01 milliseconds | 172.44 milliseconds |
+| 128 | 509.17 milliseconds | 320.36 milliseconds | 289.3 milliseconds |
+| 256 | 1.4079 seconds | 890.35 milliseconds | 751.38 milliseconds |
 
 #### Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs
 
@@ -308,9 +308,9 @@ Calculate the registered combined observables across different numbers of sites 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 79.042 milliseconds | 48.833 milliseconds | 43.473 milliseconds |
-| 128 | 120.15 milliseconds | 67.26 milliseconds | 59.342 milliseconds |
-| 256 | 181 milliseconds | 99.582 milliseconds | 83.07 milliseconds |
+| 64 | 84.005 milliseconds | 49.945 milliseconds | 44.711 milliseconds |
+| 128 | 124.68 milliseconds | 69.525 milliseconds | 61.474 milliseconds |
+| 256 | 186.19 milliseconds | 123.52 milliseconds | 91.538 milliseconds |
 
 #### Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs
 
@@ -319,9 +319,9 @@ Calculate the registered multisite correlations over the full chain, including o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 17.427 milliseconds | 10.807 milliseconds | 10.508 milliseconds |
-| 128 | 26.106 milliseconds | 15.548 milliseconds | 14.882 milliseconds |
-| 256 | 34.602 milliseconds | 20.205 milliseconds | 20.358 milliseconds |
+| 64 | 18.682 milliseconds | 11.143 milliseconds | 10.522 milliseconds |
+| 128 | 28.358 milliseconds | 16.18 milliseconds | 15.564 milliseconds |
+| 256 | 36.07 milliseconds | 20.805 milliseconds | 20.359 milliseconds |
 
 #### Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs
 
@@ -330,9 +330,9 @@ Calculate the registered single-site observables over the full chain, including 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 13.487 milliseconds | 8.5985 milliseconds | 8.3768 milliseconds |
-| 128 | 18.134 milliseconds | 11.22 milliseconds | 10.674 milliseconds |
-| 256 | 24.799 milliseconds | 14.861 milliseconds | 13.799 milliseconds |
+| 64 | 13.709 milliseconds | 8.7822 milliseconds | 9.0225 milliseconds |
+| 128 | 18.67 milliseconds | 11.396 milliseconds | 11.294 milliseconds |
+| 256 | 25.901 milliseconds | 15.301 milliseconds | 14.58 milliseconds |
 
 #### Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs
 
@@ -341,9 +341,9 @@ Calculate the registered two-site correlations over the full chain, including ob
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 73.043 milliseconds | 48.017 milliseconds | 40.553 milliseconds |
-| 128 | 129.68 milliseconds | 63.548 milliseconds | 55.386 milliseconds |
-| 256 | 179.24 milliseconds | 85.498 milliseconds | 74.106 milliseconds |
+| 64 | 74.507 milliseconds | 48.694 milliseconds | 43.637 milliseconds |
+| 128 | 128.48 milliseconds | 66.899 milliseconds | 57.537 milliseconds |
+| 256 | 178.1 milliseconds | 116.18 milliseconds | 85.066 milliseconds |
 
 ### SU(2) symmetry
 
@@ -355,9 +355,9 @@ Calculate the registered combined two-site and four-site correlations over the f
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 33.467 milliseconds | 20.9 milliseconds | 20.141 milliseconds |
-| 128 | 40.836 milliseconds | 23.992 milliseconds | 22.867 milliseconds |
-| 256 | 43.159 milliseconds | 25.587 milliseconds | 24.727 milliseconds |
+| 60 | 36.819 milliseconds | 21.026 milliseconds | 20.753 milliseconds |
+| 128 | 43.85 milliseconds | 24.086 milliseconds | 23.102 milliseconds |
+| 256 | 45.177 milliseconds | 25.43 milliseconds | 24.961 milliseconds |
 
 #### Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs
 
@@ -366,9 +366,9 @@ Calculate the registered multisite correlations over the full chain, including o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 14.136 milliseconds | 9.352 milliseconds | 8.478 milliseconds |
-| 128 | 16.44 milliseconds | 11.077 milliseconds | 9.77 milliseconds |
-| 256 | 17.022 milliseconds | 10.622 milliseconds | 10.385 milliseconds |
+| 60 | 15.153 milliseconds | 8.9298 milliseconds | 9.0461 milliseconds |
+| 128 | 16.585 milliseconds | 10.147 milliseconds | 10.338 milliseconds |
+| 256 | 17.539 milliseconds | 10.888 milliseconds | 11.125 milliseconds |
 
 #### Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs
 
@@ -377,9 +377,9 @@ Calculate the registered two-site correlations over the full chain, including ob
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 28.039 milliseconds | 18.28 milliseconds | 17.837 milliseconds |
-| 128 | 32.733 milliseconds | 22.216 milliseconds | 19.543 milliseconds |
-| 256 | 35.289 milliseconds | 22.118 milliseconds | 21.019 milliseconds |
+| 60 | 32.127 milliseconds | 18.064 milliseconds | 17.875 milliseconds |
+| 128 | 35.004 milliseconds | 20.652 milliseconds | 19.793 milliseconds |
+| 256 | 39.832 milliseconds | 21.674 milliseconds | 20.829 milliseconds |
 
 #### Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg
 
@@ -388,9 +388,9 @@ Calculate the registered single-site matrix elements with an open spin channel o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 27.158 milliseconds | 18.751 milliseconds | 16.948 milliseconds |
-| 128 | 29.988 milliseconds | 21.06 milliseconds | 19.927 milliseconds |
-| 256 | 32.142 milliseconds | 23.706 milliseconds | 21.384 milliseconds |
+| 60 | 24.89 milliseconds | 18.187 milliseconds | 18.028 milliseconds |
+| 128 | 30.548 milliseconds | 22.422 milliseconds | 21.531 milliseconds |
+| 256 | 33.874 milliseconds | 25.525 milliseconds | 22.726 milliseconds |
 
 #### Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg
 
@@ -399,9 +399,9 @@ Calculate the registered single-site matrix elements with an open spin channel o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 64.92 milliseconds | 45.851 milliseconds | 41.442 milliseconds |
-| 128 | 123.51 milliseconds | 116.62 milliseconds | 53.894 milliseconds |
-| 256 | 189.47 milliseconds | 139.92 milliseconds | 147.32 milliseconds |
+| 60 | 65.455 milliseconds | 46.443 milliseconds | 42.024 milliseconds |
+| 128 | 125.75 milliseconds | 100.27 milliseconds | 58.304 milliseconds |
+| 256 | 183.77 milliseconds | 135.72 milliseconds | 142.81 milliseconds |
 
 ### U(1) × SU(2) symmetry
 
@@ -413,9 +413,9 @@ Calculate the registered combined observables across different numbers of sites 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 25.455 seconds | 17.253 seconds | 17.89 seconds |
-| 255 | 51.273 seconds | 34.555 seconds | 35.455 seconds |
-| 511 | 64.835 seconds | 43.924 seconds | 45.634 seconds |
+| 126 | 25.082 seconds | 18.246 seconds | 17.063 seconds |
+| 255 | 49.756 seconds | 34.45 seconds | 34.571 seconds |
+| 511 | 64.823 seconds | 43.754 seconds | 44.4 seconds |
 
 #### Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -424,9 +424,9 @@ Calculate the registered multisite correlations over the full chain, including o
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 10.17 seconds | 7.3924 seconds | 7.087 seconds |
-| 255 | 18.549 seconds | 13.76 seconds | 13.605 seconds |
-| 511 | 22.871 seconds | 16.585 seconds | 16.855 seconds |
+| 126 | 10.314 seconds | 7.7272 seconds | 7.3455 seconds |
+| 255 | 19.188 seconds | 14.07 seconds | 13.162 seconds |
+| 511 | 23.303 seconds | 17.086 seconds | 16.131 seconds |
 
 #### Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -435,9 +435,9 @@ Calculate the registered singlet pairing and spin-bond correlations over the ful
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 9.4391 seconds | 6.8512 seconds | 6.726 seconds |
-| 255 | 16.932 seconds | 12.067 seconds | 12.452 seconds |
-| 511 | 20.998 seconds | 14.667 seconds | 15.666 seconds |
+| 126 | 9.466 seconds | 7.1286 seconds | 6.8265 seconds |
+| 255 | 17.252 seconds | 12.031 seconds | 12.32 seconds |
+| 511 | 20.175 seconds | 15.083 seconds | 15.578 seconds |
 
 #### Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -446,9 +446,9 @@ Calculate the registered single-site observables over the full chain, including 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 358.58 milliseconds | 232.38 milliseconds | 204.23 milliseconds |
-| 255 | 561.98 milliseconds | 400.25 milliseconds | 388.9 milliseconds |
-| 511 | 933.61 milliseconds | 581.51 milliseconds | 631.1 milliseconds |
+| 126 | 388.51 milliseconds | 206.4 milliseconds | 217 milliseconds |
+| 255 | 586.54 milliseconds | 368.74 milliseconds | 433.58 milliseconds |
+| 511 | 1.0074 seconds | 576.78 milliseconds | 610.1 milliseconds |
 
 #### Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -457,9 +457,9 @@ Calculate the registered two-site correlations over the full chain, including ob
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 20.777 seconds | 15.175 seconds | 14.648 seconds |
-| 255 | 42.299 seconds | 28.548 seconds | 30.034 seconds |
-| 511 | 54.195 seconds | 36.982 seconds | 38.325 seconds |
+| 126 | 21.467 seconds | 14.51 seconds | 15.371 seconds |
+| 255 | 43.451 seconds | 28.62 seconds | 29.155 seconds |
+| 511 | 54.704 seconds | 37.672 seconds | 38.085 seconds |
 
 ## Supporting whole-chain operations
 
@@ -474,9 +474,9 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 8.1948 milliseconds | 8.2157 milliseconds | 8.2173 milliseconds |
-| 128 | 26.484 milliseconds | 26.455 milliseconds | 26.39 milliseconds |
-| 256 | 51.61 milliseconds | 53.238 milliseconds | 52.897 milliseconds |
+| 64 | 8.1725 milliseconds | 8.2868 milliseconds | 8.289 milliseconds |
+| 128 | 26.188 milliseconds | 26.787 milliseconds | 26.563 milliseconds |
+| 256 | 51.822 milliseconds | 52.351 milliseconds | 53.194 milliseconds |
 
 #### Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg
 
@@ -485,9 +485,9 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.4489 milliseconds | 1.1309 milliseconds | 909.84 microseconds |
-| 128 | 5.0637 milliseconds | 5.111 milliseconds | 2.8653 milliseconds |
-| 256 | 10.892 milliseconds | 6.4987 milliseconds | 7.2313 milliseconds |
+| 64 | 1.4223 milliseconds | 1.2559 milliseconds | 1.0306 milliseconds |
+| 128 | 4.9132 milliseconds | 3.2579 milliseconds | 2.8851 milliseconds |
+| 256 | 11.069 milliseconds | 6.6824 milliseconds | 7.2729 milliseconds |
 
 #### Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg
 
@@ -496,9 +496,9 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 4.8287 milliseconds | 2.6241 milliseconds | 2.4998 milliseconds |
-| 128 | 29.547 milliseconds | 14.592 milliseconds | 14.403 milliseconds |
-| 256 | 207.97 milliseconds | 103.08 milliseconds | 100.49 milliseconds |
+| 64 | 4.9235 milliseconds | 2.8768 milliseconds | 2.5165 milliseconds |
+| 128 | 28.365 milliseconds | 17.222 milliseconds | 14.028 milliseconds |
+| 256 | 205.72 milliseconds | 104.27 milliseconds | 102.29 milliseconds |
 
 #### Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs
 
@@ -507,9 +507,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 28.584 microseconds | 115.01 microseconds | 296.21 microseconds |
-| 128 | 100.03 microseconds | 187.13 microseconds | 290.58 microseconds |
-| 256 | 147.86 microseconds | 329.84 microseconds | 179.73 microseconds |
+| 64 | 38.311 microseconds | 81.803 microseconds | 258.7 microseconds |
+| 128 | 99.286 microseconds | 299.25 microseconds | 339.94 microseconds |
+| 256 | 159.97 microseconds | 422.47 microseconds | 514.38 microseconds |
 
 #### Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg
 
@@ -518,9 +518,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 286.39 microseconds | 275.27 microseconds | 275.81 microseconds |
-| 128 | 1.1975 milliseconds | 791.36 microseconds | 825.98 microseconds |
-| 256 | 4.7651 milliseconds | 3.5754 milliseconds | 3.4694 milliseconds |
+| 64 | 256.72 microseconds | 457.88 microseconds | 292.81 microseconds |
+| 128 | 1.2146 milliseconds | 948.66 microseconds | 589.56 microseconds |
+| 256 | 4.5178 milliseconds | 4.0177 milliseconds | 4.1528 milliseconds |
 
 ### U(1) symmetry
 
@@ -532,9 +532,9 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 715.4 microseconds | 590.61 microseconds | 665.53 microseconds |
-| 128 | 985.94 microseconds | 813.22 microseconds | 754.07 microseconds |
-| 256 | 1.2625 milliseconds | 962.52 microseconds | 898.85 microseconds |
+| 64 | 666.05 microseconds | 973.5 microseconds | 710.87 microseconds |
+| 128 | 967.55 microseconds | 987.9 microseconds | 844.92 microseconds |
+| 256 | 1.3924 milliseconds | 982.56 microseconds | 857.97 microseconds |
 
 #### Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs
 
@@ -543,9 +543,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 7.274 microseconds | 228.23 microseconds | 62.367 microseconds |
-| 128 | 19.257 microseconds | 88.286 microseconds | 217.36 microseconds |
-| 256 | 36.529 microseconds | 215.63 microseconds | 86.783 microseconds |
+| 64 | 7.975 microseconds | 241.84 microseconds | 76.122 microseconds |
+| 128 | 26.008 microseconds | 216.97 microseconds | 92.783 microseconds |
+| 256 | 47.618 microseconds | 86.18 microseconds | 240.5 microseconds |
 
 #### Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -554,9 +554,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 27.552 microseconds | 79.059 microseconds | 261.1 microseconds |
-| 128 | 99.878 microseconds | 110.24 microseconds | 449.55 microseconds |
-| 256 | 264.18 microseconds | 352.98 microseconds | 420 microseconds |
+| 64 | 28.764 microseconds | 71.192 microseconds | 71.624 microseconds |
+| 128 | 104.96 microseconds | 251.07 microseconds | 343.04 microseconds |
+| 256 | 329.68 microseconds | 320.47 microseconds | 319.99 microseconds |
 
 ### SU(2) symmetry
 
@@ -568,9 +568,9 @@ Build left and right environments over the full chain from an MPO base and the H
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 23.545 milliseconds | 15.682 milliseconds | 15.813 milliseconds |
-| 128 | 28.384 milliseconds | 18.376 milliseconds | 19.319 milliseconds |
-| 256 | 43.429 milliseconds | 27.906 milliseconds | 24.401 milliseconds |
+| 60 | 22.974 milliseconds | 16.005 milliseconds | 17.823 milliseconds |
+| 128 | 27.65 milliseconds | 18.562 milliseconds | 20.834 milliseconds |
+| 256 | 42.288 milliseconds | 29.418 milliseconds | 25.323 milliseconds |
 
 #### Left and right canonicalization of base tensors · MPO with a purification leg
 
@@ -579,9 +579,9 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 3.7831 milliseconds | 3.9114 milliseconds | 3.728 milliseconds |
-| 128 | 5.6096 milliseconds | 5.5709 milliseconds | 5.3445 milliseconds |
-| 256 | 9.8038 milliseconds | 9.69 milliseconds | 9.339 milliseconds |
+| 60 | 3.7169 milliseconds | 3.8319 milliseconds | 3.8458 milliseconds |
+| 128 | 5.3933 milliseconds | 5.5517 milliseconds | 5.4009 milliseconds |
+| 256 | 9.5939 milliseconds | 9.5557 milliseconds | 9.3846 milliseconds |
 
 #### Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg
 
@@ -590,9 +590,9 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 2.1674 milliseconds | 1.34 milliseconds | 1.3501 milliseconds |
-| 128 | 3.0485 milliseconds | 2.3276 milliseconds | 1.6562 milliseconds |
-| 256 | 4.9275 milliseconds | 2.7629 milliseconds | 2.2983 milliseconds |
+| 60 | 2.0959 milliseconds | 1.5465 milliseconds | 1.3295 milliseconds |
+| 128 | 2.8263 milliseconds | 1.9984 milliseconds | 1.6663 milliseconds |
+| 256 | 4.5782 milliseconds | 3.2675 milliseconds | 2.4381 milliseconds |
 
 #### Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs
 
@@ -601,9 +601,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 65.123 microseconds | 134.55 microseconds | 149.35 microseconds |
-| 128 | 96.863 microseconds | 139.5 microseconds | 293.52 microseconds |
-| 256 | 98.335 microseconds | 219.09 microseconds | 121.01 microseconds |
+| 60 | 65.892 microseconds | 99.365 microseconds | 207.18 microseconds |
+| 128 | 79.809 microseconds | 138.56 microseconds | 453.25 microseconds |
+| 256 | 103.74 microseconds | 146.76 microseconds | 310.2 microseconds |
 
 #### Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -612,9 +612,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 118.76 microseconds | 279.61 microseconds | 184.98 microseconds |
-| 128 | 147.89 microseconds | 197.21 microseconds | 305.56 microseconds |
-| 256 | 217.6 microseconds | 248.7 microseconds | 383.9 microseconds |
+| 60 | 129.04 microseconds | 283.7 microseconds | 168.22 microseconds |
+| 128 | 171.5 microseconds | 155.71 microseconds | 153.43 microseconds |
+| 256 | 195.56 microseconds | 288.28 microseconds | 507.19 microseconds |
 
 ### U(1) × SU(2) symmetry
 
@@ -626,9 +626,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 484.43 microseconds | 400.06 microseconds | 517.53 microseconds |
-| 255 | 600.98 microseconds | 885.58 microseconds | 725.92 microseconds |
-| 511 | 789.98 microseconds | 912.99 microseconds | 916.42 microseconds |
+| 126 | 490.12 microseconds | 395.39 microseconds | 527.57 microseconds |
+| 255 | 598.17 microseconds | 679.29 microseconds | 775.09 microseconds |
+| 511 | 787.78 microseconds | 743.84 microseconds | 762.94 microseconds |
 
 #### Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg
 
@@ -637,9 +637,9 @@ Compute the inner product of two independently generated tangent vectors with ma
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 997.37 microseconds | 685.39 microseconds | 1.0572 milliseconds |
-| 255 | 1.5703 milliseconds | 1.235 milliseconds | 1.6744 milliseconds |
-| 511 | 2.565 milliseconds | 2.3567 milliseconds | 1.9547 milliseconds |
+| 126 | 1.0193 milliseconds | 862.05 microseconds | 975.94 microseconds |
+| 255 | 1.6709 milliseconds | 1.6196 milliseconds | 1.5731 milliseconds |
+| 511 | 2.3065 milliseconds | 1.5857 milliseconds | 1.832 milliseconds |
 
 ## Internal calculation stages
 
@@ -654,9 +654,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.6993 milliseconds | 1.5153 milliseconds | 1.5102 milliseconds |
-| 128 | 17.574 milliseconds | 10.174 milliseconds | 9.4761 milliseconds |
-| 256 | 55.137 milliseconds | 25.223 milliseconds | 24.058 milliseconds |
+| 64 | 2.7595 milliseconds | 1.5795 milliseconds | 1.616 milliseconds |
+| 128 | 17.585 milliseconds | 9.9234 milliseconds | 9.2479 milliseconds |
+| 256 | 44.241 milliseconds | 25.724 milliseconds | 24.507 milliseconds |
 
 </details>
 
@@ -668,9 +668,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.7194 milliseconds | 1.4933 milliseconds | 1.6574 milliseconds |
-| 128 | 17.487 milliseconds | 9.5322 milliseconds | 9.5702 milliseconds |
-| 256 | 64.769 milliseconds | 31.099 milliseconds | 29.523 milliseconds |
+| 64 | 2.8397 milliseconds | 1.5765 milliseconds | 1.6373 milliseconds |
+| 128 | 17.396 milliseconds | 10.397 milliseconds | 9.47 milliseconds |
+| 256 | 54.953 milliseconds | 31.051 milliseconds | 29.451 milliseconds |
 
 </details>
 
@@ -682,9 +682,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 5.4959 milliseconds | 3.0521 milliseconds | 2.9922 milliseconds |
-| 128 | 35.966 milliseconds | 20.191 milliseconds | 18.987 milliseconds |
-| 256 | 113.9 milliseconds | 52.296 milliseconds | 52.312 milliseconds |
+| 64 | 5.7427 milliseconds | 3.151 milliseconds | 3.085 milliseconds |
+| 128 | 37.282 milliseconds | 20.606 milliseconds | 18.931 milliseconds |
+| 256 | 111.62 milliseconds | 62.582 milliseconds | 49.961 milliseconds |
 
 </details>
 
@@ -696,9 +696,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 5.2361 milliseconds | 4.347 milliseconds | 2.7942 milliseconds |
-| 128 | 35.559 milliseconds | 22.757 milliseconds | 19.373 milliseconds |
-| 256 | 110.09 milliseconds | 62.994 milliseconds | 67.414 milliseconds |
+| 64 | 5.2437 milliseconds | 3.1015 milliseconds | 2.8988 milliseconds |
+| 128 | 35.647 milliseconds | 19.961 milliseconds | 19.082 milliseconds |
+| 256 | 112.3 milliseconds | 63.64 milliseconds | 62.318 milliseconds |
 
 </details>
 
@@ -710,9 +710,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 5.1108 milliseconds | 2.8602 milliseconds | 2.9313 milliseconds |
-| 128 | 35.67 milliseconds | 19.595 milliseconds | 18.088 milliseconds |
-| 256 | 265.1 milliseconds | 149.95 milliseconds | 133.31 milliseconds |
+| 64 | 5.1411 milliseconds | 4.8189 milliseconds | 2.8836 milliseconds |
+| 128 | 45.18 milliseconds | 20.448 milliseconds | 18.486 milliseconds |
+| 256 | 266.69 milliseconds | 152.05 milliseconds | 135.29 milliseconds |
 
 </details>
 
@@ -724,9 +724,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 4.991 milliseconds | 2.7863 milliseconds | 2.936 milliseconds |
-| 128 | 44.39 milliseconds | 22.879 milliseconds | 18.552 milliseconds |
-| 256 | 266.67 milliseconds | 152.05 milliseconds | 133.75 milliseconds |
+| 64 | 5.0285 milliseconds | 4.5752 milliseconds | 2.8897 milliseconds |
+| 128 | 43.541 milliseconds | 22.347 milliseconds | 18.288 milliseconds |
+| 256 | 264.13 milliseconds | 148.16 milliseconds | 147.45 milliseconds |
 
 </details>
 
@@ -738,9 +738,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 16.91 milliseconds | 6.9467 milliseconds | 6.2 milliseconds |
-| 128 | 71.79 milliseconds | 40.145 milliseconds | 36.79 milliseconds |
-| 256 | 551.76 milliseconds | 338.56 milliseconds | 275.88 milliseconds |
+| 64 | 17.05 milliseconds | 5.7669 milliseconds | 5.3487 milliseconds |
+| 128 | 72.239 milliseconds | 40.32 milliseconds | 37.551 milliseconds |
+| 256 | 556.4 milliseconds | 318.34 milliseconds | 311.35 milliseconds |
 
 </details>
 
@@ -752,9 +752,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 11.4 milliseconds | 8.6613 milliseconds | 6.4805 milliseconds |
-| 128 | 69.561 milliseconds | 39.938 milliseconds | 37.321 milliseconds |
-| 256 | 539.07 milliseconds | 304.92 milliseconds | 298.83 milliseconds |
+| 64 | 15.608 milliseconds | 8.0194 milliseconds | 5.7777 milliseconds |
+| 128 | 69.711 milliseconds | 39.394 milliseconds | 37.312 milliseconds |
+| 256 | 552.68 milliseconds | 311.32 milliseconds | 302.01 milliseconds |
 
 </details>
 
@@ -766,9 +766,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.8853 milliseconds | 1.0841 milliseconds | 1.0381 milliseconds |
-| 128 | 11.988 milliseconds | 9.5802 milliseconds | 6.4314 milliseconds |
-| 256 | 40.147 milliseconds | 19.712 milliseconds | 18.301 milliseconds |
+| 64 | 1.8888 milliseconds | 1.1369 milliseconds | 1.0258 milliseconds |
+| 128 | 11.812 milliseconds | 7.1849 milliseconds | 6.4852 milliseconds |
+| 256 | 34.377 milliseconds | 19.775 milliseconds | 18.649 milliseconds |
 
 </details>
 
@@ -780,9 +780,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.6671 milliseconds | 1.9435 milliseconds | 1.963 milliseconds |
-| 128 | 23.728 milliseconds | 13.2 milliseconds | 12.752 milliseconds |
-| 256 | 87.905 milliseconds | 39.744 milliseconds | 36.229 milliseconds |
+| 64 | 3.7158 milliseconds | 2.0687 milliseconds | 2.1818 milliseconds |
+| 128 | 23.83 milliseconds | 13.985 milliseconds | 12.734 milliseconds |
+| 256 | 90.277 milliseconds | 45.969 milliseconds | 38.857 milliseconds |
 
 </details>
 
@@ -794,9 +794,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.5412 milliseconds | 2.0429 milliseconds | 2.0735 milliseconds |
-| 128 | 36.197 milliseconds | 16.916 milliseconds | 12.794 milliseconds |
-| 256 | 177.95 milliseconds | 97.794 milliseconds | 99.063 milliseconds |
+| 64 | 3.5899 milliseconds | 3.4209 milliseconds | 2.0611 milliseconds |
+| 128 | 36.445 milliseconds | 16.428 milliseconds | 12.647 milliseconds |
+| 256 | 179.87 milliseconds | 97.765 milliseconds | 97.857 milliseconds |
 
 </details>
 
@@ -808,9 +808,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 6.848 milliseconds | 3.7392 milliseconds | 3.9151 milliseconds |
-| 128 | 70.143 milliseconds | 37.578 milliseconds | 24.557 milliseconds |
-| 256 | 362.05 milliseconds | 206.86 milliseconds | 185.8 milliseconds |
+| 64 | 6.9372 milliseconds | 3.9407 milliseconds | 3.6349 milliseconds |
+| 128 | 72.276 milliseconds | 36.189 milliseconds | 25.287 milliseconds |
+| 256 | 358.5 milliseconds | 207.33 milliseconds | 197.91 milliseconds |
 
 </details>
 
@@ -822,9 +822,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.016 milliseconds | 1.2389 milliseconds | 1.0536 milliseconds |
-| 128 | 12.235 milliseconds | 6.7644 milliseconds | 6.7183 milliseconds |
-| 256 | 42.531 milliseconds | 21.482 milliseconds | 18.185 milliseconds |
+| 64 | 1.9446 milliseconds | 1.1317 milliseconds | 1.1744 milliseconds |
+| 128 | 11.987 milliseconds | 9.1456 milliseconds | 6.6086 milliseconds |
+| 256 | 34.138 milliseconds | 19.648 milliseconds | 18.111 milliseconds |
 
 </details>
 
@@ -836,9 +836,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.0153 milliseconds | 1.2333 milliseconds | 1.1242 milliseconds |
-| 128 | 12.379 milliseconds | 7.6396 milliseconds | 6.5486 milliseconds |
-| 256 | 46.563 milliseconds | 21.207 milliseconds | 18.446 milliseconds |
+| 64 | 2.0618 milliseconds | 1.2186 milliseconds | 1.148 milliseconds |
+| 128 | 12.216 milliseconds | 7.0825 milliseconds | 6.5616 milliseconds |
+| 256 | 42.469 milliseconds | 21.462 milliseconds | 18.842 milliseconds |
 
 </details>
 
@@ -850,9 +850,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.5639 milliseconds | 1.9949 milliseconds | 2.1759 milliseconds |
-| 128 | 30.994 milliseconds | 14.6 milliseconds | 13.117 milliseconds |
-| 256 | 179.58 milliseconds | 99.108 milliseconds | 93.759 milliseconds |
+| 64 | 3.7379 milliseconds | 2.0655 milliseconds | 2.2774 milliseconds |
+| 128 | 30.939 milliseconds | 13.8 milliseconds | 13.082 milliseconds |
+| 256 | 181.13 milliseconds | 104.8 milliseconds | 93.806 milliseconds |
 
 </details>
 
@@ -864,9 +864,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 4.2546 milliseconds | 2.2778 milliseconds | 2.1889 milliseconds |
-| 128 | 39.137 milliseconds | 20.588 milliseconds | 13.561 milliseconds |
-| 256 | 189.3 milliseconds | 111.96 milliseconds | 103.54 milliseconds |
+| 64 | 4.1145 milliseconds | 2.418 milliseconds | 2.2944 milliseconds |
+| 128 | 38.884 milliseconds | 17.786 milliseconds | 13.82 milliseconds |
+| 256 | 191.76 milliseconds | 109.22 milliseconds | 103.24 milliseconds |
 
 </details>
 
@@ -878,9 +878,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 538.06 microseconds | 291.44 microseconds | 319.45 microseconds |
-| 128 | 3.129 milliseconds | 1.8289 milliseconds | 1.6392 milliseconds |
-| 256 | 12.088 milliseconds | 6.9028 milliseconds | 6.2437 milliseconds |
+| 64 | 478.5 microseconds | 352.75 microseconds | 341.07 microseconds |
+| 128 | 3.2174 milliseconds | 1.6723 milliseconds | 1.6404 milliseconds |
+| 256 | 12.224 milliseconds | 6.2686 milliseconds | 6.1194 milliseconds |
 
 </details>
 
@@ -892,9 +892,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 525.99 microseconds | 593.11 microseconds | 441.85 microseconds |
-| 128 | 3.1675 milliseconds | 3.2061 milliseconds | 1.6757 milliseconds |
-| 256 | 7.407 milliseconds | 6.2413 milliseconds | 3.3761 milliseconds |
+| 64 | 481.84 microseconds | 403.22 microseconds | 321.03 microseconds |
+| 128 | 3.1816 milliseconds | 1.6944 milliseconds | 1.6336 milliseconds |
+| 256 | 7.3979 milliseconds | 3.3679 milliseconds | 3.2532 milliseconds |
 
 </details>
 
@@ -906,9 +906,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 873.3 microseconds | 855.65 microseconds | 549.92 microseconds |
-| 128 | 6.3551 milliseconds | 6.16 milliseconds | 3.3628 milliseconds |
-| 256 | 27.033 milliseconds | 12.312 milliseconds | 12.164 milliseconds |
+| 64 | 884.65 microseconds | 513.58 microseconds | 502.46 microseconds |
+| 128 | 6.3901 milliseconds | 3.3182 milliseconds | 3.3436 milliseconds |
+| 256 | 27.582 milliseconds | 13.904 milliseconds | 12.23 milliseconds |
 
 </details>
 
@@ -920,9 +920,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 930.65 microseconds | 529.97 microseconds | 618.92 microseconds |
-| 128 | 6.3181 milliseconds | 6.2816 milliseconds | 3.3493 milliseconds |
-| 256 | 12.83 milliseconds | 6.5878 milliseconds | 6.4506 milliseconds |
+| 64 | 920.75 microseconds | 515.21 microseconds | 525 microseconds |
+| 128 | 6.4372 milliseconds | 3.2984 milliseconds | 3.2642 milliseconds |
+| 256 | 12.826 milliseconds | 10.782 milliseconds | 6.6065 milliseconds |
 
 </details>
 
@@ -934,9 +934,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 860.26 microseconds | 500.64 microseconds | 484.4 microseconds |
-| 128 | 6.3874 milliseconds | 6.1629 milliseconds | 3.2176 milliseconds |
-| 256 | 48.739 milliseconds | 24.126 milliseconds | 24.296 milliseconds |
+| 64 | 870.76 microseconds | 863.39 microseconds | 713.33 microseconds |
+| 128 | 8.1534 milliseconds | 7.2559 milliseconds | 3.3941 milliseconds |
+| 256 | 48.259 milliseconds | 25.855 milliseconds | 24.222 milliseconds |
 
 </details>
 
@@ -948,9 +948,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 884.56 microseconds | 481.89 microseconds | 544.48 microseconds |
-| 128 | 6.5061 milliseconds | 4.2717 milliseconds | 3.4391 milliseconds |
-| 256 | 50.71 milliseconds | 24.888 milliseconds | 24.45 milliseconds |
+| 64 | 902.95 microseconds | 520.17 microseconds | 494.59 microseconds |
+| 128 | 8.1868 milliseconds | 3.3967 milliseconds | 3.3994 milliseconds |
+| 256 | 48.662 milliseconds | 24.573 milliseconds | 24.707 milliseconds |
 
 </details>
 
@@ -962,9 +962,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.6919 milliseconds | 1.7421 milliseconds | 918.48 microseconds |
-| 128 | 12.674 milliseconds | 12.36 milliseconds | 6.4144 milliseconds |
-| 256 | 95.594 milliseconds | 48.588 milliseconds | 48.41 milliseconds |
+| 64 | 1.8103 milliseconds | 941.82 microseconds | 909.75 microseconds |
+| 128 | 13.257 milliseconds | 6.8804 milliseconds | 6.7461 milliseconds |
+| 256 | 95.36 milliseconds | 49.071 milliseconds | 50.095 milliseconds |
 
 </details>
 
@@ -976,9 +976,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.7397 milliseconds | 1.7317 milliseconds | 1.1286 milliseconds |
-| 128 | 12.747 milliseconds | 6.839 milliseconds | 6.8258 milliseconds |
-| 256 | 103.25 milliseconds | 51.443 milliseconds | 52.009 milliseconds |
+| 64 | 1.7622 milliseconds | 984.76 microseconds | 1.0442 milliseconds |
+| 128 | 13.076 milliseconds | 6.7131 milliseconds | 6.4725 milliseconds |
+| 256 | 103.73 milliseconds | 53.298 milliseconds | 51.869 milliseconds |
 
 </details>
 
@@ -993,9 +993,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.0786 milliseconds | 1.0938 milliseconds | 1.2033 milliseconds |
-| 128 | 4.7632 milliseconds | 3.9866 milliseconds | 2.3632 milliseconds |
-| 256 | 7.9692 milliseconds | 6.4275 milliseconds | 3.9495 milliseconds |
+| 64 | 1.974 milliseconds | 1.7625 milliseconds | 1.085 milliseconds |
+| 128 | 4.8806 milliseconds | 3.7894 milliseconds | 2.4178 milliseconds |
+| 256 | 8.4398 milliseconds | 4.3176 milliseconds | 3.8473 milliseconds |
 
 </details>
 
@@ -1007,9 +1007,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.2484 milliseconds | 1.1713 milliseconds | 1.1855 milliseconds |
-| 128 | 6.0073 milliseconds | 4.0027 milliseconds | 2.2013 milliseconds |
-| 256 | 9.9523 milliseconds | 5.2471 milliseconds | 4.1088 milliseconds |
+| 64 | 2.0984 milliseconds | 1.1562 milliseconds | 1.1147 milliseconds |
+| 128 | 6.8553 milliseconds | 3.9437 milliseconds | 2.3089 milliseconds |
+| 256 | 10.473 milliseconds | 4.7469 milliseconds | 4.7191 milliseconds |
 
 </details>
 
@@ -1021,9 +1021,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.4552 milliseconds | 2.3189 milliseconds | 1.2777 milliseconds |
-| 128 | 5.178 milliseconds | 3.0512 milliseconds | 2.7435 milliseconds |
-| 256 | 8.7048 milliseconds | 5.0575 milliseconds | 4.0548 milliseconds |
+| 64 | 2.5657 milliseconds | 1.5313 milliseconds | 1.2858 milliseconds |
+| 128 | 5.3503 milliseconds | 2.9612 milliseconds | 2.7108 milliseconds |
+| 256 | 9.2541 milliseconds | 4.7901 milliseconds | 4.4422 milliseconds |
 
 </details>
 
@@ -1035,9 +1035,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.5933 milliseconds | 2.2874 milliseconds | 1.3033 milliseconds |
-| 128 | 5.496 milliseconds | 2.8315 milliseconds | 2.3914 milliseconds |
-| 256 | 9.3961 milliseconds | 7.3499 milliseconds | 4.2408 milliseconds |
+| 64 | 2.8616 milliseconds | 1.3966 milliseconds | 1.3427 milliseconds |
+| 128 | 5.7046 milliseconds | 2.7627 milliseconds | 2.5315 milliseconds |
+| 256 | 10.44 milliseconds | 4.9597 milliseconds | 4.8252 milliseconds |
 
 </details>
 
@@ -1049,9 +1049,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.513 milliseconds | 2.0456 milliseconds | 1.9145 milliseconds |
-| 128 | 9.1656 milliseconds | 7.3954 milliseconds | 4.382 milliseconds |
-| 256 | 44.004 milliseconds | 16.995 milliseconds | 22.411 milliseconds |
+| 64 | 3.4717 milliseconds | 2.0514 milliseconds | 1.8458 milliseconds |
+| 128 | 9.2757 milliseconds | 4.8388 milliseconds | 4.2142 milliseconds |
+| 256 | 37.348 milliseconds | 22.095 milliseconds | 16.528 milliseconds |
 
 </details>
 
@@ -1063,9 +1063,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.2681 milliseconds | 3.0221 milliseconds | 1.7864 milliseconds |
-| 128 | 8.6813 milliseconds | 4.7502 milliseconds | 4.0801 milliseconds |
-| 256 | 34.434 milliseconds | 16.779 milliseconds | 14.337 milliseconds |
+| 64 | 3.2959 milliseconds | 1.8177 milliseconds | 1.6489 milliseconds |
+| 128 | 8.7717 milliseconds | 4.5022 milliseconds | 4.1781 milliseconds |
+| 256 | 36.619 milliseconds | 17.243 milliseconds | 16.219 milliseconds |
 
 </details>
 
@@ -1077,9 +1077,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.911 milliseconds | 2.2753 milliseconds | 2.1187 milliseconds |
-| 128 | 10.213 milliseconds | 5.4188 milliseconds | 4.3164 milliseconds |
-| 256 | 38.63 milliseconds | 17.802 milliseconds | 15.176 milliseconds |
+| 64 | 4.084 milliseconds | 3.3754 milliseconds | 2.1513 milliseconds |
+| 128 | 9.5754 milliseconds | 5.3982 milliseconds | 4.4721 milliseconds |
+| 256 | 36.489 milliseconds | 18.345 milliseconds | 15.289 milliseconds |
 
 </details>
 
@@ -1091,9 +1091,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 3.9401 milliseconds | 2.2159 milliseconds | 2.1257 milliseconds |
-| 128 | 9.506 milliseconds | 7.2504 milliseconds | 4.3578 milliseconds |
-| 256 | 31.709 milliseconds | 17.483 milliseconds | 16.022 milliseconds |
+| 64 | 4.4004 milliseconds | 2.1203 milliseconds | 2.2665 milliseconds |
+| 128 | 9.9759 milliseconds | 4.9341 milliseconds | 4.6301 milliseconds |
+| 256 | 37.92 milliseconds | 17.825 milliseconds | 16.141 milliseconds |
 
 </details>
 
@@ -1105,9 +1105,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.5178 milliseconds | 878.41 microseconds | 833.77 microseconds |
-| 128 | 5.343 milliseconds | 2.8359 milliseconds | 1.714 milliseconds |
-| 256 | 11.787 milliseconds | 3.3257 milliseconds | 2.8434 milliseconds |
+| 64 | 2.5839 milliseconds | 876.92 microseconds | 997.01 microseconds |
+| 128 | 5.8402 milliseconds | 2.7835 milliseconds | 1.7519 milliseconds |
+| 256 | 12.609 milliseconds | 3.2885 milliseconds | 3.1857 milliseconds |
 
 </details>
 
@@ -1119,9 +1119,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.5473 milliseconds | 935.23 microseconds | 872.73 microseconds |
-| 128 | 3.3246 milliseconds | 1.8947 milliseconds | 2.0762 milliseconds |
-| 256 | 6.1109 milliseconds | 3.3385 milliseconds | 2.8051 milliseconds |
+| 64 | 1.5781 milliseconds | 917.37 microseconds | 956.88 microseconds |
+| 128 | 3.6715 milliseconds | 1.9156 milliseconds | 1.8937 milliseconds |
+| 256 | 6.8052 milliseconds | 3.1322 milliseconds | 3.1719 milliseconds |
 
 </details>
 
@@ -1133,9 +1133,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.3092 milliseconds | 1.3363 milliseconds | 1.311 milliseconds |
-| 128 | 6.228 milliseconds | 3.8207 milliseconds | 3.5683 milliseconds |
-| 256 | 22.179 milliseconds | 11.293 milliseconds | 10.12 milliseconds |
+| 64 | 2.404 milliseconds | 1.4079 milliseconds | 1.4194 milliseconds |
+| 128 | 6.3671 milliseconds | 4.0348 milliseconds | 3.6991 milliseconds |
+| 256 | 22.305 milliseconds | 11.46 milliseconds | 10.63 milliseconds |
 
 </details>
 
@@ -1147,9 +1147,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.4083 milliseconds | 2.0826 milliseconds | 1.28 milliseconds |
-| 128 | 5.9495 milliseconds | 3.4954 milliseconds | 3.5304 milliseconds |
-| 256 | 19.815 milliseconds | 10.704 milliseconds | 9.591 milliseconds |
+| 64 | 2.333 milliseconds | 1.2927 milliseconds | 1.3764 milliseconds |
+| 128 | 6.3992 milliseconds | 3.9941 milliseconds | 3.18 milliseconds |
+| 256 | 19.997 milliseconds | 10.504 milliseconds | 9.4474 milliseconds |
 
 </details>
 
@@ -1161,9 +1161,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.4345 milliseconds | 897.56 microseconds | 754.36 microseconds |
-| 128 | 3.1533 milliseconds | 1.9279 milliseconds | 1.6208 milliseconds |
-| 256 | 5.7339 milliseconds | 3.3521 milliseconds | 2.9792 milliseconds |
+| 64 | 1.4452 milliseconds | 855.87 microseconds | 812.07 microseconds |
+| 128 | 3.2758 milliseconds | 1.985 milliseconds | 1.6994 milliseconds |
+| 256 | 6.177 milliseconds | 3.281 milliseconds | 3.0554 milliseconds |
 
 </details>
 
@@ -1175,9 +1175,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 1.5274 milliseconds | 1.4394 milliseconds | 799.92 microseconds |
-| 128 | 3.3051 milliseconds | 3.1127 milliseconds | 1.5915 milliseconds |
-| 256 | 5.9619 milliseconds | 5.3606 milliseconds | 2.6855 milliseconds |
+| 64 | 1.5092 milliseconds | 977.62 microseconds | 841.99 microseconds |
+| 128 | 3.5332 milliseconds | 1.9848 milliseconds | 1.6355 milliseconds |
+| 256 | 6.483 milliseconds | 3.4231 milliseconds | 3.1174 milliseconds |
 
 </details>
 
@@ -1189,9 +1189,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.3512 milliseconds | 1.3561 milliseconds | 1.1646 milliseconds |
-| 128 | 6.1762 milliseconds | 3.531 milliseconds | 3.2723 milliseconds |
-| 256 | 22.119 milliseconds | 11.634 milliseconds | 9.7606 milliseconds |
+| 64 | 2.4028 milliseconds | 2.1464 milliseconds | 1.3859 milliseconds |
+| 128 | 6.5001 milliseconds | 5.3222 milliseconds | 3.5029 milliseconds |
+| 256 | 21.937 milliseconds | 11.886 milliseconds | 10.168 milliseconds |
 
 </details>
 
@@ -1203,9 +1203,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 2.3893 milliseconds | 1.3437 milliseconds | 1.1367 milliseconds |
-| 128 | 6.2689 milliseconds | 4.2398 milliseconds | 3.4821 milliseconds |
-| 256 | 22.037 milliseconds | 11.792 milliseconds | 10.337 milliseconds |
+| 64 | 2.3764 milliseconds | 1.3583 milliseconds | 1.2206 milliseconds |
+| 128 | 6.2503 milliseconds | 3.9461 milliseconds | 3.7773 milliseconds |
+| 256 | 26.73 milliseconds | 11.792 milliseconds | 10.451 milliseconds |
 
 </details>
 
@@ -1217,9 +1217,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 234.98 microseconds | 173.54 microseconds | 166.5 microseconds |
-| 128 | 761.44 microseconds | 568.22 microseconds | 747.72 microseconds |
-| 256 | 1.721 milliseconds | 1.1333 milliseconds | 1.1189 milliseconds |
+| 64 | 243.7 microseconds | 270.2 microseconds | 197.41 microseconds |
+| 128 | 786.41 microseconds | 691.76 microseconds | 481.42 microseconds |
+| 256 | 1.8459 milliseconds | 958.93 microseconds | 884.74 microseconds |
 
 </details>
 
@@ -1231,9 +1231,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 178.3 microseconds | 139.25 microseconds | 124.46 microseconds |
-| 128 | 576.34 microseconds | 377.24 microseconds | 310.74 microseconds |
-| 256 | 902.7 microseconds | 855.54 microseconds | 616.41 microseconds |
+| 64 | 202.33 microseconds | 204.76 microseconds | 129.96 microseconds |
+| 128 | 640.84 microseconds | 341.4 microseconds | 328.07 microseconds |
+| 256 | 1.0426 milliseconds | 551.21 microseconds | 624.19 microseconds |
 
 </details>
 
@@ -1245,9 +1245,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 235.9 microseconds | 202.59 microseconds | 301.11 microseconds |
-| 128 | 701.21 microseconds | 794.39 microseconds | 379.44 microseconds |
-| 256 | 1.5317 milliseconds | 897.61 microseconds | 994.82 microseconds |
+| 64 | 248.44 microseconds | 174.91 microseconds | 198.72 microseconds |
+| 128 | 720.92 microseconds | 435.62 microseconds | 600.04 microseconds |
+| 256 | 1.7183 milliseconds | 852.47 microseconds | 969.84 microseconds |
 
 </details>
 
@@ -1259,9 +1259,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 246.16 microseconds | 282.98 microseconds | 152.62 microseconds |
-| 128 | 724.2 microseconds | 570.08 microseconds | 510.63 microseconds |
-| 256 | 1.0845 milliseconds | 653.5 microseconds | 736.54 microseconds |
+| 64 | 253.44 microseconds | 177.58 microseconds | 333.82 microseconds |
+| 128 | 754.48 microseconds | 402.05 microseconds | 562.59 microseconds |
+| 256 | 1.2386 milliseconds | 628.32 microseconds | 602.52 microseconds |
 
 </details>
 
@@ -1273,9 +1273,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 389.42 microseconds | 241.01 microseconds | 297.27 microseconds |
-| 128 | 1.2856 milliseconds | 719.88 microseconds | 781.87 microseconds |
-| 256 | 5.5308 milliseconds | 2.8918 milliseconds | 2.7151 milliseconds |
+| 64 | 386.12 microseconds | 242.1 microseconds | 259.79 microseconds |
+| 128 | 1.3271 milliseconds | 1.1323 milliseconds | 644.01 microseconds |
+| 256 | 5.8818 milliseconds | 2.937 milliseconds | 2.9737 milliseconds |
 
 </details>
 
@@ -1287,9 +1287,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 407.31 microseconds | 431.85 microseconds | 226.02 microseconds |
-| 128 | 1.3597 milliseconds | 698.12 microseconds | 636.04 microseconds |
-| 256 | 5.5952 milliseconds | 4.7057 milliseconds | 2.8375 milliseconds |
+| 64 | 410.5 microseconds | 325.13 microseconds | 398.64 microseconds |
+| 128 | 1.341 milliseconds | 746.19 microseconds | 935.09 microseconds |
+| 256 | 5.7046 milliseconds | 3.0914 milliseconds | 2.5917 milliseconds |
 
 </details>
 
@@ -1301,9 +1301,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 358.32 microseconds | 381.69 microseconds | 226.15 microseconds |
-| 128 | 1.2118 milliseconds | 661.18 microseconds | 564.49 microseconds |
-| 256 | 5.121 milliseconds | 2.8362 milliseconds | 2.2943 milliseconds |
+| 64 | 375.15 microseconds | 236.56 microseconds | 258.75 microseconds |
+| 128 | 1.2844 milliseconds | 1.0638 milliseconds | 601.28 microseconds |
+| 256 | 5.221 milliseconds | 2.8169 milliseconds | 2.8444 milliseconds |
 
 </details>
 
@@ -1315,9 +1315,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 64 | 383.08 microseconds | 398.48 microseconds | 204.26 microseconds |
-| 128 | 1.2416 milliseconds | 667.94 microseconds | 728.33 microseconds |
-| 256 | 5.1115 milliseconds | 2.6419 milliseconds | 2.3081 milliseconds |
+| 64 | 395.92 microseconds | 297.53 microseconds | 221.18 microseconds |
+| 128 | 1.2029 milliseconds | 884.64 microseconds | 686.72 microseconds |
+| 256 | 5.4388 milliseconds | 2.7614 milliseconds | 2.4515 milliseconds |
 
 </details>
 
@@ -1332,9 +1332,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 607.76 microseconds | 456.39 microseconds | 530.76 microseconds |
-| 128 | 920.41 microseconds | 628.67 microseconds | 746.74 microseconds |
-| 256 | 1.0835 milliseconds | 706.16 microseconds | 835.2 microseconds |
+| 60 | 609.66 microseconds | 413.75 microseconds | 499.05 microseconds |
+| 128 | 884.62 microseconds | 660.77 microseconds | 779.04 microseconds |
+| 256 | 1.0941 milliseconds | 1.3058 milliseconds | 754.89 microseconds |
 
 </details>
 
@@ -1346,9 +1346,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 716.94 microseconds | 447.13 microseconds | 524.87 microseconds |
-| 128 | 909.2 microseconds | 965.7 microseconds | 839.23 microseconds |
-| 256 | 1.3653 milliseconds | 765.27 microseconds | 813.48 microseconds |
+| 60 | 651.12 microseconds | 414.88 microseconds | 632.42 microseconds |
+| 128 | 927.72 microseconds | 634.92 microseconds | 914.38 microseconds |
+| 256 | 1.242 milliseconds | 847.09 microseconds | 872.6 microseconds |
 
 </details>
 
@@ -1360,9 +1360,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 1.5544 milliseconds | 1.0446 milliseconds | 1.1839 milliseconds |
-| 128 | 2.6665 milliseconds | 1.6531 milliseconds | 1.7477 milliseconds |
-| 256 | 3.8175 milliseconds | 2.3752 milliseconds | 2.2425 milliseconds |
+| 60 | 1.518 milliseconds | 1.5598 milliseconds | 1.0369 milliseconds |
+| 128 | 2.5712 milliseconds | 2.4236 milliseconds | 1.7281 milliseconds |
+| 256 | 3.4112 milliseconds | 2.2323 milliseconds | 2.1891 milliseconds |
 
 </details>
 
@@ -1374,9 +1374,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 1.5248 milliseconds | 1.0531 milliseconds | 1.1986 milliseconds |
-| 128 | 2.5597 milliseconds | 1.8293 milliseconds | 1.8523 milliseconds |
-| 256 | 3.4367 milliseconds | 2.1873 milliseconds | 2.1361 milliseconds |
+| 60 | 1.5433 milliseconds | 1.545 milliseconds | 1.0252 milliseconds |
+| 128 | 2.5811 milliseconds | 2.3789 milliseconds | 1.8129 milliseconds |
+| 256 | 3.5178 milliseconds | 2.328 milliseconds | 2.1367 milliseconds |
 
 </details>
 
@@ -1388,9 +1388,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 1.1321 milliseconds | 790.81 microseconds | 934.94 microseconds |
-| 128 | 1.675 milliseconds | 1.1333 milliseconds | 1.1858 milliseconds |
-| 256 | 2.9847 milliseconds | 2.1379 milliseconds | 1.7681 milliseconds |
+| 60 | 1.1002 milliseconds | 770.04 microseconds | 919.22 microseconds |
+| 128 | 1.724 milliseconds | 1.1916 milliseconds | 1.0404 milliseconds |
+| 256 | 3.042 milliseconds | 2.1602 milliseconds | 1.7103 milliseconds |
 
 </details>
 
@@ -1402,9 +1402,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 1.2714 milliseconds | 1.1954 milliseconds | 917.59 microseconds |
-| 128 | 1.7761 milliseconds | 1.3758 milliseconds | 1.1827 milliseconds |
-| 256 | 2.9294 milliseconds | 2.1126 milliseconds | 1.8629 milliseconds |
+| 60 | 1.0974 milliseconds | 767.44 microseconds | 767.96 microseconds |
+| 128 | 1.7078 milliseconds | 1.1419 milliseconds | 1.0718 milliseconds |
+| 256 | 3.0077 milliseconds | 1.9006 milliseconds | 1.9492 milliseconds |
 
 </details>
 
@@ -1416,9 +1416,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 2.7639 milliseconds | 1.806 milliseconds | 1.8605 milliseconds |
-| 128 | 4.8823 milliseconds | 3.5486 milliseconds | 3.0761 milliseconds |
-| 256 | 10.227 milliseconds | 6.3669 milliseconds | 5.7063 milliseconds |
+| 60 | 2.7853 milliseconds | 1.8563 milliseconds | 1.9498 milliseconds |
+| 128 | 4.7352 milliseconds | 4.6137 milliseconds | 2.8856 milliseconds |
+| 256 | 10.44 milliseconds | 6.021 milliseconds | 5.5814 milliseconds |
 
 </details>
 
@@ -1430,9 +1430,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 2.89 milliseconds | 1.9697 milliseconds | 1.92 milliseconds |
-| 128 | 4.7773 milliseconds | 4.816 milliseconds | 3.2571 milliseconds |
-| 256 | 9.7331 milliseconds | 8.0414 milliseconds | 5.3983 milliseconds |
+| 60 | 2.9199 milliseconds | 1.9 milliseconds | 1.8861 milliseconds |
+| 128 | 4.7793 milliseconds | 4.3983 milliseconds | 3.0344 milliseconds |
+| 256 | 9.7526 milliseconds | 6.3847 milliseconds | 6.0667 milliseconds |
 
 </details>
 
@@ -1444,9 +1444,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 526.96 microseconds | 351.16 microseconds | 602.61 microseconds |
-| 128 | 626.6 microseconds | 673.29 microseconds | 503.26 microseconds |
-| 256 | 1.1144 milliseconds | 617.24 microseconds | 775.69 microseconds |
+| 60 | 491.78 microseconds | 342.43 microseconds | 407.14 microseconds |
+| 128 | 599.87 microseconds | 446.44 microseconds | 643.96 microseconds |
+| 256 | 987.9 microseconds | 819.99 microseconds | 724.08 microseconds |
 
 </details>
 
@@ -1458,9 +1458,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 942.74 microseconds | 634.62 microseconds | 725.12 microseconds |
-| 128 | 1.4586 milliseconds | 1.2781 milliseconds | 1.0666 milliseconds |
-| 256 | 1.9256 milliseconds | 2.0368 milliseconds | 1.5612 milliseconds |
+| 60 | 895.34 microseconds | 974.66 microseconds | 696.35 microseconds |
+| 128 | 1.5371 milliseconds | 1.476 milliseconds | 954.22 microseconds |
+| 256 | 2.0492 milliseconds | 1.2911 milliseconds | 1.3195 milliseconds |
 
 </details>
 
@@ -1472,9 +1472,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 776.86 microseconds | 577.12 microseconds | 722.73 microseconds |
-| 128 | 1.6183 milliseconds | 961.92 microseconds | 1.086 milliseconds |
-| 256 | 2.0326 milliseconds | 1.5934 milliseconds | 1.3386 milliseconds |
+| 60 | 744.54 microseconds | 549.43 microseconds | 591.28 microseconds |
+| 128 | 1.1458 milliseconds | 1.2253 milliseconds | 815.86 microseconds |
+| 256 | 1.9375 milliseconds | 1.536 milliseconds | 1.3202 milliseconds |
 
 </details>
 
@@ -1486,9 +1486,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 1.6315 milliseconds | 1.1687 milliseconds | 1.1267 milliseconds |
-| 128 | 2.7532 milliseconds | 1.7451 milliseconds | 1.6856 milliseconds |
-| 256 | 5.3524 milliseconds | 3.418 milliseconds | 3.3646 milliseconds |
+| 60 | 1.6088 milliseconds | 1.0539 milliseconds | 1.1103 milliseconds |
+| 128 | 2.7149 milliseconds | 2.5787 milliseconds | 1.884 milliseconds |
+| 256 | 5.3793 milliseconds | 3.4049 milliseconds | 3.2938 milliseconds |
 
 </details>
 
@@ -1500,9 +1500,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 496.62 microseconds | 328.69 microseconds | 332.28 microseconds |
-| 128 | 680.47 microseconds | 570.25 microseconds | 487.38 microseconds |
-| 256 | 849.71 microseconds | 616.7 microseconds | 533.58 microseconds |
+| 60 | 449.35 microseconds | 308.45 microseconds | 374.57 microseconds |
+| 128 | 613.99 microseconds | 456.4 microseconds | 501.35 microseconds |
+| 256 | 782.68 microseconds | 578.69 microseconds | 564.95 microseconds |
 
 </details>
 
@@ -1514,9 +1514,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 460.18 microseconds | 309.49 microseconds | 298.03 microseconds |
-| 128 | 681.69 microseconds | 536.47 microseconds | 390.64 microseconds |
-| 256 | 800.96 microseconds | 485.31 microseconds | 486.63 microseconds |
+| 60 | 461.15 microseconds | 497.39 microseconds | 443.64 microseconds |
+| 128 | 638.99 microseconds | 483.04 microseconds | 408.85 microseconds |
+| 256 | 781.74 microseconds | 521.63 microseconds | 605.6 microseconds |
 
 </details>
 
@@ -1528,9 +1528,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 797.85 microseconds | 880.72 microseconds | 695.61 microseconds |
-| 128 | 1.2133 milliseconds | 1.1909 milliseconds | 800.07 microseconds |
-| 256 | 2.1555 milliseconds | 1.4448 milliseconds | 1.3657 milliseconds |
+| 60 | 758.9 microseconds | 877.89 microseconds | 590.33 microseconds |
+| 128 | 1.1319 milliseconds | 1.2103 milliseconds | 837.01 microseconds |
+| 256 | 1.9499 milliseconds | 1.3487 milliseconds | 1.3557 milliseconds |
 
 </details>
 
@@ -1542,9 +1542,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 768.98 microseconds | 483.88 microseconds | 462.7 microseconds |
-| 128 | 1.1885 milliseconds | 1.0171 milliseconds | 739.57 microseconds |
-| 256 | 2.0762 milliseconds | 1.1986 milliseconds | 1.1224 milliseconds |
+| 60 | 777.47 microseconds | 483.41 microseconds | 549.76 microseconds |
+| 128 | 1.1566 milliseconds | 689.54 microseconds | 778 microseconds |
+| 256 | 1.9692 milliseconds | 1.1049 milliseconds | 1.0827 milliseconds |
 
 </details>
 
@@ -1556,9 +1556,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 67.337 microseconds | 149.46 microseconds | 110.13 microseconds |
-| 128 | 119.62 microseconds | 140.88 microseconds | 342.36 microseconds |
-| 256 | 159.46 microseconds | 133.81 microseconds | 289.35 microseconds |
+| 60 | 63.318 microseconds | 93.424 microseconds | 101.36 microseconds |
+| 128 | 113.51 microseconds | 134.9 microseconds | 137.32 microseconds |
+| 256 | 170.61 microseconds | 147.88 microseconds | 333.56 microseconds |
 
 </details>
 
@@ -1570,9 +1570,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 79.449 microseconds | 73.729 microseconds | 73.679 microseconds |
-| 128 | 113.59 microseconds | 113.77 microseconds | 80.963 microseconds |
-| 256 | 98.025 microseconds | 112.39 microseconds | 246.7 microseconds |
+| 60 | 80.841 microseconds | 78.056 microseconds | 68.899 microseconds |
+| 128 | 120.78 microseconds | 93.905 microseconds | 91.782 microseconds |
+| 256 | 148.08 microseconds | 147.16 microseconds | 108.94 microseconds |
 
 </details>
 
@@ -1584,9 +1584,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 127.51 microseconds | 111.94 microseconds | 104.79 microseconds |
-| 128 | 271.55 microseconds | 187.4 microseconds | 160.23 microseconds |
-| 256 | 414.91 microseconds | 396.56 microseconds | 215.92 microseconds |
+| 60 | 129.16 microseconds | 179.44 microseconds | 112.79 microseconds |
+| 128 | 239.48 microseconds | 256.25 microseconds | 150.39 microseconds |
+| 256 | 356.06 microseconds | 265.46 microseconds | 215.05 microseconds |
 
 </details>
 
@@ -1598,9 +1598,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 135.9 microseconds | 160.68 microseconds | 109.95 microseconds |
-| 128 | 247 microseconds | 304.22 microseconds | 160.14 microseconds |
-| 256 | 327.76 microseconds | 214.11 microseconds | 174.13 microseconds |
+| 60 | 132.46 microseconds | 162.22 microseconds | 104.86 microseconds |
+| 128 | 255.4 microseconds | 261.09 microseconds | 145.34 microseconds |
+| 256 | 334.44 microseconds | 204.79 microseconds | 186.16 microseconds |
 
 </details>
 
@@ -1612,9 +1612,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 109.94 microseconds | 154.71 microseconds | 107.24 microseconds |
-| 128 | 205.85 microseconds | 160.58 microseconds | 181.91 microseconds |
-| 256 | 385.32 microseconds | 313.1 microseconds | 249.08 microseconds |
+| 60 | 102.65 microseconds | 148.92 microseconds | 95.969 microseconds |
+| 128 | 178.53 microseconds | 418.99 microseconds | 140.81 microseconds |
+| 256 | 397.77 microseconds | 246.33 microseconds | 233.58 microseconds |
 
 </details>
 
@@ -1626,9 +1626,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 110.97 microseconds | 102.82 microseconds | 245 microseconds |
-| 128 | 207.71 microseconds | 196.98 microseconds | 160.44 microseconds |
-| 256 | 387.51 microseconds | 492.38 microseconds | 393.29 microseconds |
+| 60 | 112.55 microseconds | 174.53 microseconds | 132.49 microseconds |
+| 128 | 205.9 microseconds | 164.03 microseconds | 288.62 microseconds |
+| 256 | 375.15 microseconds | 296.5 microseconds | 401.59 microseconds |
 
 </details>
 
@@ -1640,9 +1640,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 238.07 microseconds | 257.11 microseconds | 186.3 microseconds |
-| 128 | 428.48 microseconds | 289.33 microseconds | 254.39 microseconds |
-| 256 | 992.92 microseconds | 557.04 microseconds | 557.63 microseconds |
+| 60 | 223.97 microseconds | 155.99 microseconds | 328.81 microseconds |
+| 128 | 433.08 microseconds | 452.4 microseconds | 260.11 microseconds |
+| 256 | 971.68 microseconds | 548.6 microseconds | 566.89 microseconds |
 
 </details>
 
@@ -1654,9 +1654,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 60 | 254.77 microseconds | 180.57 microseconds | 179.34 microseconds |
-| 128 | 425.82 microseconds | 609.38 microseconds | 433.21 microseconds |
-| 256 | 999.53 microseconds | 689.59 microseconds | 513.71 microseconds |
+| 60 | 226.17 microseconds | 199.04 microseconds | 290.38 microseconds |
+| 128 | 437.81 microseconds | 377.64 microseconds | 285.87 microseconds |
+| 256 | 1.008 milliseconds | 757.53 microseconds | 742.47 microseconds |
 
 </details>
 
@@ -1671,9 +1671,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 2.4188 milliseconds | 1.4213 milliseconds | 1.4757 milliseconds |
-| 255 | 3.8633 milliseconds | 3.8946 milliseconds | 2.3743 milliseconds |
-| 511 | 9.4782 milliseconds | 5.305 milliseconds | 4.5278 milliseconds |
+| 126 | 2.4857 milliseconds | 1.3793 milliseconds | 1.4699 milliseconds |
+| 255 | 3.9522 milliseconds | 2.4783 milliseconds | 2.2124 milliseconds |
+| 511 | 9.5088 milliseconds | 7.9743 milliseconds | 4.6447 milliseconds |
 
 </details>
 
@@ -1685,9 +1685,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 2.8089 milliseconds | 1.5439 milliseconds | 1.5127 milliseconds |
-| 255 | 4.4209 milliseconds | 3.6802 milliseconds | 2.1497 milliseconds |
-| 511 | 10.753 milliseconds | 8.3774 milliseconds | 5.1563 milliseconds |
+| 126 | 2.6907 milliseconds | 1.717 milliseconds | 1.4838 milliseconds |
+| 255 | 4.3123 milliseconds | 4.1564 milliseconds | 2.3663 milliseconds |
+| 511 | 10.32 milliseconds | 7.7091 milliseconds | 5.1648 milliseconds |
 
 </details>
 
@@ -1699,9 +1699,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 7.3933 milliseconds | 4.0265 milliseconds | 3.7216 milliseconds |
-| 255 | 9.8367 milliseconds | 5.7103 milliseconds | 5.4199 milliseconds |
-| 511 | 93.42 milliseconds | 12.24 milliseconds | 10.125 milliseconds |
+| 126 | 7.1262 milliseconds | 3.9715 milliseconds | 3.7644 milliseconds |
+| 255 | 9.5007 milliseconds | 5.5899 milliseconds | 5.3362 milliseconds |
+| 511 | 22.703 milliseconds | 12.444 milliseconds | 10.71 milliseconds |
 
 </details>
 
@@ -1713,9 +1713,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 7.1101 milliseconds | 4.0462 milliseconds | 3.5721 milliseconds |
-| 255 | 9.8254 milliseconds | 6.2178 milliseconds | 5.5441 milliseconds |
-| 511 | 74.171 milliseconds | 12.532 milliseconds | 10.619 milliseconds |
+| 126 | 7.0055 milliseconds | 4.2594 milliseconds | 3.9339 milliseconds |
+| 255 | 9.5018 milliseconds | 5.9045 milliseconds | 5.593 milliseconds |
+| 511 | 71.755 milliseconds | 13.33 milliseconds | 10.993 milliseconds |
 
 </details>
 
@@ -1727,9 +1727,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 9.1189 milliseconds | 5.3228 milliseconds | 5.5616 milliseconds |
-| 255 | 18.034 milliseconds | 8.9478 milliseconds | 8.432 milliseconds |
-| 511 | 55.513 milliseconds | 21.137 milliseconds | 17.236 milliseconds |
+| 126 | 9.1826 milliseconds | 5.2612 milliseconds | 5.4468 milliseconds |
+| 255 | 17.958 milliseconds | 9.0138 milliseconds | 8.6047 milliseconds |
+| 511 | 50.695 milliseconds | 32.934 milliseconds | 17.505 milliseconds |
 
 </details>
 
@@ -1741,9 +1741,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 10.243 milliseconds | 5.6264 milliseconds | 5.7758 milliseconds |
-| 255 | 16.337 milliseconds | 8.5697 milliseconds | 7.6882 milliseconds |
-| 511 | 49.934 milliseconds | 52.652 milliseconds | 51.78 milliseconds |
+| 126 | 10.522 milliseconds | 5.1099 milliseconds | 5.558 milliseconds |
+| 255 | 16.34 milliseconds | 9.2337 milliseconds | 7.8289 milliseconds |
+| 511 | 54.154 milliseconds | 57.993 milliseconds | 53.953 milliseconds |
 
 </details>
 
@@ -1755,9 +1755,9 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 24.11 milliseconds | 14.756 milliseconds | 12.185 milliseconds |
-| 255 | 77.689 milliseconds | 22.348 milliseconds | 19.151 milliseconds |
-| 511 | 135.79 milliseconds | 452.07 milliseconds | 66.234 milliseconds |
+| 126 | 23.265 milliseconds | 14.9 milliseconds | 12.524 milliseconds |
+| 255 | 95.28 milliseconds | 24.553 milliseconds | 19.493 milliseconds |
+| 511 | 142.76 milliseconds | 450.24 milliseconds | 145.35 milliseconds |
 
 </details>
 
@@ -1769,9 +1769,9 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 24.628 milliseconds | 15.439 milliseconds | 12.987 milliseconds |
-| 255 | 45.851 milliseconds | 67.952 milliseconds | 52.587 milliseconds |
-| 511 | 114.67 milliseconds | 196.78 milliseconds | 42.699 milliseconds |
+| 126 | 24.283 milliseconds | 16.206 milliseconds | 13.338 milliseconds |
+| 255 | 43.597 milliseconds | 25.51 milliseconds | 22.539 milliseconds |
+| 511 | 124.74 milliseconds | 186.01 milliseconds | 41.683 milliseconds |
 
 </details>
 
@@ -1783,9 +1783,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 1.9508 milliseconds | 1.0878 milliseconds | 1.0618 milliseconds |
-| 255 | 2.7934 milliseconds | 1.7298 milliseconds | 1.4654 milliseconds |
-| 511 | 6.7323 milliseconds | 5.5868 milliseconds | 3.2361 milliseconds |
+| 126 | 2.013 milliseconds | 1.8257 milliseconds | 1.1052 milliseconds |
+| 255 | 2.9969 milliseconds | 1.8168 milliseconds | 1.5314 milliseconds |
+| 511 | 6.6876 milliseconds | 3.9501 milliseconds | 3.3344 milliseconds |
 
 </details>
 
@@ -1797,9 +1797,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 3.938 milliseconds | 2.2387 milliseconds | 2.1029 milliseconds |
-| 255 | 5.791 milliseconds | 3.5318 milliseconds | 3.0879 milliseconds |
-| 511 | 13.732 milliseconds | 7.721 milliseconds | 6.2807 milliseconds |
+| 126 | 3.9939 milliseconds | 2.273 milliseconds | 2.296 milliseconds |
+| 255 | 6.0133 milliseconds | 3.638 milliseconds | 3.3347 milliseconds |
+| 511 | 13.518 milliseconds | 8.0943 milliseconds | 6.0964 milliseconds |
 
 </details>
 
@@ -1811,9 +1811,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 5.8178 milliseconds | 3.4486 milliseconds | 3.325 milliseconds |
-| 255 | 10.55 milliseconds | 6.1177 milliseconds | 5.5922 milliseconds |
-| 511 | 35.023 milliseconds | 13.274 milliseconds | 10.698 milliseconds |
+| 126 | 6.0154 milliseconds | 3.3322 milliseconds | 3.3394 milliseconds |
+| 255 | 10.682 milliseconds | 6.6342 milliseconds | 45.073 milliseconds |
+| 511 | 34.182 milliseconds | 14.075 milliseconds | 10.841 milliseconds |
 
 </details>
 
@@ -1825,9 +1825,9 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 16.164 milliseconds | 9.0256 milliseconds | 7.3079 milliseconds |
-| 255 | 23.196 milliseconds | 14.277 milliseconds | 12.383 milliseconds |
-| 511 | 94.453 milliseconds | 27.772 milliseconds | 29.444 milliseconds |
+| 126 | 16.061 milliseconds | 9.0774 milliseconds | 7.9347 milliseconds |
+| 255 | 97.868 milliseconds | 14.65 milliseconds | 12.878 milliseconds |
+| 511 | 77.22 milliseconds | 100.97 milliseconds | 115.59 milliseconds |
 
 </details>
 
@@ -1839,9 +1839,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 2.1063 milliseconds | 1.2235 milliseconds | 1.1634 milliseconds |
-| 255 | 3.1181 milliseconds | 1.8501 milliseconds | 1.6708 milliseconds |
-| 511 | 6.6825 milliseconds | 3.6814 milliseconds | 4.0924 milliseconds |
+| 126 | 2.0218 milliseconds | 1.1359 milliseconds | 1.1453 milliseconds |
+| 255 | 3.1117 milliseconds | 1.8648 milliseconds | 1.7118 milliseconds |
+| 511 | 6.654 milliseconds | 3.7141 milliseconds | 3.2396 milliseconds |
 
 </details>
 
@@ -1853,9 +1853,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 2.1642 milliseconds | 1.1747 milliseconds | 1.2523 milliseconds |
-| 255 | 3.0828 milliseconds | 1.656 milliseconds | 1.6847 milliseconds |
-| 511 | 7.1574 milliseconds | 5.8823 milliseconds | 3.3359 milliseconds |
+| 126 | 2.227 milliseconds | 1.2951 milliseconds | 1.2874 milliseconds |
+| 255 | 2.902 milliseconds | 1.7932 milliseconds | 1.5351 milliseconds |
+| 511 | 7.0472 milliseconds | 3.9479 milliseconds | 3.5664 milliseconds |
 
 </details>
 
@@ -1867,9 +1867,9 @@ Advance the complete sparse environment vector one site leftward using the base 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 6.9967 milliseconds | 3.4926 milliseconds | 3.2443 milliseconds |
-| 255 | 11.556 milliseconds | 5.8458 milliseconds | 4.9067 milliseconds |
-| 511 | 24.812 milliseconds | 13.08 milliseconds | 11.217 milliseconds |
+| 126 | 6.8542 milliseconds | 3.5485 milliseconds | 3.3907 milliseconds |
+| 255 | 10.329 milliseconds | 6.0353 milliseconds | 5.3372 milliseconds |
+| 511 | 27.02 milliseconds | 14.119 milliseconds | 11.818 milliseconds |
 
 </details>
 
@@ -1881,9 +1881,9 @@ Advance the complete sparse environment vector one site rightward using the base
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 6.3058 milliseconds | 3.4231 milliseconds | 3.3222 milliseconds |
-| 255 | 10.775 milliseconds | 7.5725 milliseconds | 4.8271 milliseconds |
-| 511 | 32.154 milliseconds | 13.768 milliseconds | 11 milliseconds |
+| 126 | 5.8813 milliseconds | 3.3852 milliseconds | 3.2881 milliseconds |
+| 255 | 10.439 milliseconds | 6.0783 milliseconds | 5.1642 milliseconds |
+| 511 | 24.438 milliseconds | 13.682 milliseconds | 10.941 milliseconds |
 
 </details>
 
@@ -1895,9 +1895,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 246.85 microseconds | 199.56 microseconds | 210.73 microseconds |
-| 255 | 524.03 microseconds | 306.49 microseconds | 332 microseconds |
-| 511 | 1.4136 milliseconds | 889.08 microseconds | 1.0191 milliseconds |
+| 126 | 251.13 microseconds | 287.43 microseconds | 192.48 microseconds |
+| 255 | 498.32 microseconds | 346.74 microseconds | 585.06 microseconds |
+| 511 | 1.4496 milliseconds | 836.1 microseconds | 1.1909 milliseconds |
 
 </details>
 
@@ -1909,9 +1909,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 168.89 microseconds | 145.44 microseconds | 116.32 microseconds |
-| 255 | 337.7 microseconds | 357.65 microseconds | 197.81 microseconds |
-| 511 | 1.0199 milliseconds | 757.64 microseconds | 588.28 microseconds |
+| 126 | 162.35 microseconds | 136.34 microseconds | 116.31 microseconds |
+| 255 | 329.82 microseconds | 312.54 microseconds | 213.62 microseconds |
+| 511 | 1.0289 milliseconds | 645.54 microseconds | 643.57 microseconds |
 
 </details>
 
@@ -1923,9 +1923,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 467.22 microseconds | 300.99 microseconds | 313.03 microseconds |
-| 255 | 796.55 microseconds | 476.35 microseconds | 489.53 microseconds |
-| 511 | 2.2379 milliseconds | 1.9614 milliseconds | 1.4403 milliseconds |
+| 126 | 420.34 microseconds | 452.71 microseconds | 353.54 microseconds |
+| 255 | 849.04 microseconds | 504.51 microseconds | 562.36 microseconds |
+| 511 | 2.2519 milliseconds | 1.3633 milliseconds | 1.3034 milliseconds |
 
 </details>
 
@@ -1937,9 +1937,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 476.88 microseconds | 453.24 microseconds | 297.82 microseconds |
-| 255 | 805.61 microseconds | 486.45 microseconds | 614.44 microseconds |
-| 511 | 2.3726 milliseconds | 1.2187 milliseconds | 1.6432 milliseconds |
+| 126 | 454.8 microseconds | 471.44 microseconds | 475.41 microseconds |
+| 255 | 822.19 microseconds | 543.2 microseconds | 628.38 microseconds |
+| 511 | 2.3318 milliseconds | 1.3989 milliseconds | 1.499 milliseconds |
 
 </details>
 
@@ -1951,9 +1951,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 856.59 microseconds | 774.49 microseconds | 485.38 microseconds |
-| 255 | 1.4482 milliseconds | 946.8 microseconds | 963.27 microseconds |
-| 511 | 4.5273 milliseconds | 2.3407 milliseconds | 2.0296 milliseconds |
+| 126 | 846.84 microseconds | 495.94 microseconds | 499.85 microseconds |
+| 255 | 1.3937 milliseconds | 1.2916 milliseconds | 886.88 microseconds |
+| 511 | 5.2905 milliseconds | 2.4594 milliseconds | 2.3081 milliseconds |
 
 </details>
 
@@ -1965,9 +1965,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 901.88 microseconds | 576.34 microseconds | 552.77 microseconds |
-| 255 | 1.5119 milliseconds | 847.59 microseconds | 1.1711 milliseconds |
-| 511 | 4.3536 milliseconds | 2.339 milliseconds | 2.1596 milliseconds |
+| 126 | 844.9 microseconds | 493.52 microseconds | 504.65 microseconds |
+| 255 | 1.4354 milliseconds | 821.82 microseconds | 1.0557 milliseconds |
+| 511 | 4.3638 milliseconds | 2.4011 milliseconds | 2.7475 milliseconds |
 
 </details>
 
@@ -1979,9 +1979,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 1.9664 milliseconds | 1.5566 milliseconds | 1.0225 milliseconds |
-| 255 | 2.9306 milliseconds | 1.8464 milliseconds | 2.0403 milliseconds |
-| 511 | 7.8504 milliseconds | 4.4445 milliseconds | 23.913 milliseconds |
+| 126 | 1.8845 milliseconds | 1.1466 milliseconds | 1.0517 milliseconds |
+| 255 | 2.9943 milliseconds | 1.5934 milliseconds | 1.5292 milliseconds |
+| 511 | 8.2238 milliseconds | 18.023 milliseconds | 4.0238 milliseconds |
 
 </details>
 
@@ -1993,9 +1993,9 @@ Contract the complete vector of precomputed recursive environment partials with 
 
 | Center bond dimension | 1 thread | 2 threads | 4 threads |
 | ---: | ---: | ---: | ---: |
-| 126 | 1.9518 milliseconds | 1.158 milliseconds | 1.0797 milliseconds |
-| 255 | 3.0632 milliseconds | 1.6824 milliseconds | 2.0293 milliseconds |
-| 511 | 7.9685 milliseconds | 4.6546 milliseconds | 4.1892 milliseconds |
+| 126 | 1.942 milliseconds | 1.0565 milliseconds | 1.074 milliseconds |
+| 255 | 3.0542 milliseconds | 2.5533 milliseconds | 2.0596 milliseconds |
+| 511 | 7.9785 milliseconds | 4.928 milliseconds | 4.5886 milliseconds |
 
 </details>
 
