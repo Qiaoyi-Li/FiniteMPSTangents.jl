@@ -181,7 +181,7 @@ version = "2.0.0"
 deps = ["FiniteMPS", "LRUCache", "Serialization"]
 path = ".."
 uuid = "a8aeb656-834f-4cb3-ac9f-857a8aeda547"
-version = "0.1.1"
+version = "0.2.0"
 
 [[deps.HalfIntegers]]
 git-tree-sha1 = "9c3149243abb5bc0bad0431d6c4fcac0f4443c7c"
