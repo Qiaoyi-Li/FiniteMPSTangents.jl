@@ -111,7 +111,6 @@ end
                 built.cleanup()
             end
             @test FiniteMPS.get_num_threads_action() == 1
-            @test FiniteMPS.get_num_threads_mul() == 1
         finally
             restore_threads(previous)
         end

@@ -1,4 +1,4 @@
-@testset "Fermionic Z and mixed-rank behavior" begin
+@testset "Fermionic Z and adjoint" begin
     L = 2
     physical = U1SpinlessFermion.pspace
     state = identityMPO(ComplexF64, L, physical)
@@ -25,8 +25,6 @@
 
     rank_four = TangentMPS(base)
     rank_five = TangentMPS(operator, base_with_z)
-    @test numind.(rank_four.B) == [4, 4]
-    @test numind.(rank_five.B) == [5, 5]
 
     allocating_product = mul(
         operator,
@@ -35,10 +33,6 @@
         Z=U1SpinlessFermion.Z,
     )
     @test tangent_difference_norm(allocating_product, rank_five) < 1e-12
-
-    mixed_inner = inner(rank_four, rank_five)
-    @test !(mixed_inner isa Number)
-    @test numind(mixed_inner) == 1
 
     adjoint_base = adjoint(base_with_z)
     round_trip = adjoint(

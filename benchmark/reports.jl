@@ -257,7 +257,8 @@ function measurement_rows(case)
         for (key,label) in (("julia_threads","Julia computation threads"), ("blas_threads","Matrix computation threads"),
                            ("action_threads","Sparse operator action threads"), ("sector_mul_threads","Tensor block multiplication threads"),
                            ("svd_threads","Singular value decomposition threads"), ("eig_threads","Eigensolver threads"),
-                           ("serial","Serial observable-tree traversal"), ("ntasks","Observable-tree tasks (including coordinator)"),
+                           ("algorithm","Observable-tree algorithm"),
+                           ("serial","Serial observable-tree traversal"), ("ntasks","Observable-tree tasks"),
                            ("contraction_workers","Observable-tree contraction workers"))
             haskey(execution,key) && execution[key] !== nothing && push!(rows,label=>execution[key])
         end

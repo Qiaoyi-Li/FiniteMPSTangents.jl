@@ -16,7 +16,7 @@ function _ep_prepare(fixture, cache, direction, site)
         propagate = FiniteMPSTangents._pushleft
     end
     adjoint_tensor = tensor'
-    left_space,right_space = codomain(tensor.A)[1],domain(tensor.A)[end]
+    left_space,right_space = codomain(tensor.A)[1],domain(tensor.A, numin(tensor.A))
     input_dimension,output_dimension = direction=="right" ?
         (dim(left_space),dim(right_space)) : (dim(right_space),dim(left_space))
     transitions = [(i,j) for i in axes(local_H,1),j in axes(local_H,2) if !isnothing(local_H[i,j])]

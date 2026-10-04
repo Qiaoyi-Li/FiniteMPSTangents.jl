@@ -696,3 +696,5 @@ function observable_leaf(L::ObservableEnv4, R::ObservableEnv4)
 	isnothing(value) && throw(ArgumentError("no compatible observable leaf sectors to close"))
 	return value
 end
+
+*(L::ObservableEnv4, R::ObservableEnv4) = observable_leaf(L, R)

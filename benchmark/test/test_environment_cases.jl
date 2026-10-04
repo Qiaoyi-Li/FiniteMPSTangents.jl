@@ -42,8 +42,7 @@ end
         @testset "$(p["symmetry"]) base $(p["base_rank"]) $(p["direction"])" begin
             println("Checking ",case.case_id)
             flush(stdout)
-            previous = (action=FiniteMPS.get_num_threads_action(),mul=FiniteMPS.get_num_threads_mul(),
-                        svd=FiniteMPS.get_num_threads_svd(),eig=FiniteMPS.get_num_threads_eig(),blas=BLAS.get_num_threads())
+            previous = (action=FiniteMPS.get_num_threads_action(),blas=BLAS.get_num_threads())
             configure_threads(config)
             cache = nothing
             try
@@ -82,8 +81,7 @@ end
                 restore_threads(previous)
                 BLAS.set_num_threads(previous.blas)
             end
-            @test (action=FiniteMPS.get_num_threads_action(),mul=FiniteMPS.get_num_threads_mul(),
-                   svd=FiniteMPS.get_num_threads_svd(),eig=FiniteMPS.get_num_threads_eig(),blas=BLAS.get_num_threads())==previous
+            @test (action=FiniteMPS.get_num_threads_action(),blas=BLAS.get_num_threads())==previous
         end
         GC.gc()
     end
@@ -91,8 +89,7 @@ end
 
 @testset "Environment builder cleanup" begin
     config = ExecutionConfig(Threads.nthreads(:default))
-    previous = (action=FiniteMPS.get_num_threads_action(),mul=FiniteMPS.get_num_threads_mul(),
-                svd=FiniteMPS.get_num_threads_svd(),eig=FiniteMPS.get_num_threads_eig(),blas=BLAS.get_num_threads())
+    previous = (action=FiniteMPS.get_num_threads_action(),blas=BLAS.get_num_threads())
     built = first(environment_cases(config)).build(Xoshiro(20260912))
     try
         @test !haskey(built,:sanity)
@@ -101,6 +98,5 @@ end
     finally
         built.cleanup()
     end
-    @test (action=FiniteMPS.get_num_threads_action(),mul=FiniteMPS.get_num_threads_mul(),
-           svd=FiniteMPS.get_num_threads_svd(),eig=FiniteMPS.get_num_threads_eig(),blas=BLAS.get_num_threads())==previous
+    @test (action=FiniteMPS.get_num_threads_action(),blas=BLAS.get_num_threads())==previous
 end

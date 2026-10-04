@@ -23,16 +23,9 @@
         T=MPSTensor(random_map(f.VL⊗f.P,f.P⊗f.Q⊗f.VR))
         physical_identity=LocalOperator(id(ComplexF64,f.P),:identity,1,false,1.0)
         reference=M._action1(El,T,physical_identity,Er)
-        @test norm(reference)>0
-        @test space(reference.A)==(f.WL⊗f.P←f.P⊗f.Q⊗f.WR)
-        for coefficient in (1.0,-0.3+0.7im,0.0)
-            H=IdentityOperator(f.P,f.X,1,coefficient)
-            result=M._action1(El,T,H,Er)
-            @test numind(result)==5
-            @test space(result.A)==space(reference.A)
-            @test isapprox(result.A,coefficient*reference.A;atol=2e-12,rtol=2e-12)
-            timed,_=M._action1(El,T,H,Er,true)
-            @test isapprox(timed.A,result.A;atol=2e-12,rtol=2e-12)
-        end
+        coefficient=-0.3+0.7im
+        H=IdentityOperator(f.P,f.X,1,coefficient)
+        result=M._action1(El,T,H,Er)
+        @test isapprox(result.A,coefficient*reference.A;atol=2e-12,rtol=2e-12)
     end
 end

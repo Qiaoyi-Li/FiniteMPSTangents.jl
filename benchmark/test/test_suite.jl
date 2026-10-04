@@ -121,7 +121,7 @@ function check_schedule(sym,rank,D,presets;spinless=false)
     effective=rank==3 ? P : fuse(P⊗P')
     spaces=SuiteFixtures.bond_spaces(sym,D,rank;spinless)
     @test length(spaces)==17
-    @test first(spaces)==last(spaces)==trivial(P)
+    @test first(spaces)==last(spaces)==unitspace(P)
     @test spaces[9]==frozen_center(sym,D,presets)
     @test all(0<dim(V)<=D for V in spaces)
     for site in 1:16

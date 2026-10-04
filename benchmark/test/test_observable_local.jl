@@ -11,9 +11,7 @@ const LocalContractions = FiniteMPSTangents
 
 @testset "Local observable contractions" begin
     previous_blas = BLAS.get_num_threads()
-    previous_mul = FiniteMPS.get_num_threads_mul()
     BLAS.set_num_threads(1)
-    FiniteMPS.set_num_threads_mul(1)
     try
         @testset "Single-site propagation against full-rung contractions" begin
             for (symmetry, rank, charged, kinds) in (
@@ -92,6 +90,5 @@ const LocalContractions = FiniteMPSTangents
         end
     finally
         BLAS.set_num_threads(previous_blas)
-        FiniteMPS.set_num_threads_mul(previous_mul)
     end
 end

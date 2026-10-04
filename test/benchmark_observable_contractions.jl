@@ -13,7 +13,7 @@ function _observable_benchmark_fixture(side, D, kind; charged=false, sparse=fals
     function make_site(inserted)
         dom = charged && inserted ? Q ⊗ V : V
         purified && (dom = P ⊗ dom)
-        return MPSTensor(TensorMap(randn, ComplexF64, V ⊗ P, dom))
+        return MPSTensor(randn(ComplexF64, V ⊗ P, dom))
     end
     function environment(role)
         cod, dom = [V], [V]
@@ -26,14 +26,14 @@ function _observable_benchmark_fixture(side, D, kind; charged=false, sparse=fals
             (M.ObservableLeftEnv, M.ObservableLeftBraOpen, M.ObservableLeftKetOpen) :
             (M.ObservableRightEnv, M.ObservableRightBraOpen, M.ObservableRightKetOpen)
         W = wrappers[role == :neutral ? 1 : role == :bra ? 2 : 3]
-        return W(TensorMap(randn, ComplexF64, prod(cod), prod(dom)))
+        return W(randn(ComplexF64, prod(cod), prod(dom)))
     end
     E = M.ObservableEnv4(environment(:neutral),
         environment(charged ? :bra : :neutral), environment(charged ? :ket : :neutral),
         environment(:neutral))
     sparse && (E = M.ObservableEnv4(E.e00))
     O = kind == :I ? IdentityOperator(P, su2 ? Rep[SU₂](0 => 1) : ℂ^1, 1, 1.0) :
-        LocalOperator(TensorMap(randn, ComplexF64,
+        LocalOperator(randn(ComplexF64,
             kind == :O22 ? auxiliary ⊗ P : P,
             kind == :O22 ? P ⊗ auxiliary : P), :probe, 1, false)
     return E, make_site(false), make_site(false), make_site(true), O,
@@ -97,16 +97,17 @@ function benchmark_observable_contractions()
     tangent = TangentMPS(BaseMPS(randMPS(ComplexF64, L, NoSymSpinOneHalf.pspace, ℂ^16)))
     for i in 1:L
         A = tangent.B[i].A
-        tangent.B[i] = MPSTensor(TensorMap(randn, ComplexF64, codomain(A), domain(A)))
+        tangent.B[i] = MPSTensor(randn(ComplexF64, codomain(A), domain(A)))
     end
     tree = ObservableTree(L)
     for i in 1:L
         addObs!(tree, NoSymSpinOneHalf.Sz, i; name=Symbol("Sz$i"))
     end
     FiniteMPS.merge!(tree)
-    for serial in (true, false)
-        f = () -> calObs!(tree, tangent; serial=serial, ntasks=4)
-        _observable_benchmark_measure("tree/L=12/D=16/serial=$serial/ntasks=4", f, samples)
+    for ntasks in unique((1, Threads.nthreads(:default)))
+        alg = LayeredTreeEval(; ntasks)
+        f = () -> calObs!(tree, tangent; alg)
+        _observable_benchmark_measure("tree/L=12/D=16/LayeredTreeEval/ntasks=$ntasks", f, samples)
     end
     benchmark_observable_su2(samples)
 end

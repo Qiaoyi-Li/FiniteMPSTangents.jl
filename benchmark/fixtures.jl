@@ -133,7 +133,7 @@ function bond_spaces(sym,D,base_rank; spinless=false)
     center = center_space(sym,D)
     half = Vector{typeof(center)}(undef,9)
     half[9] = center
-    capacities = [trivial(effective)]
+    capacities = [unitspace(effective)]
     for k in 1:7
         push!(capacities,fuse(capacities[end]⊗effective))
     end
@@ -187,26 +187,19 @@ function hamiltonian(sym; L=CHAIN_LENGTH)
 end
 
 function configure_threads(config)
-    old = (action=FiniteMPS.get_num_threads_action(),mul=FiniteMPS.get_num_threads_mul(),
-           svd=FiniteMPS.get_num_threads_svd(),eig=FiniteMPS.get_num_threads_eig())
+    old = (action=FiniteMPS.get_num_threads_action(),)
     BLAS.set_num_threads(1)
     FiniteMPS.set_num_threads_action(config.julia_threads)
-    FiniteMPS.set_num_threads_mul(1)
-    FiniteMPS.set_num_threads_svd(1)
-    FiniteMPS.set_num_threads_eig(1)
     return old
 end
 
 function restore_threads(old)
     FiniteMPS.set_num_threads_action(old.action)
-    FiniteMPS.set_num_threads_mul(old.mul)
-    FiniteMPS.set_num_threads_svd(old.svd)
-    FiniteMPS.set_num_threads_eig(old.eig)
     return nothing
 end
 
 execution_parameters(config) = Dict("julia_threads"=>config.julia_threads,"blas_threads"=>1,
-    "action_threads"=>config.julia_threads,"sector_mul_threads"=>1,"svd_threads"=>1,"eig_threads"=>1)
+    "action_threads"=>config.julia_threads)
 
 function random_tangent(rng,base::BaseMPS{L}; charged=false,Q=nothing,project=true) where L
     tensors = MPSTensor[]
@@ -238,8 +231,8 @@ function build_state(rng,sym,D,base_rank,charged;spinless=false)
     canonicalize!(psi,1)
     normalize!(psi)
     base = BaseMPS(psi)
-    actual = [codomain(base.A[1].A)[1]; [domain(A.A)[end] for A in base.A]]
-    Q = charged ? charge_space(sym) : trivial(P)
+    actual = [codomain(base.A[1].A)[1]; [domain(A.A, numin(A.A)) for A in base.A]]
+    Q = charged ? charge_space(sym) : unitspace(P)
     tangent = random_tangent(rng,base;charged,Q)
     H = spinless ? nothing : hamiltonian(sym)
     parameters = Dict{String,Any}(

@@ -37,7 +37,7 @@ function _ms_prepare(fixture, cache, stage, direction, site)
         "local_operator_transition_count"=>count(x->x isa LocalOperator,operator),
         "local_center_rank"=>numind(center),
         "local_left_space"=>describe_space(codomain(center.A)[1]),
-        "local_right_space"=>describe_space(domain(center.A)[end]),
+        "local_right_space"=>describe_space(domain(center.A, numin(center.A))),
         "local_center_leg_spaces"=>[describe_space(V) for V in [collect(codomain(center.A));collect(domain(center.A))]],
         "preparation_site_indices"=>stage=="effective_site_action" ? Int[] :
             direction=="right" ? collect(1:site-1) : collect(length(tangent.B):-1:site+1),
@@ -56,8 +56,8 @@ function _ms_prepare(fixture, cache, stage, direction, site)
     recurse = direction=="right" ? _MS._recurseEl : _MS._recurseEr
     metadata["input_environment_channels"] = length(incoming)
     metadata["active_input_channels"] = _ms_active(incoming)
-    metadata["input_bond_dimension"] = dim(direction=="right" ? codomain(center.A)[1] : domain(center.A)[end])
-    metadata["output_bond_dimension"] = dim(direction=="right" ? domain(center.A)[end] : codomain(center.A)[1])
+    metadata["input_bond_dimension"] = dim(direction=="right" ? codomain(center.A)[1] : domain(center.A, numin(center.A)))
+    metadata["output_bond_dimension"] = dim(direction=="right" ? domain(center.A, numin(center.A)) : codomain(center.A)[1])
     metadata["reachable_transition_count"] = count(!isnothing(operator[i,j]) &&
         !isnothing(arguments[1][direction=="right" ? i : j]) for i in axes(operator,1), j in axes(operator,2))
     if stage == "tangent_recursion"

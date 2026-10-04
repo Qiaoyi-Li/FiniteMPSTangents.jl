@@ -58,7 +58,7 @@ mutable struct TangentEnvironment{L}
 			end
 		end
 		_setEr!(obj, Vector{Union{Nothing, BilayerRightTensor}}(undef, 1), L)
-		_getEr(obj, L)[1] = id(domain(Ψ.A[end])[end])
+		_getEr(obj, L)[1] = id(domain(Ψ.A[end], numin(Ψ.A[end])))
 
 		for si in reverse(2:L)
 			@timeit Timer_environment "_pushleft" begin
@@ -85,6 +85,47 @@ mutable struct TangentEnvironment{L}
 end
 
 # save and load functions
+function _getindex_disk(lru::LRU{K,V}, key, load) where {K,V}
+	lock(lru.lock) do
+		if LRUCache._unsafe_haskey(lru, key)
+			value, node, _ = lru.dict[key]
+			LRUCache._move_to_front!(lru.keyset, node)
+			return value
+		end
+		value = load(key)
+		evictions = Tuple{K,V}[]
+		LRUCache._unsafe_addindex!(lru, value, key)
+		LRUCache._unsafe_resize!(lru, evictions)
+		LRUCache._finalize_evictions!(lru.finalizer, evictions)
+		return value
+	end
+end
+
+function _setindex_disk!(lru::LRU{K,V}, value, key) where {K,V}
+	# Keep eviction writes inside the existing LRU lock so readers wait for them.
+	lock(lru.lock) do
+		if LRUCache._unsafe_haskey(lru, key)
+			_, node, size = lru.dict[key]
+			lru.currentsize -= size
+			size = lru.by(value)::Int
+			if size > lru.maxsize
+				delete!(lru.dict, key)
+				LRUCache._delete!(lru.keyset, node)
+			else
+				lru.currentsize += size
+				lru.dict[key] = (value, node, size)
+				LRUCache._move_to_front!(lru.keyset, node)
+			end
+		else
+			LRUCache._unsafe_addindex!(lru, value, key)
+		end
+		evictions = Tuple{K,V}[]
+		LRUCache._unsafe_resize!(lru, evictions)
+		LRUCache._finalize_evictions!(lru.finalizer, evictions)
+	end
+	return lru
+end
+
 function _getEl(obj::TangentEnvironment, si::Int64)
 	return _getindex_disk(obj.El, si, x -> deserialize(joinpath(obj.dir, "El_$(x).bin")))
 end

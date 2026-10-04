@@ -10,11 +10,9 @@ end
 
 _oc_execution(config; tree=false) = Dict{String,Any}(
     "julia_threads" => config.julia_threads, "blas_threads" => 1,
-    "action_threads" => config.julia_threads, "sector_mul_threads" => 1,
-    "svd_threads" => 1, "eig_threads" => 1,
-    "serial" => tree ? config.julia_threads == 1 : nothing,
-    "ntasks" => tree ? (config.julia_threads == 1 ? 1 : config.julia_threads+1) : nothing,
-    "contraction_workers" => tree ? (config.julia_threads == 1 ? 0 : config.julia_threads) : 0)
+    "action_threads" => config.julia_threads,
+    "algorithm" => tree ? "LayeredTreeEval" : nothing,
+    "ntasks" => tree ? config.julia_threads : nothing)
 
 function _oc_parameters(config, family, symmetry, configuration, D, base_rank, center_rank)
     return Dict{String,Any}("section" => family == "CO" ? "calobs" : "basic",
@@ -106,8 +104,7 @@ end
 
 function _oc_calobs(tree,bra,ket,config)
     _OC.calObs!(tree,bra,ket;normalize=false,disk=false,
-        serial=config.julia_threads == 1,
-        ntasks=config.julia_threads == 1 ? 1 : config.julia_threads+1)
+        alg=LayeredTreeEval(ntasks=config.julia_threads))
 end
 
 function _oc_prepare(fixture, symmetry, klass; spinless=false)

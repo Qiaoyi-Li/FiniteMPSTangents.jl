@@ -67,7 +67,7 @@ function local_fixture(rng, symmetry, base_rank, charged, kind, side, place; dua
     braAl, braAr, braB = site(false), site(false), site(charged[1])
     ketAl, ketAr, ketB = site(false), site(false), site(charged[2])
     operator = if kind == :I
-        IdentityOperator(P, trivial(P), 9, 1.0)
+        IdentityOperator(P, unitspace(P), 9, 1.0)
     else
         cod = kind in (:O21, :O22) ? X ⊗ P : P
         dom = kind in (:O12, :O22) ? P ⊗ X : P

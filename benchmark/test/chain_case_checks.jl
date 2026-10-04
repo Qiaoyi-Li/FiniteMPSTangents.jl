@@ -25,7 +25,7 @@ end
 
 function check_chain_state(f,sym,D,rank;spinless=false)
     expected = bond_spaces(sym,D,rank;spinless)
-    actual = [codomain(f.base.A[1].A)[1]; [domain(A.A)[end] for A in f.base.A]]
+    actual = [codomain(f.base.A[1].A)[1]; [domain(A.A, numin(A.A)) for A in f.base.A]]
     @test actual==expected
     @test f.parameters["actual_D"]==dim(actual[9])<=D
     @test f.parameters["bond_schedule"]==

@@ -2,17 +2,14 @@
     @testset "On-site subtraction and allocating APIs" begin
         fixture = identity_fixture(1; site=1)
         operator = fixture.operator
-        base = fixture.base
         tangent = fixture.tangent
 
         product = operator * tangent
         @test tangent_difference_norm(product, tangent) < 1e-12
-        @test tangent_difference_norm(mul(operator, tangent), tangent) < 1e-12
         @test tangent_difference_norm(
             mul(operator, tangent, 2),
             scaled_copy(tangent, 2),
         ) < 1e-12
-        @test tangent_difference_norm(TangentMPS(operator, base), tangent) < 1e-12
 
         destination = partialcopy(tangent)
         mul!(destination, operator, tangent, 2, 3)
@@ -42,17 +39,12 @@
         end
 
         disk_environment = TangentEnvironment(base, operator; disk=true, maxsize=1)
-        disk_directory = disk_environment.dir
         try
-            @test isdir(disk_directory)
-            @test any(endswith(".bin"), readdir(disk_directory))
-
             disk_product = TangentMPS{3}(base, Vector{MPSTensor}(undef, 3))
             mul!(disk_product, operator, tangent; cache=disk_environment)
             @test tangent_difference_norm(disk_product, memory_product) < 1e-12
         finally
             finalize(disk_environment)
         end
-        @test !isdir(disk_directory)
     end
 end

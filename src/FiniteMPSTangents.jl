@@ -1,7 +1,7 @@
 module FiniteMPSTangents
 
 using FiniteMPS, LRUCache, Serialization
-import FiniteMPS: mul!, *, _getindex_disk, _setindex_disk!, _pushleft, _pushright,
+import FiniteMPS: mul!, *, _evaluate_tree!, _tree_options, _pushleft, _pushright,
     _action1, _action0, normalize!, norm, inner, add!, rmul!, similar, scalartype,
     free!, _getZ, _addZ!, calObs!
 import Base: isassigned, adjoint
