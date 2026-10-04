@@ -1,20 +1,20 @@
 # Performance measurement report
 
-[View measured source](https://github.com/Qiaoyi-Li/FiniteMPSTangents.jl/commit/4a22138d20c7bcd0e16c8622fdcf6d2dfc762ed6) · [Download raw data (JSON)](report.json) · [View workflow run](https://github.com/Qiaoyi-Li/FiniteMPSTangents.jl/actions/runs/34758158194)
+[View measured source](https://github.com/Qiaoyi-Li/FiniteMPSTangents.jl/commit/1fdd5adfc06a044a8f2f0df561c0d68868fd639d) · [Download raw data (JSON)](report.json) · [View workflow run](https://github.com/Qiaoyi-Li/FiniteMPSTangents.jl/actions/runs/37207543692)
 
 ## Measurement environment and thread settings
 
 | Field | Recorded at measurement time |
 | --- | --- |
 | Repository | Qiaoyi-Li/FiniteMPSTangents.jl |
-| Source commit | 4a22138d20c7bcd0e16c8622fdcf6d2dfc762ed6 |
-| Benchmark definition commit | 4a22138d20c7bcd0e16c8622fdcf6d2dfc762ed6 |
+| Source commit | 1fdd5adfc06a044a8f2f0df561c0d68868fd639d |
+| Benchmark definition commit | 1fdd5adfc06a044a8f2f0df561c0d68868fd639d |
 | Uncommitted changes | No |
 | Version tag | Not recorded |
 | Release type | Development or local build |
 | Algorithm library version | 0.1.1 |
-| Measured at (UTC) | 2026-09-13T13:51:12.110Z |
-| Processor model | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz |
+| Measured at (UTC) | 2026-10-04T15:02:42.404Z |
+| Processor model | AMD EPYC 7763 64-Core Processor |
 | Processor architecture | 64-bit x86 |
 | Visible logical processors | 4 |
 | Processors available to this process | 4 |
@@ -28,14 +28,14 @@
 | Matrix computation backend | OpenBLAS |
 | Runner label | ubuntu-24.04 |
 | Runner type | GitHub-hosted runner |
-| Runner image version | 20260907.300.1 |
+| Runner image version | 20260927.320.1 |
 | Operating system | Linux |
 | System kernel | 6.17.0-1022-azure |
-| Visible system memory (bytes) | 16769703936 |
+| Visible system memory (bytes) | 16766414848 |
 | Run trigger | Commit push |
 | Automation workflow | Performance |
-| Run identifier | 34758158194 |
-| Workflow run number | 2 |
+| Run identifier | 37207543692 |
+| Workflow run number | 4 |
 | Run attempt | 1 |
 | Benchmark definition file | benchmark/benchmarks.jl |
 | Benchmark definition source | Current source checkout |
@@ -46,453 +46,453 @@ Processor counts and thread settings describe available resources, not runtime c
 
 | Operation and size | Median time | Total allocated bytes | Memory allocation count | Samples |
 | --- | ---: | ---: | ---: | ---: |
-| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 47.691 milliseconds | 67168440 | 74281 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 109.59 milliseconds | 162131704 | 74316 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 216.9 milliseconds | 260432248 | 74267 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 80.822 milliseconds | 171060248 | 84268 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 229.25 milliseconds | 423377608 | 84353 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 408.48 milliseconds | 693382168 | 84268 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 126.69 milliseconds | 251421344 | 76215 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 809.35 milliseconds | 860847376 | 76368 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 3.8328 seconds | 3209387200 | 76181 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 258.71 milliseconds | 595001592 | 84659 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 1.3673 seconds | 2049236408 | 84455 | 3 |
-| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 7.6545 seconds | 7666983080 | 84472 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 50.79 milliseconds | 65011296 | 335839 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 76.143 milliseconds | 128191616 | 365799 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 86.782 milliseconds | 183705440 | 374185 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 62.844 milliseconds | 79399312 | 417596 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 95.726 milliseconds | 153072304 | 445403 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 101.22 milliseconds | 221341904 | 455868 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 111.49 milliseconds | 236371296 | 726330 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 204.03 milliseconds | 664856160 | 767643 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 906.5 milliseconds | 2145289632 | 876365 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 125.84 milliseconds | 248692272 | 796866 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 237.79 milliseconds | 688434672 | 843292 | 3 |
-| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 920.24 milliseconds | 2236016352 | 967536 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 22.799 milliseconds | 13843152 | 133165 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 21.561 milliseconds | 20615088 | 145398 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 24.214 milliseconds | 24801680 | 148721 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 37.466 milliseconds | 35003672 | 280777 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 77.374 milliseconds | 55040376 | 310812 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 73.744 milliseconds | 68107352 | 320091 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 33.519 milliseconds | 39639024 | 273038 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 45.307 milliseconds | 79500448 | 279951 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 92.618 milliseconds | 178835664 | 322949 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 72.469 milliseconds | 95263792 | 579130 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 122.14 milliseconds | 193685312 | 598549 | 3 |
-| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 225.11 milliseconds | 453515552 | 730568 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 81.888 milliseconds | 102106592 | 765148 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 122.74 milliseconds | 224049360 | 870117 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 247.15 milliseconds | 582563408 | 970528 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 1.375 seconds | 3227307360 | 11584166 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 233.11 milliseconds | 439876848 | 1780275 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 427.8 milliseconds | 1117705792 | 2024364 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 313.37 milliseconds | 459573072 | 3548969 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 558.75 milliseconds | 1010214464 | 5106360 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 1.092 seconds | 2368655120 | 5867549 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 604.41 milliseconds | 839550992 | 6454366 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 15.084 seconds | 40524711152 | 139277322 | 3 |
-| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 18.535 seconds | 49797940024 | 164505763 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=64 | 69.993 milliseconds | 169501520 | 75013 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=128 | 240.1 milliseconds | 418536832 | 75012 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=256 | 509.67 milliseconds | 707942320 | 75011 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 25.079 milliseconds | 55277488 | 21163 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 82.999 milliseconds | 134182832 | 21163 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 178.99 milliseconds | 210728880 | 21163 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=64 | 29.427 milliseconds | 50227552 | 23628 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=128 | 107.19 milliseconds | 126249680 | 23629 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=256 | 266.33 milliseconds | 216426848 | 23628 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 61.268 milliseconds | 129332880 | 56901 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 198.07 milliseconds | 324892304 | 56901 | 3 |
-| No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 437.43 milliseconds | 553481872 | 56901 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 217.8 milliseconds | 438573176 | 1341120 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 384.68 milliseconds | 1156842472 | 1428843 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 1.0261 seconds | 3676220856 | 1645129 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 57.973 milliseconds | 145150072 | 420440 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 126.76 milliseconds | 390030640 | 486015 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 410.16 milliseconds | 1223786584 | 518739 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 36.898 milliseconds | 70202312 | 216581 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 74.472 milliseconds | 197501384 | 232143 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 260.92 milliseconds | 639404168 | 269691 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 204.75 milliseconds | 358711112 | 1077665 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 380.9 milliseconds | 945942704 | 1150369 | 3 |
-| U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 993.02 milliseconds | 3001775936 | 1326138 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=64 | 44.954 milliseconds | 114554568 | 516196 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=128 | 67.987 milliseconds | 229793488 | 553744 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=256 | 93.069 milliseconds | 343498680 | 566251 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 9.8997 milliseconds | 25041952 | 107133 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 16.656 milliseconds | 50199280 | 115400 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 23.211 milliseconds | 72815840 | 117873 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=64 | 9.1684 milliseconds | 15287280 | 66010 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=128 | 16.04 milliseconds | 31908528 | 74530 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=256 | 23.28 milliseconds | 47838064 | 76826 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 42.34 milliseconds | 104545848 | 465708 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 62.06 milliseconds | 211472824 | 500084 | 3 |
-| U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 86.842 milliseconds | 317626248 | 511765 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=60 | 16.467 milliseconds | 30242288 | 239795 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 20.213 milliseconds | 46288176 | 259629 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 21.67 milliseconds | 57500464 | 265721 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=60 | 7.498 milliseconds | 12518432 | 97881 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 8.8009 milliseconds | 18822816 | 105573 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 8.9267 milliseconds | 22392720 | 107312 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=60 | 14.063 milliseconds | 25327136 | 201448 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 17.959 milliseconds | 39305936 | 219039 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 19.271 milliseconds | 49438288 | 224705 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=60 | 17.024 milliseconds | 18584952 | 143078 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=128 | 20.127 milliseconds | 29677720 | 160165 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=256 | 23.88 milliseconds | 37477048 | 165546 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=60 | 42.49 milliseconds | 53943032 | 333877 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=128 | 61.846 milliseconds | 109028456 | 346329 | 3 |
-| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=256 | 158.44 milliseconds | 252549832 | 424523 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 24.904 seconds | 63043750200 | 216393333 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 49.216 seconds | 123922200376 | 416894055 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 59.972 seconds | 151314804528 | 485740415 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 10.039 seconds | 25251680576 | 83128059 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 18.005 seconds | 45738433824 | 150600106 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 21.852 seconds | 54373187432 | 174598150 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 7.0015 seconds | 15912142240 | 52160440 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 15.9 seconds | 38069031520 | 123589300 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 19.505 seconds | 45477182576 | 144067220 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 264.19 milliseconds | 292425712 | 2390610 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 576.92 milliseconds | 625289120 | 3501873 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 1.0882 seconds | 1408299008 | 4040903 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 20.941 seconds | 52814517184 | 179487871 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 41.256 seconds | 104485339440 | 350077791 | 3 |
-| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 51.098 seconds | 128337615120 | 414199672 | 3 |
-| No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=64 | 8.6763 milliseconds | 9976408 | 3952 | 3 |
-| No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=128 | 25.31 milliseconds | 23984728 | 3952 | 3 |
-| No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=256 | 48.097 milliseconds | 39221848 | 3952 | 3 |
-| No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.3858 milliseconds | 1892152 | 1420 | 3 |
-| No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 2.9102 milliseconds | 4710952 | 1437 | 3 |
-| No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 6.0936 milliseconds | 8118072 | 1420 | 3 |
-| No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 3.0489 milliseconds | 5029576 | 1436 | 3 |
-| No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 13.241 milliseconds | 17153736 | 1436 | 3 |
-| No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 86.252 milliseconds | 64601800 | 1436 | 3 |
-| No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=64 | 74.505 microseconds | 6352 | 133 | 3 |
-| No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128 | 394.64 microseconds | 6352 | 133 | 3 |
-| No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256 | 425.34 microseconds | 5600 | 116 | 3 |
-| No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=64 | 230.99 microseconds | 5600 | 116 | 3 |
-| No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=128 | 1.1689 milliseconds | 5600 | 116 | 3 |
-| No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=256 | 6.7754 milliseconds | 5600 | 116 | 3 |
-| U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 701.09 microseconds | 526744 | 2544 | 3 |
-| U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.0571 milliseconds | 1052280 | 2694 | 3 |
-| U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 1.1678 milliseconds | 1616328 | 2757 | 3 |
-| U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=64 | 64.017 microseconds | 6352 | 133 | 3 |
-| U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128 | 70.511 microseconds | 6352 | 133 | 3 |
-| U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256 | 92.679 microseconds | 6352 | 133 | 3 |
-| U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 128.88 microseconds | 5600 | 116 | 3 |
-| U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 112.56 microseconds | 6352 | 133 | 3 |
-| U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 742.27 microseconds | 5600 | 116 | 3 |
-| SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60 | 14.038 milliseconds | 17895792 | 118445 | 3 |
-| SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 16.578 milliseconds | 36401504 | 121710 | 3 |
-| SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 25.587 milliseconds | 82702560 | 140333 | 3 |
-| SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=60 | 3.2485 milliseconds | 3188360 | 19494 | 3 |
-| SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=128 | 5.6244 milliseconds | 6662616 | 20179 | 3 |
-| SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=256 | 10.475 milliseconds | 15090456 | 23134 | 3 |
-| SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.248 milliseconds | 1913032 | 11799 | 3 |
-| SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 1.8611 milliseconds | 3921304 | 12196 | 3 |
-| SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 3.1735 milliseconds | 9037720 | 14586 | 3 |
-| SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=60 | 126.75 microseconds | 16192 | 325 | 3 |
-| SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128 | 109.9 microseconds | 25952 | 452 | 3 |
-| SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256 | 232.56 microseconds | 29024 | 492 | 3 |
-| SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=60 | 128.61 microseconds | 43104 | 564 | 3 |
-| SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 151.15 microseconds | 38432 | 530 | 3 |
-| SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 189.94 microseconds | 56288 | 692 | 3 |
-| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=126 | 368.73 microseconds | 41808 | 845 | 3 |
-| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=255 | 491.54 microseconds | 51936 | 996 | 3 |
-| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=511 | 736.74 microseconds | 64480 | 1188 | 3 |
-| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 723.97 microseconds | 132384 | 1764 | 3 |
-| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 1.6373 milliseconds | 158624 | 2164 | 3 |
-| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 1.3633 milliseconds | 182048 | 2442 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.569 milliseconds | 3565560 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 10.432 milliseconds | 13985784 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 21.419 milliseconds | 31549432 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.5128 milliseconds | 3564808 | 1560 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 9.2993 milliseconds | 13985784 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 26.904 milliseconds | 26044408 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 3.3446 milliseconds | 10727344 | 1885 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 18.62 milliseconds | 42577840 | 1885 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 45.294 milliseconds | 96055216 | 1885 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 5.4307 milliseconds | 9676832 | 1851 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 19.467 milliseconds | 38381600 | 1851 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 68.66 milliseconds | 76654624 | 1851 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 4.7983 milliseconds | 6582280 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 16.722 milliseconds | 26046472 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 122.85 milliseconds | 103903240 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 4.6271 milliseconds | 6582280 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 17.173 milliseconds | 26046472 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 127.23 milliseconds | 103903240 | 1577 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 5.9797 milliseconds | 18593792 | 1885 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 36.121 milliseconds | 74037248 | 1885 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 259.45 milliseconds | 295811072 | 1885 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 6.5525 milliseconds | 16494448 | 1851 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 38.915 milliseconds | 65646448 | 1851 | 3 |
-| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 361.28 milliseconds | 262254448 | 1851 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.1722 milliseconds | 3474016 | 1181 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 6.101 milliseconds | 13697632 | 1181 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 17.016 milliseconds | 27329120 | 1181 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 2.189 milliseconds | 7935856 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 12.352 milliseconds | 31528816 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 35.088 milliseconds | 62986096 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.0541 milliseconds | 7935856 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 11.927 milliseconds | 31528816 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 84.047 milliseconds | 125900656 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 4.1963 milliseconds | 15801632 | 1253 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 32.919 milliseconds | 62986800 | 1236 | 3 |
-| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 168.56 milliseconds | 251731232 | 1253 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=64 | 1.1015 milliseconds | 3012936 | 1131 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=128 | 6.0817 milliseconds | 11860296 | 1131 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=256 | 16.284 milliseconds | 27326792 | 1131 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=64 | 1.4237 milliseconds | 4331720 | 1296 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=128 | 6.7696 milliseconds | 17111240 | 1296 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=256 | 17.275 milliseconds | 37820616 | 1296 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=64 | 1.9355 milliseconds | 5504424 | 1131 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=128 | 11.171 milliseconds | 21822888 | 1131 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=256 | 78.689 milliseconds | 87096744 | 1131 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=64 | 2.4389 milliseconds | 9188896 | 1407 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=128 | 13.06 milliseconds | 36517408 | 1407 | 3 |
-| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=256 | 90.414 milliseconds | 145831456 | 1407 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 280.36 microseconds | 537792 | 263 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 1.5982 milliseconds | 2111408 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 5.4613 milliseconds | 4208560 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 401.61 microseconds | 537088 | 243 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 3.4808 milliseconds | 2110704 | 260 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 3.001 milliseconds | 4207104 | 243 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 531.76 microseconds | 1063280 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 3.4088 milliseconds | 4209008 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 11.604 milliseconds | 8403312 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 560.02 microseconds | 1063280 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 2.8114 milliseconds | 4209008 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 6.0673 milliseconds | 8403312 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 501.26 microseconds | 1063280 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 5.5461 milliseconds | 4209008 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 21.855 milliseconds | 16791920 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 533.51 microseconds | 1062528 | 263 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 3.1568 milliseconds | 4209008 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 19.551 milliseconds | 16791920 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 1.2153 milliseconds | 2112112 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 6.2514 milliseconds | 8403568 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 48.97 milliseconds | 33569392 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 960.93 microseconds | 2112112 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 7.2096 milliseconds | 8403568 | 280 | 3 |
-| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 39.502 milliseconds | 33569392 | 280 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.1444 milliseconds | 3019056 | 8517 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 2.9648 milliseconds | 9828592 | 10425 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 4.8817 milliseconds | 19324656 | 11311 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.2163 milliseconds | 3462288 | 9431 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 2.9727 milliseconds | 11253264 | 11683 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 5.5512 milliseconds | 19351760 | 12901 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 2.2974 milliseconds | 3962736 | 11185 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 3.502 milliseconds | 12982960 | 14273 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 5.771 milliseconds | 25239024 | 15827 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 1.517 milliseconds | 3980304 | 11296 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 3.3024 milliseconds | 12953360 | 14376 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 6.2834 milliseconds | 23445536 | 15931 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.0894 milliseconds | 7226240 | 16619 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 8.3914 milliseconds | 24256192 | 20077 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 24.696 milliseconds | 80352704 | 25049 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.0708 milliseconds | 7144656 | 16297 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 8.7645 milliseconds | 23990160 | 19863 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 20.674 milliseconds | 79607440 | 24787 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 2.5499 milliseconds | 7885664 | 19194 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 7.4178 milliseconds | 26222240 | 23039 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 26.9 milliseconds | 88670240 | 29219 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 3.8091 milliseconds | 7886880 | 19190 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 5.6576 milliseconds | 26191264 | 23131 | 3 |
-| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 21.97 milliseconds | 88566816 | 29359 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 847.53 microseconds | 2596944 | 5634 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 1.9966 milliseconds | 8708624 | 6866 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 3.2998 milliseconds | 15521808 | 7568 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 1.5335 milliseconds | 2771296 | 6857 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 3.1523 milliseconds | 9238560 | 8553 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 5.4181 milliseconds | 16684672 | 9419 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 1.427 milliseconds | 5763584 | 10858 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 5.8155 milliseconds | 19842368 | 13056 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 11.98 milliseconds | 66372160 | 16272 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 1.5151 milliseconds | 5133776 | 10387 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 4.1498 milliseconds | 17522640 | 12340 | 3 |
-| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 12.143 milliseconds | 60332880 | 15528 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=64 | 1.2853 milliseconds | 2455856 | 6123 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 1.7593 milliseconds | 8125360 | 7443 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 3.6258 milliseconds | 16335408 | 8105 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=64 | 915.46 microseconds | 2765544 | 6508 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 2.083 milliseconds | 9248232 | 8088 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 3.9603 milliseconds | 18224680 | 8864 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=64 | 1.3454 milliseconds | 5195728 | 10631 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 5.3149 milliseconds | 17732032 | 12821 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 11.931 milliseconds | 59082064 | 16013 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=64 | 1.4035 milliseconds | 5296104 | 10931 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 3.7562 milliseconds | 18093048 | 13202 | 3 |
-| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 12.618 milliseconds | 60221656 | 16574 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 203.13 microseconds | 636224 | 1510 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 542.62 microseconds | 2124080 | 1887 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 1.0576 milliseconds | 4150832 | 2135 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 159.65 microseconds | 350656 | 894 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 401.92 microseconds | 1152704 | 1030 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 1.1707 milliseconds | 1898688 | 1030 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 201.4 microseconds | 568112 | 1450 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 742.19 microseconds | 1897520 | 1810 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 1.0014 milliseconds | 3793856 | 2045 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 319.81 microseconds | 569424 | 1496 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 487.43 microseconds | 1882688 | 1873 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 742.27 microseconds | 3252656 | 1998 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 311.17 microseconds | 1120096 | 2079 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 913.39 microseconds | 3867744 | 2551 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 3.1964 milliseconds | 12879712 | 3135 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 295.91 microseconds | 1124512 | 2227 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 860.11 microseconds | 3850144 | 2563 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 4.0051 milliseconds | 12830896 | 3130 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 304.91 microseconds | 1002064 | 2010 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 1.5234 milliseconds | 3436880 | 2426 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 2.9994 milliseconds | 11792512 | 3031 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 296.31 microseconds | 1006048 | 2145 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 825.32 microseconds | 3419728 | 2438 | 3 |
-| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 3.3314 milliseconds | 11744576 | 3039 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 364.92 microseconds | 562072 | 3277 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 653.98 microseconds | 1325128 | 4005 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 815.77 microseconds | 2089528 | 4360 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 376.41 microseconds | 626560 | 3615 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 642.46 microseconds | 1429248 | 4453 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 1.1912 milliseconds | 2008768 | 4854 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 932.2 microseconds | 1642128 | 7907 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.786 milliseconds | 4265280 | 11041 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 3.2225 milliseconds | 6782816 | 12630 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 1.3107 milliseconds | 1643280 | 7981 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.7932 milliseconds | 4200960 | 11127 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 2.4762 milliseconds | 6360672 | 12732 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 1.0531 milliseconds | 1128792 | 5980 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 1.5648 milliseconds | 2979576 | 7221 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 2.1419 milliseconds | 6867048 | 8935 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 713.66 microseconds | 1127792 | 6050 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 1.1514 milliseconds | 2959024 | 7325 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 2.0909 milliseconds | 6862544 | 9083 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.601 milliseconds | 2825616 | 13417 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 2.9382 milliseconds | 7674784 | 16958 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 6.837 milliseconds | 18492000 | 22524 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.6189 milliseconds | 2815168 | 13448 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 4.2579 milliseconds | 7618640 | 17074 | 3 |
-| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 6.9304 milliseconds | 18361392 | 22660 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 274.66 microseconds | 406928 | 2172 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 464.52 microseconds | 969248 | 2640 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 807.1 microseconds | 1398560 | 2875 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 511.31 microseconds | 983728 | 4463 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.0066 milliseconds | 2549456 | 6087 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 1.6235 milliseconds | 3816304 | 6876 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 490.15 microseconds | 784048 | 3905 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 1.85 milliseconds | 2132784 | 4658 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 1.378 milliseconds | 5047024 | 5746 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 902.3 microseconds | 1706168 | 7318 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 1.7166 milliseconds | 4796360 | 9220 | 3 |
-| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 3.651 milliseconds | 11880808 | 12159 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=60 | 278.76 microseconds | 435448 | 2369 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 443.35 microseconds | 1055752 | 2875 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 551.52 microseconds | 1711544 | 3138 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=60 | 276.9 microseconds | 446224 | 2326 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 436.95 microseconds | 1096880 | 2885 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 488.91 microseconds | 1734448 | 3154 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60 | 468.64 microseconds | 795048 | 3980 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 771.34 microseconds | 2136840 | 4791 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 1.3947 milliseconds | 4975096 | 5885 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60 | 464.36 microseconds | 775936 | 3872 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 673.56 microseconds | 2115712 | 4683 | 3 |
-| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 1.1114 milliseconds | 4938592 | 5775 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 78.724 microseconds | 111648 | 665 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 130.88 microseconds | 268224 | 795 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 145.05 microseconds | 442832 | 868 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 114.18 microseconds | 64416 | 465 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 242.71 microseconds | 134208 | 531 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 229.31 microseconds | 166720 | 531 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 108.03 microseconds | 194800 | 969 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 202.39 microseconds | 493264 | 1251 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 280.55 microseconds | 789856 | 1404 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 111.35 microseconds | 193872 | 985 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 269.69 microseconds | 470000 | 1267 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 291.56 microseconds | 673008 | 1375 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 156.94 microseconds | 163024 | 867 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 164.52 microseconds | 433936 | 1035 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 298.39 microseconds | 989488 | 1239 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 135.69 microseconds | 160528 | 929 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 342.53 microseconds | 413744 | 1041 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 308.76 microseconds | 961584 | 1239 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 156.74 microseconds | 309584 | 1407 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 437.86 microseconds | 862464 | 1724 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 601.82 microseconds | 2091632 | 2213 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 154.01 microseconds | 307664 | 1471 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 323.98 microseconds | 843248 | 1747 | 3 |
-| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 963.63 microseconds | 2064880 | 2217 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 1.5 milliseconds | 3129056 | 20153 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 2.4742 milliseconds | 7796320 | 23919 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 6.3014 milliseconds | 24963584 | 26801 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 2.7423 milliseconds | 3569400 | 23168 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 2.739 milliseconds | 8791336 | 27650 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 9.2462 milliseconds | 28112680 | 31056 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 3.121 milliseconds | 6820528 | 45296 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 5.453 milliseconds | 16547056 | 55339 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 13.78 milliseconds | 52062576 | 63749 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 3.7199 milliseconds | 6805104 | 45282 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 5.6911 milliseconds | 16441568 | 55373 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 13.553 milliseconds | 51694544 | 63798 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 5.2605 milliseconds | 12511648 | 80234 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 10.318 milliseconds | 30594144 | 101448 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 50.16 milliseconds | 90795776 | 127152 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 5.237 milliseconds | 12621008 | 81450 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 10.132 milliseconds | 30728016 | 103170 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 57.254 milliseconds | 90850320 | 129392 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 12.781 milliseconds | 22812888 | 150475 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 51.167 milliseconds | 54410280 | 197378 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 46.307 milliseconds | 157937384 | 254408 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 13.575 milliseconds | 22787064 | 150642 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 22.458 milliseconds | 54283368 | 197680 | 3 |
-| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 72.293 milliseconds | 157298120 | 254563 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 1.0791 milliseconds | 2447280 | 13325 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 2.6172 milliseconds | 6387200 | 15791 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 4.5462 milliseconds | 21155008 | 17661 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 2.0724 milliseconds | 4565896 | 26733 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 3.6632 milliseconds | 11629304 | 32588 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 8.25 milliseconds | 37764872 | 37379 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 3.7711 milliseconds | 9197480 | 51023 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 6.5471 milliseconds | 23690344 | 64355 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 15.761 milliseconds | 72444488 | 80597 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 7.3327 milliseconds | 14984152 | 86569 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 12.813 milliseconds | 37970104 | 113711 | 3 |
-| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 56.981 milliseconds | 114379032 | 146409 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=126 | 1.1078 milliseconds | 2454872 | 14473 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=255 | 1.9416 milliseconds | 6312152 | 17110 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=511 | 4.12 milliseconds | 20575432 | 19099 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=126 | 1.445 milliseconds | 2681936 | 15974 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=255 | 2.1044 milliseconds | 6883888 | 19002 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=511 | 4.5056 milliseconds | 22398832 | 21274 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=126 | 3.5002 milliseconds | 8587392 | 50737 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=255 | 6.073 milliseconds | 21667328 | 64015 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=511 | 15.659 milliseconds | 65526976 | 80015 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=126 | 3.7016 milliseconds | 8628088 | 51140 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=255 | 7.7061 milliseconds | 21760648 | 64444 | 3 |
-| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=511 | 17.339 milliseconds | 65780936 | 80516 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 192.37 microseconds | 489088 | 2839 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 374.17 microseconds | 1280224 | 3387 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 991.5 microseconds | 4187888 | 3718 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 412.19 microseconds | 247216 | 1337 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 403.25 microseconds | 638896 | 1517 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 750.84 microseconds | 2162096 | 1709 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 460.32 microseconds | 704960 | 3970 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 856.07 microseconds | 1848320 | 4830 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 2.8278 milliseconds | 6049168 | 5475 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 308.73 microseconds | 711520 | 4163 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 583.18 microseconds | 1818032 | 5039 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 1.3803 milliseconds | 5944432 | 5745 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 804.97 microseconds | 1350624 | 7028 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 1.7829 milliseconds | 3569184 | 8728 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 4.7463 milliseconds | 11069856 | 10660 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 858.4 microseconds | 1350176 | 7232 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 983.33 microseconds | 3528848 | 9025 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 3.0566 milliseconds | 10873040 | 11321 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 940.39 microseconds | 2105168 | 11547 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 2.1512 milliseconds | 5508496 | 14977 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 5.2877 milliseconds | 16907728 | 18935 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 944.5 microseconds | 2104592 | 11749 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 1.7755 milliseconds | 5467280 | 15255 | 3 |
-| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 5.0463 milliseconds | 16710032 | 19577 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 38.536 milliseconds | 66986224 | 75904 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 111.33 milliseconds | 161355792 | 75859 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 226.29 milliseconds | 258874640 | 75882 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 67.23 milliseconds | 170515784 | 85029 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 215.36 milliseconds | 421387960 | 85038 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 465.13 milliseconds | 688772600 | 84994 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 117.73 milliseconds | 251022920 | 78099 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 903.85 milliseconds | 858672152 | 78088 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 4.4859 seconds | 3200138040 | 78000 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 224.07 milliseconds | 593880480 | 85468 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 1.4651 seconds | 2044587152 | 85501 | 3 |
+| No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 9.1474 seconds | 7647126480 | 85457 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 53.322 milliseconds | 70407272 | 420795 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 65.002 milliseconds | 132636856 | 441239 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 85.721 milliseconds | 187935480 | 447458 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 62.136 milliseconds | 84621256 | 506206 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 81.988 milliseconds | 158626312 | 536887 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 92.963 milliseconds | 226665848 | 545293 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 102.16 milliseconds | 243594504 | 823664 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 198.91 milliseconds | 671570120 | 861946 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 867.24 milliseconds | 2151984200 | 969970 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 113.63 milliseconds | 254863352 | 892120 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 216.95 milliseconds | 694726664 | 939465 | 3 |
+| U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 860.01 milliseconds | 2242365000 | 1063676 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 23.009 milliseconds | 15799168 | 175510 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 23.528 milliseconds | 21449968 | 184905 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 22.997 milliseconds | 25061632 | 187681 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 50.366 milliseconds | 45504840 | 419580 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 45.574 milliseconds | 66437208 | 464599 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 48.288 milliseconds | 79556296 | 478578 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 49.932 milliseconds | 48807504 | 386941 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 43.55 milliseconds | 88633472 | 398669 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 77.657 milliseconds | 188521056 | 461470 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 88.12 milliseconds | 127573104 | 939813 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 131.53 milliseconds | 226609600 | 973953 | 3 |
+| SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 195.24 milliseconds | 492768320 | 1196538 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 83.851 milliseconds | 105987672 | 867547 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 109.59 milliseconds | 221742904 | 976574 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 191.7 milliseconds | 561001432 | 1082691 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 1.0343 seconds | 1845841480 | 15027546 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 247.85 milliseconds | 482781448 | 2343117 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 414.47 milliseconds | 1157944136 | 2662102 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 289.45 milliseconds | 522821496 | 4290600 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 485.84 milliseconds | 1098883016 | 6145518 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 1.3896 seconds | 2464489352 | 7018416 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 694.53 milliseconds | 1112330056 | 9300440 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 12.292 seconds | 19578574216 | 149218502 | 3 |
+| U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 15.481 seconds | 26133862272 | 185002214 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=64 | 60.096 milliseconds | 170583016 | 90781 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=128 | 229.88 milliseconds | 419619816 | 90781 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=256 | 521.78 milliseconds | 709043216 | 90783 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 19.077 milliseconds | 55517016 | 23869 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 68.177 milliseconds | 134420272 | 23867 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 170.69 milliseconds | 210968408 | 23869 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=64 | 17.853 milliseconds | 50608712 | 28971 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=128 | 64.352 milliseconds | 126629384 | 28970 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=256 | 164.98 milliseconds | 216806920 | 28970 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 48.257 milliseconds | 130107208 | 67802 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 199.3 milliseconds | 325666632 | 67802 | 3 |
+| No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 430.42 milliseconds | 554256200 | 67802 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 159.03 milliseconds | 418865104 | 1489676 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 307.41 milliseconds | 1137769552 | 1586274 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 936.31 milliseconds | 3654923336 | 1787986 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 55.884 milliseconds | 138082656 | 496216 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 98.443 milliseconds | 376190664 | 527775 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 355.71 milliseconds | 1215151408 | 592229 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 64.295 milliseconds | 72562424 | 252714 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 64.02 milliseconds | 199826744 | 268032 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 197.49 milliseconds | 641728920 | 305460 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 189.4 milliseconds | 341313552 | 1194995 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 321.09 milliseconds | 926344232 | 1263454 | 3 |
+| U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 868 milliseconds | 2980164200 | 1428248 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=64 | 48.833 milliseconds | 123847840 | 681506 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=128 | 67.26 milliseconds | 239082912 | 719030 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=256 | 99.582 milliseconds | 352803616 | 731598 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 10.807 milliseconds | 26970488 | 140070 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 15.548 milliseconds | 52127224 | 148326 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 20.205 milliseconds | 74744760 | 150810 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=64 | 8.5985 milliseconds | 17049760 | 95192 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=128 | 11.22 milliseconds | 33378976 | 100596 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=256 | 14.861 milliseconds | 49249728 | 102262 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=64 | 48.017 milliseconds | 112925456 | 614468 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 63.548 milliseconds | 219811344 | 648484 | 3 |
+| U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 85.498 milliseconds | 325960784 | 660080 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=60 | 20.9 milliseconds | 35171152 | 346915 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 23.992 milliseconds | 49558640 | 370873 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 25.587 milliseconds | 59440912 | 378673 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=60 | 9.352 milliseconds | 14311112 | 142076 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 11.077 milliseconds | 19675840 | 150498 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 10.622 milliseconds | 22622400 | 152670 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=60 | 18.28 milliseconds | 29602040 | 292510 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128 | 22.216 milliseconds | 42145080 | 313260 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256 | 22.118 milliseconds | 51121816 | 320404 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=60 | 18.751 milliseconds | 24764456 | 230017 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=128 | 21.06 milliseconds | 35825560 | 253094 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=256 | 23.706 milliseconds | 43428504 | 260853 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=60 | 45.851 milliseconds | 73133752 | 552645 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=128 | 116.62 milliseconds | 128353240 | 573145 | 3 |
+| SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=256 | 139.92 milliseconds | 275173464 | 702599 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 17.253 seconds | 28355204704 | 216749030 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 34.555 seconds | 56569095792 | 422691489 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 43.924 seconds | 75512532224 | 515489376 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 7.3924 seconds | 11280100424 | 86210718 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 13.76 seconds | 20605557176 | 157406487 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 16.585 seconds | 26246776608 | 191667002 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 6.8512 seconds | 10592745224 | 79963624 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 12.067 seconds | 18757224128 | 141681062 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 14.667 seconds | 23713441160 | 172204158 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 232.38 milliseconds | 350682328 | 3060699 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 400.25 milliseconds | 707949912 | 4458597 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 581.51 milliseconds | 1497400760 | 5110699 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 15.175 seconds | 23485956168 | 178448232 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 28.548 seconds | 47268095744 | 353824760 | 3 |
+| U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 36.982 seconds | 62365766048 | 434074225 | 3 |
+| No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=64 | 8.2157 milliseconds | 6223184 | 4899 | 3 |
+| No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=128 | 26.455 milliseconds | 14139440 | 4971 | 3 |
+| No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=256 | 53.238 milliseconds | 22298672 | 4971 | 3 |
+| No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.1309 milliseconds | 1523280 | 1345 | 3 |
+| No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 5.111 milliseconds | 3752128 | 1356 | 3 |
+| No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 6.4987 milliseconds | 6373072 | 1345 | 3 |
+| No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.6241 milliseconds | 4302800 | 1327 | 3 |
+| No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 14.592 milliseconds | 14657488 | 1327 | 3 |
+| No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 103.08 milliseconds | 55027824 | 1327 | 3 |
+| No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=64 | 115.01 microseconds | 5968 | 121 | 3 |
+| No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128 | 187.13 microseconds | 5968 | 121 | 3 |
+| No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256 | 329.84 microseconds | 5968 | 121 | 3 |
+| No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=64 | 275.27 microseconds | 5408 | 110 | 3 |
+| No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=128 | 791.36 microseconds | 5408 | 110 | 3 |
+| No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=256 | 3.5754 milliseconds | 5408 | 110 | 3 |
+| U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 590.61 microseconds | 590712 | 3595 | 3 |
+| U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 813.22 microseconds | 1113928 | 3720 | 3 |
+| U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 962.52 microseconds | 1676024 | 3747 | 3 |
+| U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=64 | 228.23 microseconds | 5968 | 121 | 3 |
+| U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128 | 88.286 microseconds | 5968 | 121 | 3 |
+| U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256 | 215.63 microseconds | 5408 | 110 | 3 |
+| U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64 | 79.059 microseconds | 5504 | 111 | 3 |
+| U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 110.24 microseconds | 5968 | 121 | 3 |
+| U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 352.98 microseconds | 5968 | 121 | 3 |
+| SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60 | 15.682 milliseconds | 21729104 | 168303 | 3 |
+| SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 18.376 milliseconds | 40118320 | 173590 | 3 |
+| SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 27.906 milliseconds | 86388448 | 200626 | 3 |
+| SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=60 | 3.9114 milliseconds | 5881392 | 30117 | 3 |
+| SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=128 | 5.5709 milliseconds | 7748272 | 30886 | 3 |
+| SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=256 | 9.69 milliseconds | 14895536 | 35295 | 3 |
+| SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.34 milliseconds | 2496872 | 18705 | 3 |
+| SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 2.3276 milliseconds | 4529912 | 19378 | 3 |
+| SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 2.7629 milliseconds | 9769352 | 23167 | 3 |
+| SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=60 | 134.55 microseconds | 44832 | 814 | 3 |
+| SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128 | 139.5 microseconds | 48080 | 873 | 3 |
+| SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256 | 219.09 microseconds | 48416 | 878 | 3 |
+| SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=60 | 279.61 microseconds | 73248 | 988 | 3 |
+| SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128 | 197.21 microseconds | 71712 | 982 | 3 |
+| SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256 | 248.7 microseconds | 79904 | 1100 | 3 |
+| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=126 | 400.06 microseconds | 152352 | 2734 | 3 |
+| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=255 | 885.58 microseconds | 170272 | 3054 | 3 |
+| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=511 | 912.99 microseconds | 189984 | 3406 | 3 |
+| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126 | 685.39 microseconds | 229664 | 3416 | 3 |
+| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255 | 1.235 milliseconds | 284448 | 4312 | 3 |
+| U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511 | 2.3567 milliseconds | 398112 | 5428 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.5153 milliseconds | 3569176 | 1613 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 10.174 milliseconds | 13989400 | 1613 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 25.223 milliseconds | 31553048 | 1613 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.4933 milliseconds | 3570632 | 1627 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 9.5322 milliseconds | 13990856 | 1627 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 31.099 milliseconds | 26049480 | 1627 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 3.0521 milliseconds | 10735520 | 1932 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 20.191 milliseconds | 42586016 | 1932 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 52.296 milliseconds | 96063392 | 1932 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 4.347 milliseconds | 9682928 | 1857 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 22.757 milliseconds | 38387696 | 1857 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 62.994 milliseconds | 76660720 | 1857 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.8602 milliseconds | 6590904 | 1645 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 19.595 milliseconds | 26055096 | 1645 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 149.95 milliseconds | 103911864 | 1645 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.7863 milliseconds | 6591352 | 1645 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 22.879 milliseconds | 26055544 | 1645 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 152.05 milliseconds | 103912312 | 1645 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 6.9467 milliseconds | 18605936 | 1946 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 40.145 milliseconds | 74049392 | 1946 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 338.56 milliseconds | 295823216 | 1946 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 8.6613 milliseconds | 16503392 | 1857 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 39.938 milliseconds | 65655392 | 1857 | 3 |
+| No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 304.92 milliseconds | 262263392 | 1857 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.0841 milliseconds | 3477904 | 1209 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 9.5802 milliseconds | 13701520 | 1209 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 19.712 milliseconds | 27333008 | 1209 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 1.9435 milliseconds | 7941008 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 13.2 milliseconds | 31533968 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 39.744 milliseconds | 62991248 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.0429 milliseconds | 7941008 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 16.916 milliseconds | 31533968 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 97.794 milliseconds | 125905808 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 3.7392 milliseconds | 15808624 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 37.578 milliseconds | 62994544 | 1263 | 3 |
+| No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 206.86 milliseconds | 251738224 | 1263 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=64 | 1.2389 milliseconds | 3016856 | 1170 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=128 | 6.7644 milliseconds | 11864216 | 1170 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=256 | 21.482 milliseconds | 27330712 | 1170 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=64 | 1.2333 milliseconds | 3807048 | 1236 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=128 | 7.6396 milliseconds | 15013704 | 1236 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=256 | 21.207 milliseconds | 33625928 | 1236 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=64 | 1.9949 milliseconds | 5512344 | 1195 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=128 | 14.6 milliseconds | 21830808 | 1195 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=256 | 99.108 milliseconds | 87104664 | 1195 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=64 | 2.2778 milliseconds | 8929056 | 1336 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=128 | 20.588 milliseconds | 35471136 | 1336 | 3 |
+| No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=256 | 111.96 milliseconds | 141639456 | 1336 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 291.44 microseconds | 539872 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 1.8289 milliseconds | 2112736 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 6.9028 milliseconds | 4209888 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 593.11 microseconds | 539168 | 291 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 3.2061 milliseconds | 2112032 | 291 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 6.2413 milliseconds | 4209184 | 291 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 855.65 microseconds | 1064608 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 6.16 milliseconds | 4210336 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 12.312 milliseconds | 8404640 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64 | 529.97 microseconds | 1064608 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128 | 6.2816 milliseconds | 4210336 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256 | 6.5878 milliseconds | 8404640 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 500.64 microseconds | 1064048 | 300 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 6.1629 milliseconds | 4210336 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 24.126 milliseconds | 16792688 | 300 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 481.89 microseconds | 1064608 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 4.2717 milliseconds | 4210336 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 24.888 milliseconds | 16792688 | 300 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 1.7421 milliseconds | 2113440 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 12.36 milliseconds | 8404896 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 48.588 milliseconds | 33570160 | 300 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64 | 1.7317 milliseconds | 2113440 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128 | 6.839 milliseconds | 8404896 | 311 | 3 |
+| No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256 | 51.443 milliseconds | 33570160 | 300 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.0938 milliseconds | 3116096 | 10264 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 3.9866 milliseconds | 9925632 | 12172 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 6.4275 milliseconds | 19421376 | 13054 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 1.1713 milliseconds | 3568800 | 11332 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 4.0027 milliseconds | 11359776 | 13584 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 5.2471 milliseconds | 19458272 | 14802 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 2.3189 milliseconds | 4104432 | 13586 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 3.0512 milliseconds | 13123184 | 16662 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 5.0575 milliseconds | 25381040 | 18224 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 2.2874 milliseconds | 4125136 | 13687 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 2.8315 milliseconds | 13098192 | 16767 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 7.3499 milliseconds | 23587936 | 18302 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 2.0456 milliseconds | 7357696 | 18730 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 7.3954 milliseconds | 24388160 | 22192 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 16.995 milliseconds | 80486048 | 27170 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 3.0221 milliseconds | 7260976 | 18278 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 4.7502 milliseconds | 24106352 | 21844 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 16.779 milliseconds | 79723760 | 26768 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 2.2753 milliseconds | 8047984 | 21751 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 5.4188 milliseconds | 26383152 | 25592 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 17.802 milliseconds | 88834352 | 31788 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 2.2159 milliseconds | 8047760 | 21699 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 7.2504 milliseconds | 26351376 | 25640 | 3 |
+| U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 17.483 milliseconds | 88728464 | 31868 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 878.41 microseconds | 2696720 | 7166 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 2.8359 milliseconds | 8808080 | 8394 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 3.3257 milliseconds | 15620240 | 9076 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 935.23 microseconds | 2850224 | 8209 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.8947 milliseconds | 9320656 | 9931 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 3.3385 milliseconds | 16767136 | 10806 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 1.3363 milliseconds | 5892560 | 12570 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 3.8207 milliseconds | 19972944 | 14792 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 11.293 milliseconds | 66502224 | 17996 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 2.0826 milliseconds | 5216816 | 11707 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 3.4954 milliseconds | 17618608 | 13766 | 3 |
+| U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 10.704 milliseconds | 60416176 | 16852 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=64 | 897.56 microseconds | 2532864 | 7468 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 1.9279 milliseconds | 8202368 | 8788 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 3.3521 milliseconds | 16412416 | 9450 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=64 | 1.4394 milliseconds | 2856056 | 8063 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 3.1127 milliseconds | 9338296 | 9635 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 5.3606 milliseconds | 18313496 | 10405 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=64 | 1.3561 milliseconds | 5307600 | 12306 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 3.531 milliseconds | 17845840 | 14532 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 11.634 milliseconds | 59193744 | 17684 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=64 | 1.3437 milliseconds | 5396232 | 12512 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 4.2398 milliseconds | 18206248 | 14918 | 3 |
+| U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 11.792 milliseconds | 60331336 | 18226 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 173.54 microseconds | 642528 | 1654 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 568.22 microseconds | 2129632 | 2014 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 1.1333 milliseconds | 4156384 | 2262 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64 | 139.25 microseconds | 353888 | 966 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 377.24 microseconds | 1155936 | 1102 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 855.54 microseconds | 1901920 | 1102 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 202.59 microseconds | 575184 | 1594 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 794.39 microseconds | 1904592 | 1954 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 897.61 microseconds | 3800176 | 2172 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64 | 282.98 microseconds | 580080 | 1672 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 570.08 microseconds | 1892592 | 2032 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 653.5 microseconds | 3263312 | 2174 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 241.01 microseconds | 1126544 | 2206 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 719.88 microseconds | 3873632 | 2667 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 2.8918 milliseconds | 12886160 | 3262 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64 | 431.85 microseconds | 1131728 | 2362 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 698.12 microseconds | 3857360 | 2698 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 4.7057 milliseconds | 12838864 | 3282 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 381.69 microseconds | 1009008 | 2146 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 661.18 microseconds | 3443184 | 2558 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 2.8362 milliseconds | 11798704 | 3150 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64 | 398.48 microseconds | 1016144 | 2296 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 667.94 microseconds | 3429936 | 2602 | 3 |
+| U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 2.6419 milliseconds | 11754112 | 3179 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 456.39 microseconds | 562776 | 4245 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 628.67 microseconds | 1232104 | 5109 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 706.16 microseconds | 1912760 | 5548 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 447.13 microseconds | 623016 | 4689 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 965.7 microseconds | 1327528 | 5687 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 765.27 microseconds | 1843608 | 6190 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 1.0446 milliseconds | 1935552 | 12097 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.6531 milliseconds | 4635344 | 16952 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 2.3752 milliseconds | 7172576 | 19464 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 1.0531 milliseconds | 1938080 | 12173 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.8293 milliseconds | 4574928 | 17066 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 2.1873 milliseconds | 6753664 | 19576 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 790.81 microseconds | 1313632 | 8439 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 1.1333 milliseconds | 3196416 | 10362 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 2.1379 milliseconds | 7115904 | 12882 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 1.1954 milliseconds | 1325304 | 8589 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 1.3758 milliseconds | 3206872 | 10575 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 2.1126 milliseconds | 7162024 | 13199 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.806 milliseconds | 3566304 | 21795 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 3.5486 milliseconds | 8614400 | 27957 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 6.3669 milliseconds | 19707808 | 37352 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.9697 milliseconds | 3558112 | 21834 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 4.816 milliseconds | 8557600 | 28053 | 3 |
+| SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 8.0414 milliseconds | 19576000 | 37468 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 351.16 microseconds | 417968 | 2938 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 673.29 microseconds | 923664 | 3492 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 617.24 microseconds | 1317856 | 3776 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 634.62 microseconds | 1161384 | 6742 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 1.2781 milliseconds | 2798792 | 9282 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 2.0368 milliseconds | 4106248 | 10546 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 577.12 microseconds | 925144 | 5625 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 961.92 microseconds | 2301176 | 6819 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 1.5934 milliseconds | 5237832 | 8429 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 1.1687 milliseconds | 2134416 | 12067 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 1.7451 milliseconds | 5360960 | 15475 | 3 |
+| SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 3.418 milliseconds | 12628080 | 20520 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=60 | 328.69 microseconds | 432344 | 3067 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 570.25 microseconds | 975944 | 3661 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 616.7 microseconds | 1560152 | 3982 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=60 | 309.49 microseconds | 436016 | 3080 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=128 | 536.47 microseconds | 995952 | 3696 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=256 | 485.31 microseconds | 1559856 | 4021 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60 | 880.72 microseconds | 914960 | 5621 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 1.1909 milliseconds | 2267824 | 6868 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 1.4448 milliseconds | 5113936 | 8486 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60 | 483.88 microseconds | 890440 | 5494 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128 | 1.0171 milliseconds | 2236776 | 6772 | 3 |
+| SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256 | 1.1986 milliseconds | 5055144 | 8383 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 149.46 microseconds | 91568 | 706 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 140.88 microseconds | 208816 | 824 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 133.81 microseconds | 345264 | 914 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60 | 73.729 microseconds | 58640 | 480 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128 | 113.77 microseconds | 122256 | 542 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256 | 112.39 microseconds | 154768 | 542 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 111.94 microseconds | 208416 | 1246 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 187.4 microseconds | 499136 | 1638 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 396.56 microseconds | 776576 | 1864 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60 | 160.68 microseconds | 210720 | 1272 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128 | 304.22 microseconds | 488672 | 1650 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256 | 214.11 microseconds | 697696 | 1826 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 154.71 microseconds | 167904 | 1034 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 160.58 microseconds | 425792 | 1254 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 313.1 microseconds | 961504 | 1514 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60 | 102.82 microseconds | 168864 | 1092 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128 | 196.98 microseconds | 416352 | 1256 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256 | 492.38 microseconds | 946592 | 1510 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 257.11 microseconds | 357024 | 2042 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 289.33 microseconds | 909952 | 2570 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 557.04 microseconds | 2139808 | 3326 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60 | 180.57 microseconds | 358976 | 2106 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128 | 609.38 microseconds | 902976 | 2586 | 3 |
+| SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256 | 689.59 microseconds | 2127104 | 3336 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 1.4213 milliseconds | 3196528 | 22722 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 3.8946 milliseconds | 7625040 | 26852 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 5.305 milliseconds | 23930992 | 30102 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 1.5439 milliseconds | 3637864 | 26067 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 3.6802 milliseconds | 8578216 | 30939 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 8.3774 milliseconds | 26877288 | 34793 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 4.0265 milliseconds | 8025464 | 60322 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 5.7103 milliseconds | 17934920 | 74185 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 12.24 milliseconds | 53184264 | 85895 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 4.0462 milliseconds | 8012152 | 60401 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 6.2178 milliseconds | 17828248 | 74310 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 12.532 milliseconds | 52819016 | 86091 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 5.3228 milliseconds | 13917360 | 96867 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 8.9478 milliseconds | 32349328 | 122579 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 21.137 milliseconds | 92811568 | 152973 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 5.6264 milliseconds | 14128352 | 99263 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 8.5697 milliseconds | 32649184 | 125923 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 52.652 milliseconds | 93167712 | 157333 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 14.756 milliseconds | 29183200 | 216755 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 22.348 milliseconds | 62826224 | 285261 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 452.07 milliseconds | 168506848 | 366657 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 15.439 milliseconds | 29165184 | 217194 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 67.952 milliseconds | 62706064 | 285955 | 3 |
+| U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 196.78 milliseconds | 167874448 | 367339 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 1.0878 milliseconds | 2485664 | 15060 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 1.7298 milliseconds | 6241536 | 17728 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 5.5868 milliseconds | 20338752 | 19804 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 2.2387 milliseconds | 5226152 | 34712 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 3.5318 milliseconds | 12450712 | 42607 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 7.721 milliseconds | 38658840 | 49161 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 3.4486 milliseconds | 10088408 | 61421 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 6.1177 milliseconds | 24803352 | 77473 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 13.274 milliseconds | 73750008 | 96543 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 9.0256 milliseconds | 18708296 | 125808 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 14.277 milliseconds | 42911688 | 165744 | 3 |
+| U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 27.772 milliseconds | 120645384 | 212610 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=126 | 1.2235 milliseconds | 2475336 | 16289 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=255 | 1.8501 milliseconds | 6108456 | 19191 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=511 | 3.6814 milliseconds | 19579464 | 21419 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=126 | 1.1747 milliseconds | 2681344 | 17749 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=255 | 1.656 milliseconds | 6618976 | 21023 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=511 | 5.8823 milliseconds | 21197216 | 23427 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=126 | 3.4926 milliseconds | 9473600 | 61353 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=255 | 5.8458 milliseconds | 22746816 | 77381 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=511 | 13.08 milliseconds | 66704416 | 96247 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=126 | 3.4231 milliseconds | 9479896 | 61413 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=255 | 7.5725 milliseconds | 22777848 | 77401 | 3 |
+| U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=511 | 13.768 milliseconds | 66822456 | 96315 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 199.56 microseconds | 458704 | 2908 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 306.49 microseconds | 1170128 | 3440 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 889.08 microseconds | 3819472 | 3784 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126 | 145.44 microseconds | 237440 | 1370 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255 | 357.65 microseconds | 611072 | 1538 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511 | 757.64 microseconds | 2055936 | 1730 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 300.99 microseconds | 747024 | 4660 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 476.35 microseconds | 1873616 | 5684 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 1.9614 milliseconds | 5986944 | 6465 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126 | 453.24 microseconds | 756704 | 4873 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255 | 486.45 microseconds | 1858928 | 5886 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511 | 1.2187 milliseconds | 5921328 | 6764 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 774.49 microseconds | 1400112 | 7804 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 946.8 microseconds | 3601392 | 9664 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 2.3407 milliseconds | 11015680 | 11753 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126 | 576.34 microseconds | 1403824 | 8004 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255 | 847.59 microseconds | 3579056 | 9940 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511 | 2.339 milliseconds | 10881408 | 12393 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 1.5566 milliseconds | 2462608 | 15620 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 1.8464 milliseconds | 5953120 | 20349 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 4.4445 milliseconds | 17378080 | 25671 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126 | 1.158 milliseconds | 2468208 | 15834 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255 | 1.6824 milliseconds | 5932112 | 20628 | 3 |
+| U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511 | 4.6546 milliseconds | 17245904 | 26338 | 3 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -537,9 +537,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -584,9 +581,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -631,9 +625,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64
 
@@ -679,9 +670,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128
 
@@ -727,9 +715,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256
 
@@ -775,9 +760,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -823,9 +805,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -871,9 +850,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -919,9 +895,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64
 
@@ -968,9 +941,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128
 
@@ -1017,9 +987,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Sparse operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256
 
@@ -1066,9 +1033,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -1114,9 +1078,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -1162,9 +1123,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -1210,9 +1168,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -1259,9 +1214,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -1308,9 +1260,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -1357,9 +1306,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -1406,9 +1352,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -1455,9 +1398,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -1504,9 +1444,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -1554,9 +1491,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -1604,9 +1538,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Sparse operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -1654,9 +1585,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60
 
@@ -1701,9 +1629,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -1748,9 +1673,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -1795,9 +1717,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -1843,9 +1762,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -1891,9 +1807,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -1939,9 +1852,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60
 
@@ -1987,9 +1897,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -2035,9 +1942,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -2083,9 +1987,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -2132,9 +2033,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -2181,9 +2079,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Sparse operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -2230,9 +2125,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126
 
@@ -2279,9 +2171,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255
 
@@ -2328,9 +2217,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511
 
@@ -2377,9 +2263,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -2427,9 +2310,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -2477,9 +2357,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -2527,9 +2404,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126
 
@@ -2577,9 +2451,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255
 
@@ -2627,9 +2498,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511
 
@@ -2677,9 +2545,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -2728,9 +2593,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -2779,9 +2641,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Sparse operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -2830,9 +2689,6 @@ Apply a sparse MPO to a tangent vector over the full chain using prebuilt enviro
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -2881,12 +2737,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -2935,12 +2787,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -2989,12 +2837,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -3041,12 +2885,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -3093,12 +2933,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -3145,12 +2981,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -3196,12 +3028,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -3247,12 +3075,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -3298,12 +3122,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -3349,12 +3169,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -3400,12 +3216,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -3451,12 +3263,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64
 
@@ -3509,12 +3317,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128
 
@@ -3567,12 +3371,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256
 
@@ -3625,12 +3425,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64
 
@@ -3681,12 +3477,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128
 
@@ -3737,12 +3529,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256
 
@@ -3793,12 +3581,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64
 
@@ -3847,12 +3631,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128
 
@@ -3901,12 +3681,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256
 
@@ -3955,12 +3731,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64
 
@@ -4010,12 +3782,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128
 
@@ -4065,12 +3833,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spinless fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256
 
@@ -4120,12 +3884,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -4174,12 +3934,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -4228,12 +3984,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · combined observables across different numbers of sites · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -4282,12 +4034,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -4334,12 +4082,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -4386,12 +4130,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -4438,12 +4178,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -4490,12 +4226,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -4542,12 +4274,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · single-site observables · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -4594,12 +4322,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -4646,12 +4370,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -4698,12 +4418,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -4750,12 +4466,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=60
 
@@ -4803,12 +4515,8 @@ Calculate the registered combined two-site and four-site correlations over the f
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -4856,12 +4564,8 @@ Calculate the registered combined two-site and four-site correlations over the f
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · combined two-site and four-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -4909,12 +4613,8 @@ Calculate the registered combined two-site and four-site correlations over the f
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=60
 
@@ -4961,12 +4661,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -5013,12 +4709,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · multisite correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -5065,12 +4757,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=60
 
@@ -5117,12 +4805,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -5169,12 +4853,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · two-site correlations · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -5221,12 +4901,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=60
 
@@ -5276,12 +4952,8 @@ Calculate the registered single-site matrix elements with an open spin channel o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=128
 
@@ -5331,12 +5003,8 @@ Calculate the registered single-site matrix elements with an open spin channel o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · ordinary MPS, bra has no extra leg; ket has an extra charge leg · Center bond dimension=256
 
@@ -5386,12 +5054,8 @@ Calculate the registered single-site matrix elements with an open spin channel o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=60
 
@@ -5442,12 +5106,8 @@ Calculate the registered single-site matrix elements with an open spin channel o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=128
 
@@ -5498,12 +5158,8 @@ Calculate the registered single-site matrix elements with an open spin channel o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### SU(2) symmetry · Complete observable calculation · spin one-half · single-site matrix elements with an open spin channel · MPO with a purification leg, bra has no extra leg; ket has an extra charge leg · Center bond dimension=256
 
@@ -5554,12 +5210,8 @@ Calculate the registered single-site matrix elements with an open spin channel o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126
 
@@ -5612,12 +5264,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255
 
@@ -5670,12 +5318,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · combined observables across different numbers of sites · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511
 
@@ -5728,12 +5372,8 @@ Calculate the registered combined observables across different numbers of sites 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126
 
@@ -5784,12 +5424,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255
 
@@ -5840,12 +5476,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · multisite correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511
 
@@ -5896,12 +5528,8 @@ Calculate the registered multisite correlations over the full chain, including o
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126
 
@@ -5951,12 +5579,8 @@ Calculate the registered singlet pairing and spin-bond correlations over the ful
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255
 
@@ -6006,12 +5630,8 @@ Calculate the registered singlet pairing and spin-bond correlations over the ful
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · singlet pairing and spin-bond correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511
 
@@ -6061,12 +5681,8 @@ Calculate the registered singlet pairing and spin-bond correlations over the ful
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126
 
@@ -6115,12 +5731,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255
 
@@ -6169,12 +5781,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · single-site observables · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511
 
@@ -6223,12 +5831,8 @@ Calculate the registered single-site observables over the full chain, including 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126
 
@@ -6278,12 +5882,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255
 
@@ -6333,12 +5933,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### U(1) × SU(2) symmetry · Complete observable calculation · spinful fermions · two-site correlations · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511
 
@@ -6388,12 +5984,8 @@ Calculate the registered two-site correlations over the full chain, including ob
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
-| Serial observable-tree traversal | No |
-| Observable-tree tasks (including coordinator) | 3 |
-| Observable-tree contraction workers | 2 |
+| Observable-tree algorithm | LayeredTreeEval |
+| Observable-tree tasks | 2 |
 
 ### No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=64
 
@@ -6431,9 +6023,6 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=128
 
@@ -6471,9 +6060,6 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left and right canonicalization of base tensors · ordinary MPS · Center bond dimension=256
 
@@ -6511,9 +6097,6 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -6553,9 +6136,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -6595,9 +6175,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -6637,9 +6214,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -6680,9 +6254,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -6723,9 +6294,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -6766,9 +6334,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -6814,9 +6379,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -6862,9 +6424,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -6910,9 +6469,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=64
 
@@ -6960,9 +6516,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=128
 
@@ -7010,9 +6563,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra component leg · Center bond dimension=256
 
@@ -7060,9 +6610,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -7104,9 +6651,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -7148,9 +6692,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Left orthogonal projection of a tangent vector · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -7192,9 +6733,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=64
 
@@ -7241,9 +6779,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -7290,9 +6825,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -7339,9 +6871,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=64
 
@@ -7390,9 +6919,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128
 
@@ -7441,9 +6967,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256
 
@@ -7492,9 +7015,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60
 
@@ -7538,9 +7058,6 @@ Build left and right environments over the full chain from an MPO base and the H
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128
 
@@ -7584,9 +7101,6 @@ Build left and right environments over the full chain from an MPO base and the H
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Full-chain environment construction · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256
 
@@ -7630,9 +7144,6 @@ Build left and right environments over the full chain from an MPO base and the H
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=60
 
@@ -7672,9 +7183,6 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=128
 
@@ -7714,9 +7222,6 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Left and right canonicalization of base tensors · MPO with a purification leg · Center bond dimension=256
 
@@ -7756,9 +7261,6 @@ Construct the base tensor&#39;s canonical forms through left and right orthogona
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -7801,9 +7303,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -7846,9 +7345,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Left orthogonal projection of a tangent vector · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -7891,9 +7387,6 @@ Starting from an unprojected tangent vector, apply the left orthogonal projectio
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=60
 
@@ -7940,9 +7433,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=128
 
@@ -7989,9 +7479,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=256
 
@@ -8038,9 +7525,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=60
 
@@ -8089,9 +7573,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=128
 
@@ -8140,9 +7621,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=256
 
@@ -8191,9 +7669,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=126
 
@@ -8240,9 +7715,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=255
 
@@ -8289,9 +7761,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · ordinary MPS, no extra center legs · Center bond dimension=511
 
@@ -8338,9 +7807,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=126
 
@@ -8389,9 +7855,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=255
 
@@ -8440,9 +7903,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Whole-chain inner product of two tangent vectors · MPO with a purification leg, bra and ket each have an extra charge leg · Center bond dimension=511
 
@@ -8491,9 +7951,6 @@ Compute the inner product of two independently generated tangent vectors with ma
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -8564,9 +8021,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -8637,9 +8091,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -8710,9 +8161,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -8783,9 +8231,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -8856,9 +8301,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -8929,9 +8371,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64
 
@@ -9003,9 +8442,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128
 
@@ -9077,9 +8513,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256
 
@@ -9151,9 +8584,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64
 
@@ -9225,9 +8655,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128
 
@@ -9299,9 +8726,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256
 
@@ -9373,9 +8797,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -9447,9 +8868,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -9521,9 +8939,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -9595,9 +9010,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -9669,9 +9081,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -9743,9 +9152,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -9817,9 +9223,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64
 
@@ -9892,9 +9295,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128
 
@@ -9967,9 +9367,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256
 
@@ -10042,9 +9439,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64
 
@@ -10117,9 +9511,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128
 
@@ -10192,9 +9583,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Recursive tangent environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256
 
@@ -10267,9 +9655,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -10331,9 +9716,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -10395,9 +9777,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -10459,9 +9838,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64
 
@@ -10524,9 +9900,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128
 
@@ -10589,9 +9962,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256
 
@@ -10654,9 +10024,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -10719,9 +10086,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -10784,9 +10148,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -10849,9 +10210,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64
 
@@ -10915,9 +10273,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128
 
@@ -10981,9 +10336,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete effective single-site operator action · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256
 
@@ -11047,9 +10399,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=64
 
@@ -11107,9 +10456,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=128
 
@@ -11167,9 +10513,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · ordinary MPS · Center bond dimension=256
 
@@ -11227,9 +10570,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=64
 
@@ -11287,9 +10627,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=128
 
@@ -11347,9 +10684,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · ordinary MPS · Center bond dimension=256
 
@@ -11407,9 +10741,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=64
 
@@ -11468,9 +10799,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=128
 
@@ -11529,9 +10857,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · leftward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=256
 
@@ -11590,9 +10915,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=64
 
@@ -11651,9 +10973,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=128
 
@@ -11712,9 +11031,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Complete sparse environment-vector propagation · rightward · transverse-field Ising model · MPO with a purification leg · Center bond dimension=256
 
@@ -11773,9 +11089,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -11846,9 +11159,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -11919,9 +11229,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -11992,9 +11299,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -12065,9 +11369,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -12138,9 +11439,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -12211,9 +11509,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64
 
@@ -12285,9 +11580,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128
 
@@ -12359,9 +11651,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256
 
@@ -12433,9 +11722,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=64
 
@@ -12507,9 +11793,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=128
 
@@ -12581,9 +11864,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · ordinary MPS, tangent center with an extra component leg · Center bond dimension=256
 
@@ -12655,9 +11935,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -12729,9 +12006,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -12803,9 +12077,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -12877,9 +12148,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -12951,9 +12219,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -13025,9 +12290,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -13099,9 +12361,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64
 
@@ -13174,9 +12433,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128
 
@@ -13249,9 +12505,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256
 
@@ -13324,9 +12577,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=64
 
@@ -13399,9 +12649,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=128
 
@@ -13474,9 +12721,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### No symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · transverse-field Ising model · MPO with a purification leg, tangent center with an extra component leg · Center bond dimension=256
 
@@ -13549,9 +12793,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -13623,9 +12864,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -13697,9 +12935,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -13771,9 +13006,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -13845,9 +13077,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -13919,9 +13148,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -13993,9 +13219,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -14068,9 +13291,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -14143,9 +13363,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -14218,9 +13435,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -14293,9 +13507,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -14368,9 +13579,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -14443,9 +13651,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -14518,9 +13723,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -14593,9 +13795,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -14668,9 +13867,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -14743,9 +13939,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -14818,9 +14011,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -14893,9 +14083,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -14969,9 +14156,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -15045,9 +14229,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -15121,9 +14302,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -15197,9 +14375,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -15273,9 +14448,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Recursive tangent environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -15349,9 +14521,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -15414,9 +14583,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -15479,9 +14645,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -15544,9 +14707,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -15610,9 +14770,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -15676,9 +14833,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -15742,9 +14896,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -15808,9 +14959,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -15874,9 +15022,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -15940,9 +15085,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -16007,9 +15149,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -16074,9 +15213,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete effective single-site operator action · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -16141,9 +15277,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=64
 
@@ -16202,9 +15335,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=128
 
@@ -16263,9 +15393,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=256
 
@@ -16324,9 +15451,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=64
 
@@ -16385,9 +15509,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=128
 
@@ -16446,9 +15567,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · ordinary MPS · Center bond dimension=256
 
@@ -16507,9 +15625,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=64
 
@@ -16569,9 +15684,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=128
 
@@ -16631,9 +15743,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · leftward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=256
 
@@ -16693,9 +15802,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=64
 
@@ -16755,9 +15861,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=128
 
@@ -16817,9 +15920,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Complete sparse environment-vector propagation · rightward · anisotropic Heisenberg spin model · MPO with a purification leg · Center bond dimension=256
 
@@ -16879,9 +15979,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -16953,9 +16050,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -17027,9 +16121,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -17101,9 +16192,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=64
 
@@ -17175,9 +16263,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -17249,9 +16334,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -17323,9 +16405,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -17398,9 +16477,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -17473,9 +16549,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -17548,9 +16621,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -17623,9 +16693,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -17698,9 +16765,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -17773,9 +16837,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -17848,9 +16909,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -17923,9 +16981,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -17998,9 +17053,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=64
 
@@ -18073,9 +17125,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -18148,9 +17197,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -18223,9 +17269,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -18299,9 +17342,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -18375,9 +17415,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -18451,9 +17488,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=64
 
@@ -18527,9 +17561,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -18603,9 +17634,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · anisotropic Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -18679,9 +17707,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60
 
@@ -18752,9 +17777,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -18825,9 +17847,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -18898,9 +17917,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60
 
@@ -18971,9 +17987,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -19044,9 +18057,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -19117,9 +18127,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -19191,9 +18198,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -19265,9 +18269,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -19339,9 +18340,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -19413,9 +18411,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -19487,9 +18482,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -19561,9 +18553,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60
 
@@ -19635,9 +18624,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -19709,9 +18695,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -19783,9 +18766,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60
 
@@ -19857,9 +18837,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -19931,9 +18908,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -20005,9 +18979,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -20080,9 +19051,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -20155,9 +19123,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -20230,9 +19195,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -20305,9 +19267,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -20380,9 +19339,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -20455,9 +19411,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60
 
@@ -20519,9 +19472,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -20583,9 +19533,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -20647,9 +19594,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -20712,9 +19656,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -20777,9 +19718,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -20842,9 +19780,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60
 
@@ -20907,9 +19842,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -20972,9 +19904,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -21037,9 +19966,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -21103,9 +20029,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -21169,9 +20092,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete effective single-site operator action · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -21235,9 +20155,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=60
 
@@ -21295,9 +20212,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=128
 
@@ -21355,9 +20269,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · ordinary MPS · Center bond dimension=256
 
@@ -21415,9 +20326,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=60
 
@@ -21475,9 +20383,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=128
 
@@ -21535,9 +20440,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · ordinary MPS · Center bond dimension=256
 
@@ -21595,9 +20497,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60
 
@@ -21656,9 +20555,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128
 
@@ -21717,9 +20613,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256
 
@@ -21778,9 +20671,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=60
 
@@ -21839,9 +20729,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=128
 
@@ -21900,9 +20787,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Heisenberg spin model · MPO with a purification leg · Center bond dimension=256
 
@@ -21961,9 +20845,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60
 
@@ -22034,9 +20915,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -22107,9 +20985,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -22180,9 +21055,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=60
 
@@ -22253,9 +21125,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=128
 
@@ -22326,9 +21195,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with no extra leg · Center bond dimension=256
 
@@ -22399,9 +21265,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -22473,9 +21336,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -22547,9 +21407,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -22621,9 +21478,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -22695,9 +21549,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -22769,9 +21620,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -22843,9 +21691,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60
 
@@ -22917,9 +21762,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -22991,9 +21833,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -23065,9 +21904,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=60
 
@@ -23139,9 +21975,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=128
 
@@ -23213,9 +22046,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=256
 
@@ -23287,9 +22117,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -23362,9 +22189,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -23437,9 +22261,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -23512,9 +22333,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=60
 
@@ -23587,9 +22405,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=128
 
@@ -23662,9 +22477,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Heisenberg spin model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=256
 
@@ -23737,9 +22549,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126
 
@@ -23812,9 +22621,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255
 
@@ -23887,9 +22693,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511
 
@@ -23962,9 +22765,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126
 
@@ -24037,9 +22837,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255
 
@@ -24112,9 +22909,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511
 
@@ -24187,9 +22981,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -24263,9 +23054,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -24339,9 +23127,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -24415,9 +23200,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -24491,9 +23273,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -24567,9 +23346,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -24643,9 +23419,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126
 
@@ -24719,9 +23492,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255
 
@@ -24795,9 +23565,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511
 
@@ -24871,9 +23638,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126
 
@@ -24947,9 +23711,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255
 
@@ -25023,9 +23784,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511
 
@@ -25099,9 +23857,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -25176,9 +23931,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -25253,9 +24005,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -25330,9 +24079,6 @@ Propagate the complete recursive tangent environment vector one site leftward, c
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -25407,9 +24153,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -25484,9 +24227,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Recursive tangent environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -25561,9 +24301,6 @@ Propagate the complete recursive tangent environment vector one site rightward, 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126
 
@@ -25627,9 +24364,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255
 
@@ -25693,9 +24427,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511
 
@@ -25759,9 +24490,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -25826,9 +24554,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -25893,9 +24618,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -25960,9 +24682,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126
 
@@ -26027,9 +24746,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255
 
@@ -26094,9 +24810,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511
 
@@ -26161,9 +24874,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -26229,9 +24939,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -26297,9 +25004,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete effective single-site operator action · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -26365,9 +25069,6 @@ Apply the complete effective sparse operator at one site to a tangent center, co
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=126
 
@@ -26427,9 +25128,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=255
 
@@ -26489,9 +25187,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · ordinary MPS · Center bond dimension=511
 
@@ -26551,9 +25246,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=126
 
@@ -26613,9 +25305,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=255
 
@@ -26675,9 +25364,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · ordinary MPS · Center bond dimension=511
 
@@ -26737,9 +25423,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=126
 
@@ -26800,9 +25483,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=255
 
@@ -26863,9 +25543,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · leftward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=511
 
@@ -26926,9 +25603,6 @@ Advance the complete sparse environment vector one site leftward using the base 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=126
 
@@ -26989,9 +25663,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=255
 
@@ -27052,9 +25723,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Complete sparse environment-vector propagation · rightward · Hubbard fermion model · MPO with a purification leg · Center bond dimension=511
 
@@ -27115,9 +25783,6 @@ Advance the complete sparse environment vector one site rightward using the base
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126
 
@@ -27190,9 +25855,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255
 
@@ -27265,9 +25927,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511
 
@@ -27340,9 +25999,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=126
 
@@ -27415,9 +26071,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=255
 
@@ -27490,9 +26143,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with no extra leg · Center bond dimension=511
 
@@ -27565,9 +26215,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -27641,9 +26288,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -27717,9 +26361,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -27793,9 +26434,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -27869,9 +26507,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -27945,9 +26580,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · ordinary MPS, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -28021,9 +26653,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126
 
@@ -28097,9 +26726,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255
 
@@ -28173,9 +26799,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511
 
@@ -28249,9 +26872,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=126
 
@@ -28325,9 +26945,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=255
 
@@ -28401,9 +27018,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with no extra leg · Center bond dimension=511
 
@@ -28477,9 +27091,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -28554,9 +27165,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -28631,9 +27239,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · leftward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -28708,9 +27313,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=126
 
@@ -28785,9 +27387,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=255
 
@@ -28862,9 +27461,6 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ### U(1) × SU(2) symmetry · Contraction and reduction of recursive environments into a tangent center · rightward · Hubbard fermion model · MPO with a purification leg, tangent center with an extra charge leg · Center bond dimension=511
 
@@ -28939,17 +27535,14 @@ Contract the complete vector of precomputed recursive environment partials with 
 | Julia computation threads | 2 |
 | Matrix computation threads | 1 |
 | Sparse operator action threads | 2 |
-| Tensor block multiplication threads | 1 |
-| Singular value decomposition threads | 1 |
-| Eigensolver threads | 1 |
 
 ## Software versions
 
 | Software | Version |
 | --- | --- |
 | Timing tools (BenchmarkTools) | 1.6.0 |
-| Matrix product state library (FiniteMPS) | 1.8.3 |
+| Matrix product state library (FiniteMPS) | 2.0.0 |
 | Tangent-space algorithms (FiniteMPSTangents) | 0.1.1 |
-| Tensor computation library (TensorKit) | 0.14.11 |
+| Tensor computation library (TensorKit) | 0.17.2 |
 
 Complete case identifiers and original parameters are available in the [raw data file](report.json).
